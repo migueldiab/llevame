@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>LlevameCom</title>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+    <div id="page">
+      <div id="sidebar">
+        <ul id="sidebar-items">
+          <li>
+            <h3>Ingres&aacute !</h3>
+            Usuario <input type="textbox"/>
+            Contrasena : <input type="textbox"/>
+            <br/>
+            <input type="submit" value="Entrar" />
+          </li>
+        </ul>
+      </div>
+
+      <div id="content">
+        <%= yield %>
+      </div>
+
+      <div id="footer">Miguel A. Diab (c) 2011 - Todos los derechos reservados&nbsp;</div>
+    </div>
+
+</body>
+</html>
