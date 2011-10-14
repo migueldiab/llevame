@@ -7,30 +7,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "Gemfile",
-			"settings":
-			{
-				"buffer_size": 708,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "config/database.yml",
-			"settings":
-			{
-				"buffer_size": 591,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "config/initializers/session_store.rb",
-			"settings":
-			{
-				"buffer_size": 423,
-				"line_ending": "Windows"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -56,6 +32,11 @@
 	},
 	"file_history":
 	[
+		"/E/src/llevame/Gemfile",
+		"/E/src/llevame/config/application.rb",
+		"/E/src/llevame/config.ru",
+		"/E/src/llevame/config/database.yml",
+		"/E/src/llevame/config/initializers/session_store.rb",
 		"/E/src/llevame_uy/public/index.html.old",
 		"/E/src/llevame_uy/doc/README_FOR_APP",
 		"/E/src/llevame_uy/config/database.yml",
@@ -81,12 +62,14 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 87.0,
 		"include_history":
 		[
+			""
 		],
 		"location_history":
 		[
+			"E:\\src\\llevame"
 		]
 	},
 	"find_state":
@@ -94,6 +77,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"/2011 ",
+			"jdbcsqlite3",
+			"/2011 ",
+			"llevame",
 			"/2011 ",
 			"\"); }",
 			"_arrayCardItens",
@@ -105,6 +92,8 @@
 		"regex": true,
 		"replace_history":
 		[
+			"/2011\\t",
+			"sqlite3",
 			"/2011\\t"
 		],
 		"reverse": false,
@@ -116,89 +105,8 @@
 	"groups":
 	[
 		{
-			"selected": 2,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "Gemfile",
-					"settings":
-					{
-						"buffer_size": 708,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								497,
-								497
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "config/database.yml",
-					"settings":
-					{
-						"buffer_size": 591,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								346,
-								346
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/YAML/YAML.tmLanguage",
-							"tab_size": 2.0,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "config/initializers/session_store.rb",
-					"settings":
-					{
-						"buffer_size": 423,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								202,
-								202
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],
