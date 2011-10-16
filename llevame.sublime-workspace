@@ -1,0 +1,171 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 53.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/E/src/llevame/Gemfile",
+		"/E/src/llevame/config/application.rb",
+		"/E/src/llevame/config.ru",
+		"/E/src/llevame/config/database.yml",
+		"/E/src/llevame/config/initializers/session_store.rb",
+		"/E/src/llevame_uy/public/index.html.old",
+		"/E/src/llevame_uy/doc/README_FOR_APP",
+		"/E/src/llevame_uy/config/database.yml",
+		"/E/src/llevame_uy/public/favicon.ico",
+		"/E/src/llevame_uy/public/500.html",
+		"/E/src/llevame_uy/public/422.html",
+		"/E/src/llevame_uy/public/404.html",
+		"/E/src/llevame_uy/README",
+		"/E/src/llevame_uy/app/assets/javascripts/application.js",
+		"/E/src/llevame_uy/app/views/home/index.html.erb",
+		"/E/src/llevame_uy/Gemfile",
+		"/E/src/llevame_uy/app/assets/images/rails.png",
+		"/C/Users/migueldiab/Desktop/BannerSalaDeBingo_/src/bannerBingo/components/card/BannerCard.as",
+		"/C/Users/migueldiab/Desktop/BannerSalaDeBingo_/src/bannerBingo/components/card/BannerCardsManager.as",
+		"/C/Users/migueldiab/Desktop/BannerSalaDeBingo_/src/bannerBingo/components/card/pattern/CardPattern.as",
+		"/C/Users/migueldiab/Desktop/BannerSalaDeBingo_/src/bannerBingo/components/card/BannerEnginedCard.as",
+		"/C/Users/migueldiab/Desktop/BannerSalaDeBingo_/src/forte/utilities/numlottery/BingoCardNumberSort.as",
+		"/C/Users/migueldiab/AppData/Roaming/Sublime Text 2/Packages/Default/Global.sublime-settings"
+	],
+	"find":
+	{
+		"height": 32.0
+	},
+	"find_in_files":
+	{
+		"height": 87.0,
+		"include_history":
+		[
+			""
+		],
+		"location_history":
+		[
+			"E:\\src\\llevame"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"/2011 ",
+			"jdbcsqlite3",
+			"/2011 ",
+			"llevame",
+			"/2011 ",
+			"\"); }",
+			"_arrayCardItens",
+			"/2011 "
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"/2011\\t",
+			"sqlite3",
+			"/2011\\t"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 60.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 236.0,
+	"status_bar_visible": true
+}
