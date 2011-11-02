@@ -3,6 +3,8 @@ Llevame::Application.routes.draw do
 
   get "main/contact"
 
+  get "main/about"
+
   resources :cities
 
   resources :countries

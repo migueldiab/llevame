@@ -5,3 +5,11 @@
  *= require_self
  *= require_tree . 
 */
+
+#sidebar {
+  float: right;
+  border: solid 1px;
+  margin: 10px;
+  width: 300px;
+  height: 500px;
+}

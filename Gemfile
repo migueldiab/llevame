@@ -9,11 +9,16 @@ gem 'sqlite3'
 
 group :development do
   gem 'rspec-rails'
+  gem 'test-unit'
+  gem 'autotest-notification'
 end
 
 group :test do
   gem 'rspec'
+  gem 'spork'
   gem 'webrat'
+  gem 'test-unit'
+  gem 'autotest-notification'
 end
 
 
