@@ -1,11 +1,16 @@
 require 'spec_helper'
 
 describe MainController do
+  render_views
 
   describe "GET 'home'" do
     it "returns http success" do
       get 'home'
       response.should be_success
+    end
+    it "should have a welcome message" do
+      get 'home'
+      response.should have_selector("h1", :content => "Bienvenido")
     end
   end
 
