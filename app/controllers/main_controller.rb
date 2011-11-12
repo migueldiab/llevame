@@ -4,6 +4,7 @@ class MainController < ApplicationController
   end
 
   def contact
+  	@title = "Contacto"
   end
 
   def about
