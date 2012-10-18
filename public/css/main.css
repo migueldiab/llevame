@@ -1,0 +1,26 @@
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: 'Montserrat Alternates', sans-serif;
+}
+
+.brand {
+	font-family: 'Montserrat Alternates', sans-serif; 
+}
+
+p {
+	font-family: open-sans, serif;
+}
+
+.hero-unit {
+	background-color: #99B7FF;
+	border-radius: 0 0 0 0;
+}
