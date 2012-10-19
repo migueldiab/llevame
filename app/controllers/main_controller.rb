@@ -1,6 +1,6 @@
 class MainController < ApplicationController
   def home
-    @welcomeMsg = "Bienvenido a "
+    @welcomeMsg = "\u03a3"
   end
 
   def contact
