@@ -1,15 +1,67 @@
-# humanstxt.org/
-# The humans responsible & technology colophon
+ _ _                                              
+| | |                                             
+| | | _____ _   _ _____ ____  _____   _   _ _   _ 
+| | || ___ | | | (____ |    \| ___ | | | | | | | |
+| | || ____|\ V // ___ | | | | ____|_| |_| | |_| |
+ \_)_)_____) \_/ \_____|_|_|_|_____|_)____/ \__  |
+                                           (____/ 
 
-# TEAM
+/* TEAM */
+      
+Team Lead: Miguel A. Diab
+Site: migueldiab.deviantart.com
+Twitter: @madrax
+Location: Montevideo, Uruguay
 
-    <name> -- <role> -- <twitter>
+/* THANKS */
 
-# THANKS
+    Silvana Rosa
 
-    <name>
-
-# TECHNOLOGY COLOPHON
-
-    HTML5, CSS3
-    jQuery, Modernizr
+/* SITE */
+                            
+Last update: 2012/10/21                            
+Standards: HTML5, CSS3                            
+Components: Modernizr, jQuery, Bootstrap                            
+Software: Sublime Text 2
+                                                                                
+                                    .                                           
+                                    ..I$+.       ..                             
+                         ...OO..   .OOOOO88    ..OOO?.                          
+                       ..O8OOOO . .8OOOOOOOO  . OOOOOOO..                       
+                       .OOOOOO8O. $8OOOOOOOO   OOOOOO8..                        
+                       ...8OOOOOO.:8OOOOOOOO.=O8OOOO,.                          
+  .           . . .      ...OOOOOO::O8OOOOO,ZOOOOO7.            . ..         .  
+ :I...    . ZOOOOO, .      ..=O8OOOO.=O8O..OOOOOO.         .:OOOOO$ ..     .$.  
+ O8O~.    .OOOOOOOOO        .  IOOOOOOOOOOOOOOOI  .        ZOOOOOOOO .    +OOO  
+O8OOOO..  $OOOOOOOOO            .OOOOOOOOOOOOO...        ..OOOOOOOOOI.  .OOOO88.
+.O8OOO8O..?8OOOOOOOO               8OOOOOOOO              .OOOOOOOOO+..OOOOOO8..
+  ,8OOOOO. 8OOOOOO88              .8OOOOOOOO             . IOOOOOOOO.,OO8O8O.   
+  ...OOOOOO.?8OOO8 ..              OOOOOOOOO               ..OOOOO=.O8OOOZ..    
+        OOO8O,....8OO..           .8OOOOOOOO             .88O....:8OOOO~ .      
+        ..O8OOOOOOOOOO.          ..OO8OOOOOO            .OOOOOOOOOO8O.          
+          . O8OOOOOOOOO. .. ..~?ZOOOOOOOOOOOOOZI~ .  .  OOOOOOOOOOO.            
+          .  .OOOOOOOOOO+OOOOOZ$I=:,..   ..,:=I$ZOOOO8=O8OOOOOOOO. .            
+              .:8OOOOOOI8...                         .8.OOOOOOO$..              
+                .OOOOOO.=                             ,?OOOOOO..                
+               . .+OOO:O.                            . O~OOO~ ..                
+                    Z8,O                               :.O$ .                   
+                 ..:. O..                              .O....                   
+                 .78OOOZ..:=IZOOOOOOOOOOOOOOOOOOOZ7+:. :OZOOO                   
+                 ....ZOOOOO8OO8OO8OOOOOOOOOOOOOOOOO8OOOOO$.                     
+                   .?OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO+                     
+                 ..ZOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO.                   
+              .  .OO8OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO. .                
+                .OZ8O8+8OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOI88OOO                  
+              ..OO.. .O88OOOOOOOOOOOOOOOOOOOOOOOOOOOOOO+O... OZ                 
+               .+.   . 8OOOOOOOOOOOOOOOO8OOOOOOOOOOOOOO8.    .7. .              
+              .IZ:. . :8O$$$$$$$$$$$$$$$$$$$$$$$$$$$$7O7~ . ..7=.               
+              .OO88:,8~OO,,,,,,,,,,,,,,..,,,,,,,,,,,,,OO~O,.OO87..              
+              =OOO8O88OO=~~~~~~~~~~~~~~+~~~~~~~~~~~~~~~O8OOOO8OOI               
+            ..$OOOOOIOOOIIIIIIIIIIIIIIII?IIIIIIIIIIIIIIOOO?ZOOOOO               
+              78?OO  ~OOOIIIIIIIIIIIIII7IIIIIIIIIIIIIIOO8+  OO~OZ               
+             ..~88OOO78888OOOOOOOOOOOOOOOOOOOOOOOOOOOO8IO?OOOOOO..              
+               ~88Z=,:O8OOO8O8OOOOOOOOOOOOOOO8OOO8O8OO88O:,:Z8O8.               
+              .OI8OOO:OOOOOOOOOOOO8O888O888888OO8OO888O8O~8OO87?..              
+               OOO8OO:OO.        .       .    .        8O~OOOOOO..              
+              ..OOOOO$88                               ?8IOOO8O$ .              
+      
