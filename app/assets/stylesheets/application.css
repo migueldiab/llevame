@@ -4,5 +4,6 @@
  * the top of the compiled file, but it's generally better to create a new file per style scope.
  *= require_self
  *= require_tree . 
+ *= require bootstrap
  * Kuler : #002F32 #42826C #A5C77F #FFC861 #C84663;
 */
