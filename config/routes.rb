@@ -1,7 +1,7 @@
 Llevame::Application.routes.draw do
   get "home" => 'home#index'
 
-  get "register" => 'main#contact'
+  get "registrar" => 'main#registrar'
 
   get "main/about"
 

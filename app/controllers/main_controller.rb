@@ -1,10 +1,16 @@
+# encoding: utf-8
 class MainController < ApplicationController
   def home
-    @welcomeMsg = "\u03a3"
+    @welcomeMsg = "Encontramos la manera mas fácil, segura y ecológica de viajar."
+  end
+
+  def registrar
+    @formHeading = "Registrate!"
+    render :layout => false
   end
 
   def contact
-  	@title = "Contacto"
+    @title = "Contacto"
   end
 
   def about

@@ -28,3 +28,13 @@ p {
 	background-color: #99B7FF;
 	border-radius: 0 0 0 0;
 }
+
+
+a.signInFBBtn {
+    background: url("/assets/signInFB.png") no-repeat scroll 0 0 transparent;
+    display: inline-block;
+    height: 25px;
+    width: 195px;
+    float: left;
+    vertical-align: bottom;
+}

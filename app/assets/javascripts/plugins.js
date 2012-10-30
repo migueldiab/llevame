@@ -1,3 +1,5 @@
+window.jQuery || document.write('<script src="\/assets\/jquery-1.8.2.js?body=1" type="text\/javascript"><\/script>');
+
 // Avoid `console` errors in browsers that lack a console.
 if (!(window.console && console.log)) {
     (function() {
