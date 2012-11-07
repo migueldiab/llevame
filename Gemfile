@@ -9,6 +9,7 @@ gem 'jdbc-sqlite3'
 gem 'activerecord-jdbcsqlite3-adapter'
 
 group :development do
+  gem 'annotate'
   gem 'rspec-rails'
   gem 'test-unit'
   gem 'autotest-notification'
