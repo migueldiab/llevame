@@ -1,8 +1,6 @@
 Llevame::Application.routes.draw do
   resources :users
 
-  get "home" => 'home#index'
-
   get "registrar" => 'main#registrar'
 
   get "main/about"

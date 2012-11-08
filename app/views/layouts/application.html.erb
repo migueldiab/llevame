@@ -69,22 +69,7 @@
       <p>Miguel A. Diab &copy; 2012 - Todos los derechos reservados&nbsp; <br/>
       f / llevame | t / llevame | www.llevame.uy</p>
     </footer>
-
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.js"></script>
-    <%= javascript_include_tag "plugins" %>
-
-    <!--<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.1.1/bootstrap.js"></script>-->
-    <script src="http://use.edgefonts.net/open-sans.js"></script>
-
-    <script>
-      var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-      (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-      g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-      s.parentNode.insertBefore(g,s)}(document,'script'));
-    </script>
-    <%= javascript_include_tag "application" %>
-
-    <%= yield(:scripts) %>
+    <script data-main="assets/main.js" src="assets/require.js"></script>
   </body>
 </html>
 
