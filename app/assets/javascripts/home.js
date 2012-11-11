@@ -52,6 +52,7 @@ define([
         function formLoaded(response, status, xhr) {
             if ("success" == status) {
                 $('#btnEnviarRegistro').click(verificarPassword);
+                $('#inputEmail').focus();
             }
         }
 

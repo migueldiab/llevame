@@ -1,7 +1,7 @@
 var Validator = (function() {
     var instance;
 
-    function Validator() {
+        function Validator() {
         console.log("Constructing Validator");
     };
 
