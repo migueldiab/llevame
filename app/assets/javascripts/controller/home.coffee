@@ -5,7 +5,7 @@ define [], () ->
       console.log 'Starting Home Controller'
 
     startSlider: ->
-      console.log 'Starting Sliders'
+      console.log 'startSlider'
       $('#button a').click ->
 
         integer = $(this).attr('rel')
@@ -27,35 +27,38 @@ define [], () ->
 
 
     startLazyImages: ->
-      console.log 'Register lazy images'
+      console.log 'startLazyImages'
       $('img.lazy').each ->
         this.hidden = true
 
     startEventListeners: ->
-      console.log 'Buttons Event Listeners'
+      console.log 'startEventListeners'
       # $('#btnRegister').click(showRegisterForm);
       $('#btnFormularioRegistro').click(@showRegisterForm)
 
     showRegisterForm: =>
-      console.log 'Cargando Modal Registro'
+      console.log 'showRegisterForm'
       $('#formRegistrar').modal('show')
       $('#formRegistrar').load('registrar', null, @formLoaded)
       return false
 
     formLoaded: (response, status, xhr) =>
-      console.log 'Form AJAX Cargado'
+      console.log 'formLoaded AJAX'
       if ("success" == status)
-        $('#btnEnviarRegistro').click(@verificarPassword)
+        $('#btnEnviarRegistro').click(@verificarFormulario)
         $('#inputEmail').focus()        
 
-    verificarPassword: ->
-        console.log 'Verificando Password'
+    verificarFormulario: ->
+        console.log 'verificarFormulario'
         email = $('#inputEmail').val()
         password = $('#inputPassword').val()
         password2 = $('#inputPasswordRepeat').val()
 
-        if (!Validator.getInstance().validateEmail(email)) 
-            console.log "Error: Invalid email!"
+        if (Validator.getInstance().validateEmail(email) != true) 
+            console.log "Error: Invalid email! Adding error message"
+            $('#ctrlGrpinputEmail').addClass('error')
+            $('#helpInputEmail').text('Error!')
+            
             return false
         
         if (password != "" && password == password2) 
