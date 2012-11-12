@@ -3,6 +3,8 @@ Llevame::Application.routes.draw do
 
   get "registrar" => 'main#registrar'
 
+  get "llevame" => 'main#llevame'
+
   get "main/about"
 
   resources :cities

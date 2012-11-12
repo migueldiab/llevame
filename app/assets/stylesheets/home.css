@@ -9,5 +9,5 @@
 #myslide .mystuff {width:320px;float:left;padding:20px 0;}
 
 .button1,.button2,.button3{background:#999;padding:6px;display:block;float:left;margin-right:5px;}
-.active{background:#111;padding:6px;display:block;float:left;outline:none;}
-.clear{clear:both;}
+.lazy-active{background:#111;padding:6px;display:block;float:left;outline:none;}
+

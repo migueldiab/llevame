@@ -10,6 +10,11 @@ class MainController < ApplicationController
     render :layout => false
   end
 
+  def llevame
+    
+    render :layout => false
+  end
+
   def contact
     @title = "Contacto"
   end
