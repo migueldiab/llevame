@@ -1,4 +1,4 @@
-console.log('Starting Main!');
+console.log('init app from main.js');
 requirejs.config({
     //By default load any module IDs from js
     baseUrl: 'assets'

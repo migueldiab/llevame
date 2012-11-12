@@ -8,12 +8,22 @@ console.log("Loading App");
 define([
     "jquery"
     ,"angular"
-    ,'home'
+    ,'controller/home'
+    ,"jquery.lazyload.min"
+    ,"bootstrap/bootstrap-modal"
+    ,'common/validator'
 ],
-    function ($, angular, home) {
+    function ($, angular, Home) {
 
         var initialize = function () {
-            console.log('Initialized');
+            console.log('Init llevame App');
+
+            var homeController = new Home();
+
+            homeController.startSlider();
+            homeController.startLazyImages();
+            homeController.startEventListeners();
+
         };
 
         return {

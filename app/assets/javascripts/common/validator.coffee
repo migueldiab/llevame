@@ -17,11 +17,13 @@ class _Validator
     if email == ""
       console.log "Error: Email cannot be blank!"
       $('#inputEmail').focus()
-      return false
+      return "Error: Email cannot be blank!"
 
     re = /^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$/
     if !re.test(email)
       console.log "Error: Invalid email!"
       $('#inputEmail').focus()
-      return false
+      return "Error: Invalid email!"
+
+    return true
 
