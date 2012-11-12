@@ -7,6 +7,8 @@ gem 'rails', '3.1.1'
 
 gem 'jdbc-sqlite3'
 gem 'activerecord-jdbcsqlite3-adapter'
+gem 'sprockets'
+gem 'execjs'
 
 group :development do
   gem 'annotate'
@@ -28,7 +30,6 @@ end
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 3.1.4'
   gem 'coffee-rails', '~> 3.1.1'
   gem 'uglifier', '>= 1.0.3'
 end

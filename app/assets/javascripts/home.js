@@ -3,10 +3,11 @@ define([
     ,"angular"
     ,"jquery.lazyload.min"
     ,"bootstrap/bootstrap-modal"
-    ,'common/validate'
+    ,'common/validator'
 ],
     function ($, angular) {
 
+        
         $(document).ready(function (){
             startSlider();
 
@@ -17,6 +18,8 @@ define([
 
             // $('#btnRegister').click(showRegisterForm);
             $('#btnFormularioRegistro').click(showRegisterForm);
+
+            console.log(Validator.getInstance());
 
         });
 
