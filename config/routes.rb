@@ -5,6 +5,8 @@ Llevame::Application.routes.draw do
 
   get "llevame" => 'main#llevame'
 
+  post "newUser" => 'main#newUser'
+
   get "main/about"
 
   resources :cities

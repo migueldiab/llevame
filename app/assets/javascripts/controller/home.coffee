@@ -52,7 +52,8 @@ define [], () ->
       if (@verificarFormulario()) 
         console.log 'Loading Llevame'
         $('#formRegistrar').modal('hide')
-        $('#mainContent').load('llevame', null, @llevameLoaded)
+        params = { inputEmail: $('#inputEmail').val(), inputPassword: $('#inputPassword').val() }
+        $('#mainContent').load('newUser', params, @llevameLoaded)
         return false
 
     llevameLoaded: (response, status, xhr) =>

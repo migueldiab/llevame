@@ -14,4 +14,13 @@
 #
 
 class User < ActiveRecord::Base
+  attr_accessible :login, :email
+
+
+  validates :login, :prescence => true
+                    ,length => { :minimum => 3 }
+                    ,length => { :maximum => 50 }
+
+
+
 end

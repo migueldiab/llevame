@@ -11,8 +11,15 @@ class MainController < ApplicationController
   end
 
   def llevame
-    
+
     render :layout => false
+  end
+
+  def newUser
+    @infoVar = "The parameters are : #{params[:inputEmail]} ..."
+    @infoPass = "The parameters are : #{params[:inputPassword]} ..."
+
+    render 'llevame', :layout => false
   end
 
   def contact
