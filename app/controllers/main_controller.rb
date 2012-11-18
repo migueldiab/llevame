@@ -32,7 +32,7 @@ class MainController < ApplicationController
       @user = User.new
       @user.email = email
       @user.password = password
-      @user.verified
+
 
 
     end
