@@ -18,11 +18,22 @@ class MainController < ApplicationController
   def newUser
     email = params[:inputEmail]
     password = params[:inputPassword]
+    confirm = params[:inputPasswordRepeat]
 
 
     @user = User.find_by_email(email)
 
     if @user
+      if @user.password == password
+        logger.info "Password matches!"
+      end
+    else
+      logger.info "No User found... Creating new"
+      @user = User.new
+      @user.email = email
+      @user.password = password
+      @user.verified
+
 
     end
     render 'llevame', :layout => false

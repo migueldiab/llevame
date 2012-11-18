@@ -52,7 +52,9 @@ define [], () ->
       if (@verificarFormulario()) 
         console.log 'Loading Llevame'
         $('#formRegistrar').modal('hide')
-        params = { inputEmail: $('#inputEmail').val(), inputPassword: $('#inputPassword').val() }
+        params = { inputEmail: $('#inputEmail').val()
+          , inputPassword: $('#inputPassword').val()
+          , inputPasswordRepeat: $('#inputPasswordRepeat').val() }
         $('#mainContent').load('newUser', params, @llevameLoaded)
         return false
 
