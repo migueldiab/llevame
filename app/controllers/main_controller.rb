@@ -16,9 +16,15 @@ class MainController < ApplicationController
   end
 
   def newUser
-    @infoVar = "The parameters are : #{params[:inputEmail]} ..."
-    @infoPass = "The parameters are : #{params[:inputPassword]} ..."
+    email = params[:inputEmail]
+    password = params[:inputPassword]
 
+
+    @user = User.find_by_email(email)
+
+    if @user
+
+    end
     render 'llevame', :layout => false
   end
 

@@ -3,77 +3,77 @@
 <!--[if IE 7]>     <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>     <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title><%= title %></title>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title><%= title %></title>
 
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
-  
-    <link href='http://fonts.googleapis.com/css?family=Montserrat+Alternates:400,700' rel='stylesheet' type='text/css'>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
 
-    <%= stylesheet_link_tag  "application" %>
-    <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Montserrat+Alternates:400,700' rel='stylesheet' type='text/css'>
 
-  </head>
-  <body>
-    <!--[if lt IE 7]>
-      <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
-    <![endif]-->
+  <%= stylesheet_link_tag  "application" %>
+  <%= csrf_meta_tags %>
 
-    <!-- This code is taken from http://twitter.github.com/bootstrap/examples/hero.html -->
+</head>
+<body>
+<!--[if lt IE 7]>
+<p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+<![endif]-->
 
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="#">llevame.uy</a>
-          <div class="nav-collapse collapse">
-            <ul class="nav">
-              <li class="active"><a href="#">Inicio</a></li>
-              <li><a href="#about">Nosotros</a></li>
-              <li><a href="#contact">Contactanos</a></li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li class="divider"></li>
-                  <li class="nav-header">Nav header</li>
-                  <li><a href="#">Separated link</a></li>
-                  <li><a href="#">One more separated link</a></li>
-                </ul>
-              </li>
+<!-- This code is taken from http://twitter.github.com/bootstrap/examples/hero.html -->
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <a class="brand" href="#">llevame.uy</a>
+      <div class="nav-collapse collapse">
+        <ul class="nav">
+          <li class="active"><a href="#">Inicio</a></li>
+          <li><a href="#about">Nosotros</a></li>
+          <li><a href="#contact">Contactanos</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li class="divider"></li>
+              <li class="nav-header">Nav header</li>
+              <li><a href="#">Separated link</a></li>
+              <li><a href="#">One more separated link</a></li>
             </ul>
-            <form id="frmLogin" class="navbar-form pull-right">
-              <input class="span2" type="text" placeholder="usuario">
-              <input class="span2" type="password" placeholder="contraseña">
-              <button type="submit" class="btn">vamos!</button>
-            </form>
-          </div><!--/.nav-collapse -->
-        </div>
-      </div>
+          </li>
+        </ul>
+        <form id="frmLogin" class="navbar-form pull-right">
+          <input class="span2" type="text" placeholder="usuario">
+          <input class="span2" type="password" placeholder="contraseña">
+          <button type="submit" class="btn">vamos!</button>
+        </form>
+      </div><!--/.nav-collapse -->
     </div>
+  </div>
+</div>
 
-    <header id="header" class="">
-      <br/>
-    </header><!-- /header -->
-    <div id="mainContent" class="container">
-      <%= yield %>
-    </div> <!-- /container -->
+<header id="header" class="">
+  <br/>
+</header><!-- /header -->
+<div id="mainContent" class="container">
+  <%= yield %>
+</div> <!-- /container -->
 
-    <%= debug(params) if Rails.env.development? %>
-    <footer>
-      <p>Miguel A. Diab &copy; 2012 - Todos los derechos reservados&nbsp; <br/>
-      f / llevame | t / llevame | www.llevame.uy</p>
-    </footer>
-    <script data-main="assets/main.js" src="assets/require.js"></script>
-  </body>
+<%= debug(params) if Rails.env.development? %>
+<footer>
+  <p>Miguel A. Diab &copy; 2012 - Todos los derechos reservados&nbsp; <br/>
+    f / llevame | t / llevame | www.llevame.uy</p>
+</footer>
+<script data-main="assets/main.js" src="assets/require.js"></script>
+</body>
 </html>
 

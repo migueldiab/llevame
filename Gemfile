@@ -1,36 +1,23 @@
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 
-gem 'rails', '3.1.1'
+gem 'rails', '3.2.9'
 
 # Bundle edge Rails instead:
-# gem 'rails',     :git => 'git://github.com/rails/rails.git'
+# gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'jdbc-sqlite3'
-gem 'activerecord-jdbcsqlite3-adapter'
-gem 'sprockets'
-gem 'execjs'
+gem 'activerecord-jdbcmysql-adapter'
 
-group :development do
-  gem 'annotate'
-  gem 'rspec-rails'
-  gem 'test-unit'
-  gem 'autotest-notification'
-end
-
-group :test do
-  gem 'rspec'
-  gem 'spork'
-  gem 'webrat'
-  gem 'test-unit'
-  gem 'autotest-notification'
-end
-
-
+gem 'jruby-openssl'
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'coffee-rails', '~> 3.1.1'
+  gem 'sass-rails',   '~> 3.2.3'
+  gem 'coffee-rails', '~> 3.2.1'
+
+  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
+  gem 'therubyrhino'
+
   gem 'uglifier', '>= 1.0.3'
 end
 
@@ -39,12 +26,14 @@ gem 'jquery-rails'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
-# Use unicorn as the web server
+# To use Jbuilder templates for JSON
+# gem 'jbuilder'
+
+# Use unicorn as the app server
 # gem 'unicorn'
 
 # Deploy with Capistrano
 # gem 'capistrano'
 
 # To use debugger
-# gem 'ruby-debug19', :require => 'ruby-debug'
-
+# gem 'debugger'

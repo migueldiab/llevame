@@ -11,25 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121115232230) do
-
-  create_table "cities", :force => true do |t|
-    t.string   "name"
-    t.integer  "country_id"
-    t.integer  "population"
-    t.string   "x_coord"
-    t.string   "y_coord"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "countries", :force => true do |t|
-    t.string   "name"
-    t.string   "flag"
-    t.string   "language"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(:version => 20121118023756) do
 
   create_table "users", :force => true do |t|
     t.string   "login"
@@ -38,10 +20,8 @@ ActiveRecord::Schema.define(:version => 20121115232230) do
     t.string   "salt"
     t.date     "dob"
     t.integer  "rep"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
-
-  add_index "users", ["login"], :name => "index_users_on_login", :unique => true
 
 end
