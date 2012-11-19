@@ -1,4 +1,6 @@
 Llevame::Application.routes.draw do
+  get "session/new"
+
   resources :users
 
 

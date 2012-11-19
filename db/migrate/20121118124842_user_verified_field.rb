@@ -1,10 +1,6 @@
 class UserVerifiedField < ActiveRecord::Migration
-  def up
+  def change
     add_column :users, :verified, :boolean
-
-  end
-
-  def down
 
   end
 end

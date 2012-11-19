@@ -30,11 +30,15 @@ class MainController < ApplicationController
     else
       logger.info "No User found... Creating new"
       @user = User.new
+      @user.login = email.split('@', 2)[0]
+      @login_user = User.find_by_login(@user.login)
+      if @login_user
+        @user.login = email
+      end
       @user.email = email
       @user.password = password
-
-
-
+      @user.verified = false
+      @user.save
     end
     render 'llevame', :layout => false
   end
