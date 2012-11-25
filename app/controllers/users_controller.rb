@@ -32,6 +32,40 @@ class UsersController < ApplicationController
     end
   end
 
+  # POST /newUser
+  def newUser
+
+    email = params[:inputEmail]
+    password = params[:inputPassword]
+    confirm = params[:inputPasswordRepeat]
+
+    @user = User.find_by_email(email)
+
+    if @user
+      if @user.password == password
+        logger.info "Password matches!"
+      end
+    else
+      logger.info "No User found... Creating new"
+      @user = User.new
+      @user.login = email.split('@', 2)[0]
+      @login_user = User.find_by_login(@user.login)
+      if @login_user
+        logger.info "Login already taken! Using random number instead"
+        while @login_user
+          @user.login = "#{email.split('@', 2)[0]}#{Random.rand(1000).to_i}"
+          @login_user = User.find_by_login(@user.login)
+        end
+      end
+
+      @user.email = email
+      @user.password = password
+      @user.verified = false
+      @user.save
+    end
+    render 'main/llevame', :layout => false
+  end
+
   # GET /users/1/edit
   def edit
     @user = User.find(params[:id])

@@ -1,15 +1,11 @@
 Llevame::Application.routes.draw do
-  get "session/new"
-
-  resources :users
-
-
   root :to => 'main#home'
-  get "registrar" => 'main#registrar'
 
+  get "session/new"
+  get "registrar" => 'main#registrar'
   get "llevame" => 'main#llevame'
 
-  post "newUser" => 'main#newUser'
+  post "newUser" => 'users#newUser'
 
   get "main/about"
 
