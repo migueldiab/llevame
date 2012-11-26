@@ -9,7 +9,7 @@ module DateTime
   #
   #
   def DateTime.timeInMs
-    time = Time.new    
+    time = Time.new
     floatTime = 1000 * time.to_f
     floatTime.to_i
   end
