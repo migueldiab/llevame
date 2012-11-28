@@ -4,7 +4,8 @@
       <h1>llevame.uy</h1>            
       <p><%= @welcomeMsg %></p>
       <p><span class='brand'>llevame.uy</span> te ayuda a conectarte con personas como vos; con un destino común y te permite compartir tu viaje con ellas.</p>
-     
+      <p><%= cookies.signed[:remember_token] %></p>
+      <p><%= cookies[:usuario] %></p>
       <div class="clear"></div>
      
       <div id="myslide">

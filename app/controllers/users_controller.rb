@@ -67,6 +67,7 @@ class UsersController < ApplicationController
       @user.save
 
       sign_in(@user)
+      flash[:success] = "Bienvenido a Llevame!"
 
     end
     render 'main/llevame', :layout => false
