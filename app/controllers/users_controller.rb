@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  include SessionHelper
+
   # GET /users
   # GET /users.json
   def index
@@ -52,6 +54,7 @@ class UsersController < ApplicationController
       @login_user = User.find_by_login(@user.login)
       if @login_user
         logger.info "Login already taken! Using random number instead"
+        flash.now[:warning] = "Login already taken! Using random number instead"
         while @login_user
           @user.login = "#{email.split('@', 2)[0]}#{Random.rand(1000).to_i}"
           @login_user = User.find_by_login(@user.login)
@@ -62,6 +65,9 @@ class UsersController < ApplicationController
       @user.password = password
       @user.verified = false
       @user.save
+
+      sign_in(@user)
+
     end
     render 'main/llevame', :layout => false
   end
