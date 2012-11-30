@@ -4,8 +4,8 @@
       <h1>llevame.uy</h1>            
       <p><%= @welcomeMsg %></p>
       <p><span class='brand'>llevame.uy</span> te ayuda a conectarte con personas como vos; con un destino común y te permite compartir tu viaje con ellas.</p>
-      <p><%= cookies.signed[:remember_token] %></p>
-      <p><%= cookies[:usuario] %></p>
+
+      <p>User : <%= current_user.login %></p>
       <div class="clear"></div>
      
       <div id="myslide">
@@ -29,9 +29,9 @@
         </div> <!-- end of div cover -->
       </div>  <!-- end of div myslide -->
       <div id="button">
-       <a class="button1 lazy-active" rel="1" href="#"></a>
-       <a class="button2" rel="2" href="#"></a>
-       <a class="button3" rel="3" href="#"></a>
+       <a class="button1 lazy-active" rel="1" href="#image1"></a>
+       <a class="button2" rel="2" href="#image2"></a>
+       <a class="button3" rel="3" href="#image3"></a>
       </div> <!-- end of div button-->
 
     </div>

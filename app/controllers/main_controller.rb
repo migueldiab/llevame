@@ -3,6 +3,8 @@ class MainController < ApplicationController
   def home
     @welcomeMsg = "Encontramos la manera mas fácil, segura y ecológica de viajar."
     @motto = "Uruguay, mas lindo, mas cerca"
+
+
   end
 
   def registrar
