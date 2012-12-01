@@ -6,40 +6,45 @@
  */
 console.log("Loading App");
 define([
-    "jquery"
-    ,"angular"
-    ,'controller/home'
-    ,"jquery.lazyload.min"
-    ,"bootstrap/bootstrap-modal"
-//    ,"bootstrap/bootstrap-transition"
-//    ,"bootstrap/bootstrap-alert"
-//    ,"bootstrap/bootstrap-dropdown"
-//    ,"bootstrap/bootstrap-scrollspy"
-//    ,"bootstrap/bootstrap-tab"
-//    ,"bootstrap/bootstrap-tooltip"
-//    ,"bootstrap/bootstrap-popover"
-//    ,"bootstrap/bootstrap-button"
-    ,"bootstrap/bootstrap-collapse"
-//    ,"bootstrap/bootstrap-carousel"
-//    ,"bootstrap/bootstrap-typeahead"
-//    ,"bootstrap/bootstrap-affix"
-    ,'common/validator'
+  "jquery"
+  ,"angular"
+  ,'controller/home'
+  ,'controller/view'
+  ,"jquery.lazyload.min"
+  ,"bootstrap/bootstrap-modal"
+//  ,"bootstrap/bootstrap-transition"
+//  ,"bootstrap/bootstrap-alert"
+//  ,"bootstrap/bootstrap-dropdown"
+//  ,"bootstrap/bootstrap-scrollspy"
+//  ,"bootstrap/bootstrap-tab"
+//  ,"bootstrap/bootstrap-tooltip"
+//  ,"bootstrap/bootstrap-popover"
+//  ,"bootstrap/bootstrap-button"
+  ,"bootstrap/bootstrap-collapse"
+//  ,"bootstrap/bootstrap-carousel"
+//  ,"bootstrap/bootstrap-typeahead"
+//  ,"bootstrap/bootstrap-affix"
+  ,'common/validator'
 ],
-    function ($, angular, Home) {
+  function ($, angular, Home, View) {
 
-        var initialize = function () {
-            console.log('Init llevame App');
+    var initialize = function () {
+      console.log('Init llevame App');
 
-            var homeController = new Home();
+      var homeController = Home.getInstance();
+      var viewController = new View();
 
-            homeController.startSlider();
-            homeController.startLazyImages();
-            homeController.startEventListeners();
-            homeController.loginUserOrDisplayForm();
+      homeController.startSlider();
+      homeController.startLazyImages();
+      homeController.startEventListeners();
 
-        };
+      viewController.loadPartials();
+      viewController.loginCurrentUser();
 
-        return {
-            initialize: initialize
-        };
-    });
+
+    };
+
+    return {
+      initialize: initialize
+    };
+  });

@@ -1,5 +1,6 @@
 class SessionController < ApplicationController
   include SessionHelper
+  respond_to :json
 
   def new
 
@@ -11,13 +12,6 @@ class SessionController < ApplicationController
 
   def login
     logger.info "Trying to login user..."
-    @user = current_user
-    if @user != nil
-      logger.info "User loaded : #{@user.login}"
-      render 'userInfo', :layout => false
-    else
-      logger.info "No user loaded"
-      render 'formLogin', :layout => false
-    end
+    respond_with current_user
   end
 end

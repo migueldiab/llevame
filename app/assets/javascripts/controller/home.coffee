@@ -1,5 +1,9 @@
 define [], () ->
-  class Home
+
+  root = exports ? this
+
+  class _Home
+    currentUser = null
 
     constructor: ->
       console.log 'Starting Home Controller'
@@ -36,9 +40,6 @@ define [], () ->
       # $('#btnRegister').click(showRegisterForm);
       $('#btnFormularioRegistro').click(@showRegisterForm)
 
-    loginUserOrDisplayForm: ->
-      console.log 'Trying to login user...'
-      $('#divLogin').load('loginForm')
 
     showRegisterForm: =>
       console.log 'showRegisterForm'
@@ -103,3 +104,12 @@ define [], () ->
         
         console.log "You entered a valid password: " + password
         return true
+
+  class root.Home
+
+    instance = undefined;
+
+    @getInstance: ->
+      instance ?= new _Home
+
+
