@@ -20,9 +20,9 @@ ActiveRecord::Schema.define(:version => 20121118124842) do
     t.string   "salt"
     t.date     "dob"
     t.integer  "rep"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.boolean  "verified"
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.boolean  "verified",   :default => false
   end
 
 end
