@@ -7,6 +7,7 @@ Llevame::Application.routes.draw do
   get "signIn" => 'session#new'
   get "signOut" => 'session#destroy'
   post "newUser" => 'users#newUser'
+  get "loginForm" => 'session#login'
 
   get "main/about"
 

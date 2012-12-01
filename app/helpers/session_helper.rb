@@ -23,7 +23,7 @@ module SessionHelper
   private
   ###########################################
     def user_from_remember_token
-      logger.info "Loading user from Remember Token"
+      logger.info "Loading user from Remember Token #{remember_token}"
       User.authenticate_with_salt(*remember_token)
     end
 

@@ -35,6 +35,7 @@ define([
             homeController.startSlider();
             homeController.startLazyImages();
             homeController.startEventListeners();
+            homeController.loginUserOrDisplayForm();
 
         };
 

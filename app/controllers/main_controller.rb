@@ -1,5 +1,7 @@
 # encoding: utf-8
 class MainController < ApplicationController
+  include SessionHelper
+
   def home
     @welcomeMsg = "Encontramos la manera mas fácil, segura y ecológica de viajar."
     @motto = "Uruguay, mas lindo, mas cerca"

@@ -36,6 +36,10 @@ define [], () ->
       # $('#btnRegister').click(showRegisterForm);
       $('#btnFormularioRegistro').click(@showRegisterForm)
 
+    loginUserOrDisplayForm: ->
+      console.log 'Trying to login user...'
+      $('#divLogin').load('loginForm')
+
     showRegisterForm: =>
       console.log 'showRegisterForm'
       $('#formRegistrar').modal('show')
