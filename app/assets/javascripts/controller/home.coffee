@@ -3,7 +3,6 @@ define [], () ->
   root = exports ? this
 
   class _Home
-    currentUser = null
 
     constructor: ->
       console.log 'Starting Home Controller'

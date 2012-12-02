@@ -30,9 +30,6 @@ p {
 	font-family: open-sans, serif;
 }
 
-
-
-
 a.signInFBBtn {
     background: url("/assets/signInFB.png") no-repeat scroll 0 0 transparent;
     display: inline-block;
@@ -62,5 +59,8 @@ footer {
 
 footer p {
     padding-top: 30px;
+}
 
+#userNav {
+  display: none;
 }

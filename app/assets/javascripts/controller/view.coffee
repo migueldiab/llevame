@@ -1,5 +1,8 @@
 define [], () ->
-  class View
+  root = exports ? this
+
+  class _View
+    currentUser = null
 
     constructor: ->
       console.log 'Starting View Controller'
@@ -26,19 +29,19 @@ define [], () ->
       if ("success" == status && data)
         console.log 'Got JSON User : ' + data.login
         currentUser = data
-        $('#frmLogin').slideToggle(600, @showUser)
+        $('#frmLogin').slideToggle(300, @showUser)
       else
         console.log 'No user logged in'
 
     showUser: =>
-      userMenu = $('<ul/>').addClass('nav')
-      profileLi = $('<li/>').append(
-        $('<a/>').attr('href', 'profile').html(currentUser.login)
-      )
-      userMenu.append(profileLi)
-      logOutLi = $('<li/>').append(
-        $('<a/>').attr('href', 'signout').html('Log Out')
-      )
-      userMenu.append(logOutLi)
-      $('#divCurrentUser').append(userMenu)
+      $('#userNav').fadeIn(300)
+
+
+  class root.View
+
+    instance = undefined;
+
+    @getInstance: ->
+      instance ?= new _View
+
 

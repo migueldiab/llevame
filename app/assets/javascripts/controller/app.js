@@ -32,7 +32,7 @@ define([
       console.log('Init llevame App');
 
       var homeController = Home.getInstance();
-      var viewController = new View();
+      var viewController = View.getInstance();
 
       homeController.startSlider();
       homeController.startLazyImages();
@@ -40,6 +40,7 @@ define([
 
       viewController.loadPartials();
       viewController.loginCurrentUser();
+
 
 
     };
