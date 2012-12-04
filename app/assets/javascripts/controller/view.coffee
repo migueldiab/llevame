@@ -1,4 +1,4 @@
-define [], () ->
+define ['controller/navigationBar'], (NavigationBarCtrl) ->
   root = exports ? this
 
   class _View
@@ -17,24 +17,10 @@ define [], () ->
       directiveDefinitionObject = {
         restrict: 'E',
         replace: false,
-        templateUrl: './partials/navigationBar.html'
+        templateUrl: './partials/navigationBar.html',
+        controller: NavigationBarCtrl
       }
       directiveDefinitionObject
-
-    loginCurrentUser: ->
-      console.log 'Trying to login user...'
-      jQuery.getJSON('login', null, @loadUser)
-
-    loadUser: (data, status, jqXHR) =>
-      if ("success" == status && data)
-        console.log 'Got JSON User : ' + data.login
-        currentUser = data
-        $('#frmLogin').slideToggle(300, @showUser)
-      else
-        console.log 'No user logged in'
-
-    showUser: =>
-      $('#userNav').fadeIn(300)
 
 
   class root.View

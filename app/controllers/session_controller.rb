@@ -10,7 +10,7 @@ class SessionController < ApplicationController
 
   end
 
-  def login
+  def loginFromCookies
     logger.info "Trying to login user..."
     respond_with current_user
   end

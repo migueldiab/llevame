@@ -6,10 +6,12 @@
  */
 console.log("Loading App");
 define([
-  "jquery"
-  ,"angular"
-  ,'controller/home'
+  'controller/home'
   ,'controller/view'
+  ,'controller/user'
+  ,'controller/navigationBar'
+  ,"jquery"
+  ,"angular"
   ,"jquery.lazyload.min"
   ,"bootstrap/bootstrap-modal"
 //  ,"bootstrap/bootstrap-transition"
@@ -26,20 +28,22 @@ define([
 //  ,"bootstrap/bootstrap-affix"
   ,'common/validator'
 ],
-  function ($, angular, Home, View) {
+  function (Home, View, User) {
 
     var initialize = function () {
       console.log('Init llevame App');
 
       var homeController = Home.getInstance();
       var viewController = View.getInstance();
+      var userController = User.getInstance();
+
+      viewController.loadPartials();
 
       homeController.startSlider();
       homeController.startLazyImages();
       homeController.startEventListeners();
 
-      viewController.loadPartials();
-      viewController.loginCurrentUser();
+      userController.loginCurrentUser();
 
 
 

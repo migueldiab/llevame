@@ -38,7 +38,7 @@ define [], () ->
       console.log 'startEventListeners'
       # $('#btnRegister').click(showRegisterForm);
       $('#btnFormularioRegistro').click(@showRegisterForm)
-
+      return true
 
     showRegisterForm: =>
       console.log 'showRegisterForm'

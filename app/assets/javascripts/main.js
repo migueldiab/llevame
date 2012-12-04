@@ -1,3 +1,5 @@
+'use strict';
+
 console.log('init app from main.js');
 requirejs.config({
     //By default load any module IDs from js
@@ -20,12 +22,13 @@ requirejs.config({
 
 // Start the main app logic.
 requirejs(
-    ['angular'
-        ,'jquery'
-        ,'llevame'
-        //,'opensans'
+    [
+        'llevame'
+//        ,'jquery'
+//        ,'angular'
+//        ,'opensans'
     ],
-    function(angular, $, llevame) {
+    function(llevame) {
         console.log("App Main : " + llevame);
         llevame.initialize();
 

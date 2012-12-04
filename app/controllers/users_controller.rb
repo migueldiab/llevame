@@ -64,9 +64,10 @@ class UsersController < ApplicationController
       @user.email = email
       @user.password = password
       @user.verified = false
-      @user.save
 
       sign_in(@user)
+      @user.save
+
       flash[:success] = "Bienvenido a Llevame!"
 
     end
