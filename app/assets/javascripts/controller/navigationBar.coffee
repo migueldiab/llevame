@@ -1,11 +1,13 @@
-define ['controller/navigationBar'], (NavigationBarCtrl) ->
+define ['controller/home'], (Home) ->
   'use strict'
 
-  NavigationBarCtrl 'NavigationBarCtrl', [
-    '$scope', ($scope) ->
-      console.log 'Registering Navigation Listeners'
-      $('#btnLogin').click(@showRegisterForm)
-  ]
+  NavigationBarCtrl: ->
+    console.log 'Registering Navigation Listeners'
+    homeController = Home.getInstance
+    $('#btnLogin').click(homeController.showRegisterForm)
+
+
+
 
 
 

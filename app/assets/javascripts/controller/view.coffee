@@ -1,4 +1,4 @@
-define ['controller/navigationBar'], (NavigationBarCtrl) ->
+define ['angular'], (angular) ->
   root = exports ? this
 
   class _View
@@ -18,7 +18,7 @@ define ['controller/navigationBar'], (NavigationBarCtrl) ->
         restrict: 'E',
         replace: false,
         templateUrl: './partials/navigationBar.html',
-        controller: NavigationBarCtrl
+#        controller: 'NavigationBarCtrl'
       }
       directiveDefinitionObject
 
