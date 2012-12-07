@@ -10,6 +10,16 @@ define [], () ->
     addEventListeners: =>
       console.log 'Adding nav listener...'
       $('#btnLogin').click(this.loginUser)
+      $('#btnToggleNavBar').click(this.collapseNavBar)
+      $('#btnCloseError').click(this.closeErrorModal)
+
+    closeErrorModal: =>
+      $('#errorMsg').slideUp(400)
+
+
+    collapseNavBar: =>
+      console.log 'Toggling Nav Bar'
+      $('#mainNavBar').collapse('toggle')
 
     linkNavBar: =>
       console.log 'Linking Nav Bar'
@@ -20,17 +30,44 @@ define [], () ->
       console.log 'Clicked Btn Login'
       login = $('#login').val()
       password = $('#password').val()
-      data =
-        'login': login
-        'password': password
 
-      $.post('loginUser', data, User.getInstance().loadUser, 'json')
-      .error(User.getInstance().loadUser)
+      if (this.validateCredentials(login, password))
+        console.log 'Validated Credentias'
+        data =
+          'login': login
+          'password': password
+
+        $.post('loginUser', data, User.getInstance().loadUser, 'json')
+        .error(User.getInstance().loadUser)
+      else
+        console.log 'Invalid Credentias'
+        View.getInstance().showError('Login Error', 'Invalid Username or Password')
+
+
       return false
+
+    validateCredentials: (login, password) ->
+
+      if (!login)
+        return false
+
+      if (!password)
+        return false
+
+      if login == password
+        return false
+
+      if (login.length < 3)
+        return false
+
+      if (password.length < 3)
+        return false
+
+      return true
 
 
     showUser: =>
-      $('#userNav').fadeIn(300)
+      $('#userNav').slideToggle(300)
 
 
   class root.NavBarView

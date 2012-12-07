@@ -7,6 +7,7 @@ requirejs.config({
     jquery: 'jquery-1.8.2'
     ,angular: 'angular'
     ,modernizr: 'modernizr-2.6.1-respond-1.1.0.min'
+    ,opensans: 'http://use.edgefonts.net/open-sans'
   }
   ,shim: {
     'angular': {
@@ -27,6 +28,10 @@ require([
     'llevame'
     ,'jquery'
     ,'angular'
+    ,"bootstrap/bootstrap-modal"
+    ,"bootstrap/bootstrap-alert"
+    ,"bootstrap/bootstrap-collapse"
+    ,'opensans'
   //  , 'controllers/personController'
   //  , 'directives/ngController'
   ],

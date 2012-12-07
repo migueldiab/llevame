@@ -1,13 +1,13 @@
 <div class="navbar navbar-inverse navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container">
-      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+      <a id="btnToggleNavBar" class="btn btn-navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </a>
       <a class="brand" href="/">llevame.uy</a>
-      <div class="nav-collapse collapse">
+      <div class="nav-collapse collapse" id="mainNavBar">
         <ul class="nav">
           <li class="active"><a href="/">Inicio</a></li>
           <li><a href="#about">Nosotros</a></li>
@@ -29,7 +29,7 @@
           <form id="frmLogin" class="navbar-form">
             <input id="login" class="span2" type="text" placeholder="usuario">
             <input id="password" class="span2" type="password" placeholder="contraseña">
-            <a href="#" id="btnLogin" class="btn">vamos!</a>
+            <input id="btnLogin" class="btn" value="vamos!" type="submit"/>
           </form>
           <ul id="userNav" class="nav">
             <li>
@@ -42,5 +42,9 @@
         </div>
       </div><!--/.nav-collapse -->
     </div>
+  </div>
+  <div id="errorMsg" class="alert alert-error span4 offset4">
+    <button id="btnCloseError" type="button" class="close">×</button>
+    <strong id="errorMsgTitle" /> : <span id="errorMsgText" />
   </div>
 </div>

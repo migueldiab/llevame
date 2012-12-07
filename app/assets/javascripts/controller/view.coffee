@@ -33,6 +33,11 @@ define [
       }
       return directiveDefinitionObject
 
+    showError: (title, error) ->
+      $('#errorMsg').slideDown(400)
+      $('#errorMsgTitle').text title
+      $('#errorMsgText').text error
+
 
   class root.View
 

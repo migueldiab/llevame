@@ -3,7 +3,7 @@
    ========================================================================== */
 
 body {
-    padding: 40px 0 80px 0;
+    padding: 50px 0 80px 0;
     /*background: url("/assets/bg1.jpg") no-repeat scroll 0 0 transparent;*/
     /*background-size: 100%;*/
 }
@@ -61,6 +61,8 @@ footer p {
     padding-top: 30px;
 }
 
-#userNav {
+#userNav,
+#errorMsg
+{
   display: none;
 }

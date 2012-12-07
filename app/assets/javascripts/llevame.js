@@ -16,7 +16,6 @@ define([
     ,'angular'
     ,'jquery'
     ,"jquery.lazyload.min"
-    ,"bootstrap/bootstrap-modal"
     ,'common/validator'
   ],
   function (Home, View, User, angular) {
