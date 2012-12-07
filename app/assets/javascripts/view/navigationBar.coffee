@@ -23,17 +23,11 @@ define [], () ->
       data =
         'login': login
         'password': password
+
       $.post('loginUser', data, User.getInstance().loadUser, 'json')
+      .error(User.getInstance().loadUser)
       return false
 
-    loadUser: (data, status, jqXHR) =>
-      console.log 'Loading User via JSON'
-      if ("success" == status && data)
-        console.log 'Got JSON User : ' + data.login
-        currentUser = data
-        $('#frmLogin').slideToggle(300, showUser)
-      else
-        console.log 'No user logged in'
 
     showUser: =>
       $('#userNav').fadeIn(300)

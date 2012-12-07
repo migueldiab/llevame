@@ -22,7 +22,11 @@ define [], () ->
         currentUser = data
         $('#frmLogin').slideToggle(300, @showUser)
       else
-        console.log 'No user logged in'
+        console.log 'Status : ' + status
+        if data
+          console.log 'Status : ' + data
+        if jqXHR
+          console.log 'Status : ' + jqXHR
 
     showUser: =>
       $('#userNav').fadeIn(300)

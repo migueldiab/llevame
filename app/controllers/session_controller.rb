@@ -25,10 +25,12 @@ class SessionController < ApplicationController
     if @user && @user.has_password?(password)
       logger.info 'Returning User : #{@user}'
       sign_in(@user)
-      render json: @user, status: :loggedIn, location: @user
+      render :json => @user
     else
       logger.info 'Returning Error'
-      render json: 'Error', status: 'Invalid UID/PWD'
+      response = ['Error' => 'Error 123']
+
+      render :json => response, :status => 401
     end
 
   end
