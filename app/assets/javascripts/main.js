@@ -25,17 +25,13 @@ requirejs.config({
 
 require([
     'llevame'
-    ,'angular'
     ,'jquery'
-    ,'bootstrap'
+    ,'angular'
   //  , 'controllers/personController'
   //  , 'directives/ngController'
   ],
-  function(llevame, angular) {
+  function(llevame, $) {
     console.log('Starting main...');
-    angular.element(document).ready(function() {
-      angular.bootstrap(document);
-    });
     llevame.init();
   }
 );

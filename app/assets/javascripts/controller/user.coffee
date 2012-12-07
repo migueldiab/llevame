@@ -1,5 +1,4 @@
 define [], () ->
-
   root = exports ? this
 
   class _User

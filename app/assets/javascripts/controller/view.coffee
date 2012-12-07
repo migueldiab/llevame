@@ -1,4 +1,12 @@
-define ['angular'], (angular) ->
+define [
+  'angular'
+  ,'view/navigationBar'
+],
+(
+  angular
+  ,NavBarView
+) ->
+
   root = exports ? this
 
   class _View
@@ -7,20 +15,23 @@ define ['angular'], (angular) ->
     constructor: ->
       console.log 'Starting View Controller'
 
-    loadPartials: ->
+    loadPartials: (mainModule) ->
       console.log 'Loading Partials'
-      angular.module('navigation-bar', []).directive('navigationBar', @navBar)
+      module = angular.module('navigation-bar', [])
+      module.directive('navigationBar', @navBar)
+#      mainModule.requires.push('navigation-bar')
       angular.module('llevameApp', ['navigation-bar']);
+      angular.bootstrap(document, ['llevameApp'])
 
     navBar: =>
       console.log 'Loading Navigation Bar'
       directiveDefinitionObject = {
-        restrict: 'E',
-        replace: false,
-        templateUrl: './partials/navigationBar.html',
-#        controller: 'NavigationBarCtrl'
+        restrict: 'E'
+        ,replace: false
+        ,templateUrl: '/partials/navigationBar.html'
+        ,link: NavBarView.getInstance().linkNavBar
       }
-      directiveDefinitionObject
+      return directiveDefinitionObject
 
 
   class root.View
