@@ -37,11 +37,11 @@ define [], () ->
           'login': login
           'password': password
 
-        $.post('loginUser', data, User.getInstance().loadUser, 'json')
-        .error(User.getInstance().loadUser)
+        $.post('loginUser', data, UserCtrl.getInstance().loadUser, 'json')
+        .error(UserCtrl.getInstance().loadUser)
       else
         console.log 'Invalid Credentias'
-        View.getInstance().showError('Login Error', 'Invalid Username or Password')
+        ViewCtrl.getInstance().showError('Login Error', 'Invalid Username or Password')
 
 
       return false

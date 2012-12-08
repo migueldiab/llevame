@@ -18,7 +18,7 @@ define([
     ,"jquery.lazyload.min"
     ,'common/validator'
   ],
-  function (Home, View, User, angular) {
+  function (HomeCtrl, ViewCtrl, UserCtrl, angular) {
     var init = function () {
       console.log('Running App...');
       'use strict';
@@ -31,9 +31,9 @@ define([
       });
 
 
-      var homeController = Home.getInstance();
-      var viewController = View.getInstance();
-      var userController = User.getInstance();
+      var homeController = HomeCtrl.getInstance();
+      var viewController = ViewCtrl.getInstance();
+      var userController = UserCtrl.getInstance();
 
       viewController.loadPartials(llevameMod);
 

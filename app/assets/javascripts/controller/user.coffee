@@ -1,7 +1,9 @@
 define [], () ->
   root = exports ? this
 
-  class _User
+  class _UserCtrl
+
+    currentUser: null
 
     constructor: ->
       console.log 'Starting User Controller'
@@ -19,19 +21,21 @@ define [], () ->
       console.log 'Loading User via JSON'
       if ("success" == status && data)
         console.log 'Got JSON User : ' + data.login
-        currentUser = data
-        $('#frmLogin').slideToggle(300, @showUser)
+        self.currentUser = data
+        ViewCtrl.getInstance().loadUserView()
+        NavBarCtrl.getInstance().setUser(self.currentUser)
+
       else
         console.log 'No User Loaded \nStatus: ' + status + '\nResponse: ' + jqXHR.statusText + ' - '+ jqXHR.responseText
 
-    showUser: =>
-      $('#userNav').fadeIn(300)
+    getCurrentUser: ->
+      self.currentuser
 
-  class root.User
+  class root.UserCtrl
 
     instance = undefined;
 
     @getInstance: ->
-      instance ?= new _User
+      instance ?= new _UserCtrl
 
 

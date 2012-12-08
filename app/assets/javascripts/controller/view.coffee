@@ -1,15 +1,17 @@
 define [
   'angular'
   ,'view/navigationBar'
+  ,'controller/navigationBar'
 ],
 (
   angular
   ,NavBarView
+  ,NavBarCtrl
 ) ->
 
   root = exports ? this
 
-  class _View
+  class _ViewCtrl
     currentUser = null
 
     constructor: ->
@@ -19,9 +21,9 @@ define [
       console.log 'Loading Partials'
       module = angular.module('navigation-bar', [])
       module.directive('navigationBar', @navBar)
-#      mainModule.requires.push('navigation-bar')
       angular.module('llevameApp', ['navigation-bar']);
       angular.bootstrap(document, ['llevameApp'])
+
 
     navBar: =>
       console.log 'Loading Navigation Bar'
@@ -30,6 +32,7 @@ define [
         ,replace: false
         ,templateUrl: '/partials/navigationBar.html'
         ,link: NavBarView.getInstance().linkNavBar
+        ,controller: NavBarCtrl.getInstance().init
       }
       return directiveDefinitionObject
 
@@ -39,11 +42,20 @@ define [
       $('#errorMsgText').text error
 
 
-  class root.View
+    loadUserView: =>
+      $('#frmLogin').slideToggle(300, @showUser)
+
+
+    showUser: =>
+      $('#userNav').fadeIn(300)
+
+
+
+  class root.ViewCtrl
 
     instance = undefined;
 
     @getInstance: ->
-      instance ?= new _View
+      instance ?= new _ViewCtrl
 
 
