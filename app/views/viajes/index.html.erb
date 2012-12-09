@@ -1,0 +1,45 @@
+<h1>Listing viajes</h1>
+
+<table>
+  <tr>
+    <th>Idusuario</th>
+    <th>Idciudadorigen</th>
+    <th>Idciudaddestino</th>
+    <th>Idestado</th>
+    <th>Equipaje</th>
+    <th>Animales</th>
+    <th>Kms</th>
+    <th>Pasaje</th>
+    <th>Peajes</th>
+    <th>Fsalida</th>
+    <th>Fllegada</th>
+    <th>Paradas</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @viajes.each do |viaje| %>
+  <tr>
+    <td><%= viaje.idUsuario %></td>
+    <td><%= viaje.idCiudadOrigen %></td>
+    <td><%= viaje.idCiudadDestino %></td>
+    <td><%= viaje.idEstado %></td>
+    <td><%= viaje.equipaje %></td>
+    <td><%= viaje.animales %></td>
+    <td><%= viaje.kms %></td>
+    <td><%= viaje.pasaje %></td>
+    <td><%= viaje.peajes %></td>
+    <td><%= viaje.fSalida %></td>
+    <td><%= viaje.fLlegada %></td>
+    <td><%= viaje.paradas %></td>
+    <td><%= link_to 'Show', viaje %></td>
+    <td><%= link_to 'Edit', edit_viaje_path(viaje) %></td>
+    <td><%= link_to 'Destroy', viaje, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Viaje', new_viaje_path %>

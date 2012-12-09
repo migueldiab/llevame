@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Nombre:</b>
+  <%= @ciudad.nombre %>
+</p>
+
+<p>
+  <b>Coordx:</b>
+  <%= @ciudad.coordX %>
+</p>
+
+<p>
+  <b>Coordy:</b>
+  <%= @ciudad.coordY %>
+</p>
+
+<p>
+  <b>Popular:</b>
+  <%= @ciudad.popular %>
+</p>
+
+<p>
+  <b>Poblacion:</b>
+  <%= @ciudad.poblacion %>
+</p>
+
+<p>
+  <b>Usuarios:</b>
+  <%= @ciudad.usuarios %>
+</p>
+
+<p>
+  <b>Iddepartamento:</b>
+  <%= @ciudad.idDepartamento %>
+</p>
+
+
+<%= link_to 'Edit', edit_ciudad_path(@ciudad) %> |
+<%= link_to 'Back', ciudads_path %>

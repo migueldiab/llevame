@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  idUsuario: 1
+  idViaje: 1
+  idAsiento: 1
+  asunto: MyString
+  desc: MyText
+  puntaje: 1
+
+two:
+  idUsuario: 1
+  idViaje: 1
+  idAsiento: 1
+  asunto: MyString
+  desc: MyText
+  puntaje: 1

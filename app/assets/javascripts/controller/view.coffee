@@ -29,6 +29,20 @@ define [
       scope.mainContent = 'partials/user.html'
       scope.init = ->
         console.log 'Loaded User Partial'
+        scope = angular.element(document).scope()
+        scope.agregarViaje = ->
+          console.log 'Agregando Viaje'
+          scope = angular.element(document).scope()
+          scope.mainContent = 'partials/agregar.html'
+          scope.init = ->
+            console.log 'Nuevo Viaje'
+
+        scope.buscarViaje = ->
+          console.log 'Buscando Viaje'
+
+
+
+
       $('#frmLogin').slideUp(300, @showUser)
 
     showUser: =>

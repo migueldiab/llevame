@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Nombre:</b>
+  <%= @programa.nombre %>
+</p>
+
+<p>
+  <b>Idagenda:</b>
+  <%= @programa.idAgenda %>
+</p>
+
+<p>
+  <b>Finicio:</b>
+  <%= @programa.fInicio %>
+</p>
+
+<p>
+  <b>Ffin:</b>
+  <%= @programa.fFin %>
+</p>
+
+
+<%= link_to 'Edit', edit_programa_path(@programa) %> |
+<%= link_to 'Back', programas_path %>

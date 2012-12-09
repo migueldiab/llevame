@@ -1,0 +1,25 @@
+<h1>Listing asientos</h1>
+
+<table>
+  <tr>
+    <th>Idviaje</th>
+    <th>Idusuario</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @asientos.each do |asiento| %>
+  <tr>
+    <td><%= asiento.idViaje %></td>
+    <td><%= asiento.idUsuario %></td>
+    <td><%= link_to 'Show', asiento %></td>
+    <td><%= link_to 'Edit', edit_asiento_path(asiento) %></td>
+    <td><%= link_to 'Destroy', asiento, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Asiento', new_asiento_path %>

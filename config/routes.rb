@@ -1,4 +1,25 @@
 Llevame::Application.routes.draw do
+  resources :reviews
+
+
+  resources :departamentos
+
+
+  resources :asientos
+
+
+  resources :programas
+
+
+  resources :viajes
+
+
+  resources :agendas
+
+
+  resources :ciudads
+
+
   root :to => 'main#home'
 
   get "registrar" => 'main#registrar'

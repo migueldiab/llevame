@@ -1,0 +1,65 @@
+<%= form_for(@viaje) do |f| %>
+  <% if @viaje.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@viaje.errors.count, "error") %> prohibited this viaje from being saved:</h2>
+
+      <ul>
+      <% @viaje.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :idUsuario %><br />
+    <%= f.number_field :idUsuario %>
+  </div>
+  <div class="field">
+    <%= f.label :idCiudadOrigen %><br />
+    <%= f.number_field :idCiudadOrigen %>
+  </div>
+  <div class="field">
+    <%= f.label :idCiudadDestino %><br />
+    <%= f.number_field :idCiudadDestino %>
+  </div>
+  <div class="field">
+    <%= f.label :idEstado %><br />
+    <%= f.number_field :idEstado %>
+  </div>
+  <div class="field">
+    <%= f.label :equipaje %><br />
+    <%= f.check_box :equipaje %>
+  </div>
+  <div class="field">
+    <%= f.label :animales %><br />
+    <%= f.check_box :animales %>
+  </div>
+  <div class="field">
+    <%= f.label :kms %><br />
+    <%= f.number_field :kms %>
+  </div>
+  <div class="field">
+    <%= f.label :pasaje %><br />
+    <%= f.number_field :pasaje %>
+  </div>
+  <div class="field">
+    <%= f.label :peajes %><br />
+    <%= f.number_field :peajes %>
+  </div>
+  <div class="field">
+    <%= f.label :fSalida %><br />
+    <%= f.datetime_select :fSalida %>
+  </div>
+  <div class="field">
+    <%= f.label :fLlegada %><br />
+    <%= f.datetime_select :fLlegada %>
+  </div>
+  <div class="field">
+    <%= f.label :paradas %><br />
+    <%= f.number_field :paradas %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

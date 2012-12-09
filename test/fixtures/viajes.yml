@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  idUsuario: 1
+  idCiudadOrigen: 1
+  idCiudadDestino: 1
+  idEstado: 1
+  equipaje: false
+  animales: false
+  kms: 1
+  pasaje: 1
+  peajes: 1
+  fSalida: 2012-12-09 21:36:40
+  fLlegada: 2012-12-09 21:36:40
+  paradas: 1
+
+two:
+  idUsuario: 1
+  idCiudadOrigen: 1
+  idCiudadDestino: 1
+  idEstado: 1
+  equipaje: false
+  animales: false
+  kms: 1
+  pasaje: 1
+  peajes: 1
+  fSalida: 2012-12-09 21:36:40
+  fLlegada: 2012-12-09 21:36:40
+  paradas: 1

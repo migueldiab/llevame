@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  idViaje: 1
+  idUsuario: 1
+
+two:
+  idViaje: 1
+  idUsuario: 1
