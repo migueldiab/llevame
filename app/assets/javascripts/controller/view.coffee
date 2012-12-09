@@ -24,7 +24,9 @@ define [
 
 
     loadUserView: =>
-      $('#mainContent').html '<h3>Loading Trips... pelase wait...</h3>'
+#      $('#mainContent').html '<h3>Loading Trips... pelase wait...</h3>'
+      scope = angular.element(document).scope()
+      scope.mainContent = 'partials/user.html'
       $('#frmLogin').slideToggle(300, @showUser)
 
 

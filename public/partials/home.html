@@ -1,0 +1,50 @@
+<div class="row">
+  <div class="span7">
+    <div class="hero-unit">
+      <h1>llevame.uy</h1>
+      <p><%= @welcomeMsg %></p>
+      <p><span class='brand'>llevame.uy</span> te ayuda a conectarte con personas como vos; con un destino común y te permite compartir tu viaje con ellas.</p>
+
+      <div class="clear"></div>
+
+      <div id="myslide">
+        <div class="cover">
+
+          <div class="mystuff">
+            <img src="assets/Carpool_resized for web.jpg" />
+          </div>
+          <div class="mystuff">
+            <div class="frame">
+              <img class="lazy" src="assets/g.gif" data-original="assets/carpool_300.jpg" width="320" height="160" alt="Car Pool 1">
+            </div>
+            <noscript><img src="assets/carpool_300.jpg" width="320" height="160" alt="Car Pool 1"></noscript>
+          </div>
+          <div class="mystuff">
+            <div class="frame">
+              <img class="lazy" src="assets/g.gif" data-original="assets/Cars_Toon-picture-of-vehicle.jpg" width="320" height="160" alt="Car Pool 1">
+            </div>
+            <noscript><img src="assets/Cars_Toon-picture-of-vehicle.jpg" width="320" height="160" alt="Car Pool 1"></noscript>
+          </div>
+        </div> <!-- end of div cover -->
+      </div>  <!-- end of div myslide -->
+      <div id="button">
+        <a class="button1 lazy-active" rel="1" href="#image1"></a>
+        <a class="button2" rel="2" href="#image2"></a>
+        <a class="button3" rel="3" href="#image3"></a>
+      </div> <!-- end of div button-->
+
+    </div>
+  </div>
+
+  <div class="span5">
+    <h2><%= @motto %></h2>
+    <p>Conocé todo lo que Uruguay tiene para ofrecerte.</p>
+    <p><a href="#formRegistrar" id="btnFormularioRegistro" class="btn">Registrate &raquo;</a></p>
+    <p><a class="btn btn-primary btn-large">Te llevamos? &raquo;</a></p>
+  </div>
+
+  <div id="formRegistrar" class="modal hide fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <h3>Loading...</h3>
+  </div>
+</div>
+

@@ -21,6 +21,7 @@ define ['controller/home'
       llevameMod.run ($rootScope) ->
         console.log('Starting App...')
         $rootScope.author = 'Miguel A. Diab'
+        $rootScope.mainContent = 'partials/home.html'
 
       angular.bootstrap document, ['llevameApp', 'navigation-bar']
 
