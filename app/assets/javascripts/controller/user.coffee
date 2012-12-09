@@ -24,9 +24,10 @@ define [], () ->
         self.currentUser = data
         ViewCtrl.getInstance().loadUserView()
         NavBarCtrl.getInstance().setUser(self.currentUser)
-
+      else if ("success" == status)
+        console.log 'Call OK but no user'
       else
-        console.log 'No User Loaded \nStatus: ' + status + '\nResponse: ' + jqXHR.statusText + ' - '+ jqXHR.responseText
+        console.log 'Call Error\nStatus: ' + status + '\nResponse: ' + jqXHR.statusText + ' - '+ jqXHR.responseText
 
     getCurrentUser: ->
       self.currentuser

@@ -30,11 +30,12 @@ define ['controller/home'
       homeController = HomeCtrl.getInstance()
       userController = UserCtrl.getInstance()
 
+      userController.loginCurrentUser()
+
       homeController.startSlider()
       homeController.startLazyImages()
       homeController.startEventListeners()
 
-      userController.loginCurrentUser()
 
     navBar: =>
       console.log 'Loading Navigation Bar'
