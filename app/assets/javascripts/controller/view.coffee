@@ -27,6 +27,8 @@ define [
 #      $('#mainContent').html '<h3>Loading Trips... pelase wait...</h3>'
       scope = angular.element(document).scope()
       scope.mainContent = 'partials/user.html'
+      scope.init = ->
+        console.log 'Loaded User Partial'
       $('#frmLogin').slideUp(300, @showUser)
 
     showUser: =>
