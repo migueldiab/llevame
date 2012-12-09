@@ -1,11 +1,12 @@
 define ['controller/home'
   ,'controller/view'
   ,'controller/user'
+  ,'controller/llevame'
   ,'angular'
   ,'jquery'
   ,"jquery.lazyload.min"
   ,'common/validator'
-], (HomeCtrl, ViewCtrl, UserCtrl, angular) ->
+], (HomeCtrl, ViewCtrl, UserCtrl, llevameCtrl, angular) ->
 
   class Llevame
     init: =>
