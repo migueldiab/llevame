@@ -1,4 +1,4 @@
-define [], () ->
+define ['angular'], (angular) ->
 
   root = exports ? this
 
@@ -10,23 +10,17 @@ define [], () ->
     startSlider: ->
       console.log 'startSlider'
       $('#button a').click ->
-
         integer = $(this).attr('rel')
-
         $('#myslide .cover').animate({left:-320*(parseInt(integer)-1)})  # Width of div mystuff (here 160)
-
         $('#button a').each ->
-
           $(this).removeClass('lazy-active')
-
           if $(this).hasClass('button'+integer)
             $(this).addClass('lazy-active')
-
-          if $('img.lazy')[0].hidden
-            $('img.lazy').each ->
+          $('img.lazy').each ->
+            if this.hidden
               this.hidden = false
-            $('img.lazy').lazyload
-                  effect : "fadeIn"   
+          $('img.lazy').lazyload
+            effect : "fadeIn"
 
 
     startLazyImages: ->
@@ -59,13 +53,19 @@ define [], () ->
         params = { inputEmail: $('#inputEmail').val()
           , inputPassword: $('#inputPassword').val()
           , inputPasswordRepeat: $('#inputPasswordRepeat').val() }
-        $('#mainContent').load('newUser', params, @llevameLoaded)
+#        jQuery.getJSON('newUser', params, @llevameLoaded)
+        injector = angular.element(document).injector()
+        $http = injector.get('$http')
+        $http.post('newUser', params).success(@llevameLoaded).error(@llevameLoaded);
         return false
 
-    llevameLoaded: (response, status, xhr) =>
-      console.log 'llevameLoaded AJAX'
-      if ("success" == status)
-        $('#frmLogin').fadeOut(1000);
+    llevameLoaded: (data, status, headers, config) =>
+      console.log 'llevame Loaded AJAX ' + data
+      if (200 == status && data != undefined)
+
+        UserCtrl.getInstance().setCurrentUser(data)
+      else
+        ViewCtrl.getInstance().showError('Register Error ' + status, data.error)
 
     verificarFormulario: ->
         console.log 'verificarFormulario'

@@ -44,8 +44,13 @@ class UsersController < ApplicationController
     @user = User.find_by_email(email)
 
     if @user
-      if @user.password == password
+      if @user.has_password?(password)
         logger.info "Password matches!"
+        sign_in(@user)
+        render :json => @user
+      else
+        response = ['error' => 'Account already registered with that email']
+        render :json => response, :status => 401
       end
     else
       logger.info "No User found... Creating new"
@@ -64,14 +69,11 @@ class UsersController < ApplicationController
       @user.email = email
       @user.password = password
       @user.verified = false
-
-      sign_in(@user)
       @user.save
-
-      flash[:success] = "Bienvenido a Llevame!"
-
+      sign_in(@user)
+      #flash[:success] = "Bienvenido a Llevame!"
+      render :json => @user
     end
-    render 'main/llevame', :layout => false
   end
 
   # GET /users/1/edit

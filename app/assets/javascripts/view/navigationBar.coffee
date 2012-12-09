@@ -33,12 +33,17 @@ define [], () ->
 
       if (this.validateCredentials(login, password))
         console.log 'Validated Credentias'
-        data =
+        params =
           'login': login
           'password': password
 
-        $.post('loginUser', data, UserCtrl.getInstance().loadUser, 'json')
-        .error(UserCtrl.getInstance().loadUser)
+#        $.post('loginUser', params, UserCtrl.getInstance().loadUser, 'json')
+#        .error(UserCtrl.getInstance().loadUser)
+        injector = angular.element(document).injector()
+        $http = injector.get('$http')
+        $http.post('loginUser', params).success(UserCtrl.getInstance().loadUser)
+          .error(UserCtrl.getInstance().loadUser);
+
       else
         console.log 'Invalid Credentias'
         ViewCtrl.getInstance().showError('Login Error', 'Invalid Username or Password')

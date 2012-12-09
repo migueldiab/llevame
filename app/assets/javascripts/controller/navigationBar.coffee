@@ -13,7 +13,7 @@ define [
     setUser: (_user) ->
       scope = angular.element(document).scope()
       scope.user = _user
-      scope.$apply();
+#      scope.$apply();
 
     getUser: ->
       scope = angular.element(document).scope()

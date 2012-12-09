@@ -5,7 +5,8 @@ define ['angular'], (angular) ->
   controllerModule.controller('llevameCtrl', ['$scope'], ($scope) ->
 
     $scope.searchTrip = ->
-      console.log('Searching Trip')
+      console.log 'Searching Trip'
+
 
 
   )

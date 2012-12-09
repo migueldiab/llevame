@@ -1,4 +1,4 @@
-define [], () ->
+define ['angular'], (angular) ->
   root = exports ? this
 
   class _UserCtrl
@@ -10,27 +10,38 @@ define [], () ->
 
     loginUser: =>
       console.log 'Login User'
-      jQuery.getJSON('login', null, @loadUser)
+#      injector = angular.element(document).injector()
+#      $http = injector.get('$http')
+      $http.post('login', null).success(@loadUser);
+#      jQuery.getJSON('login', null, @loadUser)
       return false;
 
     loginCurrentUser: ->
       console.log 'Trying to login user...'
-      jQuery.getJSON('loginFromCookies', null, @loadUser)
+#      jQuery.getJSON('loginFromCookies', null, @loadUser)
+      injector = angular.element(document).injector()
+      $http = injector.get('$http')
+      $http.get('loginFromCookies', null).success(@loadUser);
 
-    loadUser: (data, status, jqXHR) =>
+    loadUser: (data, status, headers, config) =>
       console.log 'Loading User via JSON'
-      if ("success" == status && data)
-        console.log 'Got JSON User : ' + data.login
-        self.currentUser = data
-        ViewCtrl.getInstance().loadUserView()
-        NavBarCtrl.getInstance().setUser(self.currentUser)
-      else if ("success" == status)
+      if (200 == status && data != 'null')
+        this.setCurrentUser(data)
+      else if (200 == status)
         console.log 'Call OK but no user'
-      else
-        console.log 'Call Error\nStatus: ' + status + '\nResponse: ' + jqXHR.statusText + ' - '+ jqXHR.responseText
 
-    getCurrentUser: ->
+      else
+        console.log 'Call Error\nStatus: ' + status + '\nResponse: ' + headers + ' - '+ config
+        ViewCtrl.getInstance().showError('Error de Login', 'Usuario o clave incorrectos. Olvidaste tu clave?')
+
+    getCurrentUser: =>
       self.currentuser
+
+    setCurrentUser: (user) =>
+      console.log 'Setting Current User : ' + user.login
+      self.currentUser = user
+      ViewCtrl.getInstance().loadUserView()
+      NavBarCtrl.getInstance().setUser(self.currentUser)
 
   class root.UserCtrl
 

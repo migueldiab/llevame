@@ -27,9 +27,7 @@ define [
 #      $('#mainContent').html '<h3>Loading Trips... pelase wait...</h3>'
       scope = angular.element(document).scope()
       scope.mainContent = 'partials/user.html'
-      $('#frmLogin').slideToggle(300, @showUser)
-
-
+      $('#frmLogin').slideUp(300, @showUser)
 
     showUser: =>
       $('#userNav').fadeIn(300)

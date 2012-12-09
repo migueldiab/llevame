@@ -13,7 +13,9 @@ class SessionController < ApplicationController
 
   def loginFromCookies
     logger.info "Trying to login user..."
+
     respond_with current_user
+
   end
 
 
@@ -27,9 +29,13 @@ class SessionController < ApplicationController
       sign_in(@user)
       render :json => @user
     else
+      if @user
+        logger.info 'Wrong Password'
+      else
+        logger.info "No User with login #{login}"
+      end
       logger.info 'Returning Error'
       response = ['Error' => 'Error 123']
-
       render :json => response, :status => 401
     end
 

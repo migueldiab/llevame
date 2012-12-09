@@ -23,19 +23,22 @@ define ['controller/home'
         console.log('Starting App...')
         $rootScope.author = 'Miguel A. Diab'
         $rootScope.mainContent = 'partials/home.html'
+        $rootScope.init = ->
+          console.log '*** This is the MAIN INIT ***'
+          homeController = HomeCtrl.getInstance()
+          userController = UserCtrl.getInstance()
+
+          userController.loginCurrentUser()
+
+          homeController.startSlider()
+          homeController.startLazyImages()
+          homeController.startEventListeners()
+
 
       angular.bootstrap document, ['llevameApp', 'navigation-bar']
 
     initControllers: =>
 
-      homeController = HomeCtrl.getInstance()
-      userController = UserCtrl.getInstance()
-
-      userController.loginCurrentUser()
-
-      homeController.startSlider()
-      homeController.startLazyImages()
-      homeController.startEventListeners()
 
 
     navBar: =>

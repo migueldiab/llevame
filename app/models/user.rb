@@ -36,6 +36,9 @@ class User < ActiveRecord::Base
   end
 
   def has_password?(submitted_password)
+    #logger.info submitted_password
+    #logger.info password
+    #logger.info encrypt(submitted_password)
     password == encrypt(submitted_password)
   end
 
