@@ -65,11 +65,6 @@ define [], () ->
 
       return true
 
-
-    showUser: =>
-      $('#userNav').slideToggle(300)
-
-
   class root.NavBarView
 
     instance = undefined;

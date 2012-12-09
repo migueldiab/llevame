@@ -12,29 +12,10 @@ define [
   root = exports ? this
 
   class _ViewCtrl
-    currentUser = null
+    scope = null
 
     constructor: ->
       console.log 'Starting View Controller'
-
-    loadPartials: (mainModule) ->
-      console.log 'Loading Partials'
-      module = angular.module('navigation-bar', [])
-      module.directive('navigationBar', @navBar)
-      angular.module('llevameApp', ['navigation-bar']);
-      angular.bootstrap(document, ['llevameApp'])
-
-
-    navBar: =>
-      console.log 'Loading Navigation Bar'
-      directiveDefinitionObject = {
-        restrict: 'E'
-        ,replace: false
-        ,templateUrl: '/partials/navigationBar.html'
-        ,link: NavBarView.getInstance().linkNavBar
-        ,controller: NavBarCtrl.getInstance().init
-      }
-      return directiveDefinitionObject
 
     showError: (title, error) ->
       $('#errorMsg').slideDown(400)
@@ -43,7 +24,9 @@ define [
 
 
     loadUserView: =>
+      $('#mainContent').html '<h3>Loading Trips... pelase wait...</h3>'
       $('#frmLogin').slideToggle(300, @showUser)
+
 
 
     showUser: =>

@@ -1,26 +1,22 @@
-define ['model/User'], (User) ->
+define [
+  'model/User'
+  ,'angular'
+], (User, angular) ->
 
   root = exports ? this
 
   class _NavBarCtrl
 
-    scope = null
-
     constructor: ->
       console.log 'Starting View Controller'
 
-    init: ($scope) ->
-      console.log 'Setting Var'
-      scope = $scope
-
     setUser: (_user) ->
+      scope = angular.element(document).scope()
       scope.user = _user
       scope.$apply();
 
-    getScope: ->
-      scope
-
     getUser: ->
+      scope = angular.element(document).scope()
       scope.user
 
 
