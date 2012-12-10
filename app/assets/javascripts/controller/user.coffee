@@ -21,18 +21,24 @@ define ['angular'], (angular) ->
 #      jQuery.getJSON('loginFromCookies', null, @loadUser)
       injector = angular.element(document).injector()
       $http = injector.get('$http')
-      $http.get('loginFromCookies', null).success(@loadUser);
+      $http.get('loginFromCookies', null).success(@loadUserOrDefaultHome);
+
+    loadUserOrDefaultHome: (data, status, headers, config) =>
+      if (!this.loadUser(data, status, headers, config))
+        ViewCtrl.getInstance().loadHomeView()
 
     loadUser: (data, status, headers, config) =>
       console.log 'Loading User via JSON'
+      result = false
       if (200 == status && data != 'null')
         this.setCurrentUser(data)
+        result = true
       else if (200 == status)
         console.log 'Call OK but no user'
-
       else
         console.log 'Call Error\nStatus: ' + status + '\nResponse: ' + headers + ' - '+ config
         ViewCtrl.getInstance().showError('Error de Login', 'Usuario o clave incorrectos. Olvidaste tu clave?')
+      result
 
     getCurrentUser: =>
       self.currentuser

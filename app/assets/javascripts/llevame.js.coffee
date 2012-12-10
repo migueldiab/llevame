@@ -22,24 +22,16 @@ define ['controller/home'
       llevameMod.run ($rootScope) ->
         console.log('Starting App...')
         $rootScope.author = 'Miguel A. Diab'
-        $rootScope.mainContent = 'partials/home.html'
-        $rootScope.init = ->
-          console.log '*** This is the MAIN INIT ***'
-          homeController = HomeCtrl.getInstance()
-          userController = UserCtrl.getInstance()
-
-          userController.loginCurrentUser()
-
-          homeController.startSlider()
-          homeController.startLazyImages()
-          homeController.startEventListeners()
+#        $rootScope.mainContent = 'partials/home.html'
+#        $rootScope.init = this.initControllers
 
 
       angular.bootstrap document, ['llevameApp', 'navigation-bar']
 
     initControllers: =>
-
-
+      console.log 'Init Llevame Controllers'
+      userController = UserCtrl.getInstance()
+      userController.loginCurrentUser()
 
     navBar: =>
       console.log 'Loading Navigation Bar'

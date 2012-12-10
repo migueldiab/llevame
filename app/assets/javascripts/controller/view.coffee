@@ -2,11 +2,13 @@ define [
   'angular'
   ,'view/navigationBar'
   ,'controller/navigationBar'
+  ,'controller/home'
 ],
 (
   angular
   ,NavBarView
   ,NavBarCtrl
+  ,HomeCtrl
 ) ->
 
   root = exports ? this
@@ -21,6 +23,19 @@ define [
       $('#errorMsg').slideDown(400)
       $('#errorMsgTitle').text title
       $('#errorMsgText').text error
+
+
+    loadHomeView: =>
+
+      homeController = HomeCtrl.getInstance()
+
+      scope = angular.element(document).scope()
+      scope.mainContent = 'partials/home.html'
+      scope.init = this.initControllers
+
+      homeController.startSlider()
+      homeController.startLazyImages()
+      homeController.startEventListeners()
 
 
     loadUserView: =>
