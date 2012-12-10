@@ -26,16 +26,17 @@ define [
 
 
     loadHomeView: =>
-
-      homeController = HomeCtrl.getInstance()
-
       scope = angular.element(document).scope()
       scope.mainContent = 'partials/home.html'
-      scope.init = this.initControllers
+      scope.init = this.homeController
+
+    homeController: =>
+      homeController = HomeCtrl.getInstance()
 
       homeController.startSlider()
       homeController.startLazyImages()
       homeController.startEventListeners()
+
 
 
     loadUserView: =>

@@ -19,9 +19,8 @@ define ['angular'], (angular) ->
           $('img.lazy').each ->
             if this.hidden
               this.hidden = false
-          $('img.lazy').lazyload
-            effect : "fadeIn"
-
+              $('img.lazy').lazyload
+                effect : "fadeIn"
 
     startLazyImages: ->
       console.log 'startLazyImages'
