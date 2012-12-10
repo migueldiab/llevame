@@ -2,11 +2,13 @@ define ['controller/home'
   ,'controller/view'
   ,'controller/user'
   ,'controller/llevame'
+  ,'controller/navigationBar'
+  ,'view/navigationBar'
   ,'angular'
   ,'jquery'
   ,"jquery.lazyload.min"
   ,'common/validator'
-], (HomeCtrl, ViewCtrl, UserCtrl, llevameCtrl, angular) ->
+], (HomeCtrl, ViewCtrl, UserCtrl, llevameCtrl, NavBarCtrl, NavBarView, angular) ->
 
   class Llevame
     init: =>
@@ -21,7 +23,14 @@ define ['controller/home'
       llevameMod = angular.module('llevameApp', ['navigation-bar'])
       llevameMod.run ($rootScope) ->
         console.log('Starting App...')
+        ViewCtrl.getInstance()
+        UserCtrl.getInstance()
+        HomeCtrl.getInstance()
         $rootScope.author = 'Miguel A. Diab'
+
+        $rootScope.executeMenu = (aMenuItem) ->
+          console.log 'Menu : ' + aMenuItem.getAction()
+          eval(aMenuItem.getAction())
 #        $rootScope.mainContent = 'partials/home.html'
 #        $rootScope.init = this.initControllers
 

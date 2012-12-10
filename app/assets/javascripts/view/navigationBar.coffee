@@ -1,4 +1,4 @@
-define [], () ->
+define ['common/MenuItem'], (MenuItem) ->
   root = exports ? this
 
   class _NavBarView
@@ -21,9 +21,15 @@ define [], () ->
       console.log 'Toggling Nav Bar'
       $('#mainNavBar').collapse('toggle')
 
-    linkNavBar: =>
+    linkNavBar: ($scope) =>
       console.log 'Linking Nav Bar'
       this.addEventListeners()
+      this.configureMenuItems($scope)
+
+    configureMenuItems: ($scope) =>
+      item = new MenuItem('Acerca de', 'ViewCtrl.getInstance().loadAboutView()')
+      $scope.menuList = [item]
+
 
 
     loginUser: =>

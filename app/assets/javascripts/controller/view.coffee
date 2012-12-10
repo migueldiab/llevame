@@ -1,15 +1,4 @@
-define [
-  'angular'
-  ,'view/navigationBar'
-  ,'controller/navigationBar'
-  ,'controller/home'
-],
-(
-  angular
-  ,NavBarView
-  ,NavBarCtrl
-  ,HomeCtrl
-) ->
+define ['angular', 'controller/home'], (angular, HomeCtrl) ->
 
   root = exports ? this
 
@@ -24,6 +13,11 @@ define [
       $('#errorMsgTitle').text title
       $('#errorMsgText').text error
 
+
+    loadAboutView: =>
+      $('#formRegistrar').modal('show')
+      $('#formRegistrar').load('/partials/acercaDe')
+      return false
 
     loadHomeView: =>
       scope = angular.element(document).scope()
@@ -43,7 +37,13 @@ define [
 #      $('#mainContent').html '<h3>Loading Trips... pelase wait...</h3>'
       scope = angular.element(document).scope()
       scope.mainContent = 'partials/user.html'
-      scope.init = ->
+      scope.init = this.userController
+      $('#frmLogin').slideUp(300, @showUser)
+
+    showUser: =>
+      $('#userNav').fadeIn(300)
+
+    userController: =>
         console.log 'Loaded User Partial'
         scope = angular.element(document).scope()
         scope.agregarViaje = ->
@@ -55,16 +55,6 @@ define [
 
         scope.buscarViaje = ->
           console.log 'Buscando Viaje'
-
-
-
-
-      $('#frmLogin').slideUp(300, @showUser)
-
-    showUser: =>
-      $('#userNav').fadeIn(300)
-
-
 
   class root.ViewCtrl
 
