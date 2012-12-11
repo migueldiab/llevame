@@ -13,6 +13,7 @@ requirejs.config({
     ,bootstrapCollapse: "bootstrap/bootstrap-collapse"
     ,bootstrapTime: "bootstrap/bootstrap-timepicker"
     ,bootstrapDate: "bootstrap/bootstrap-datepicker"
+    ,bootstrapDropdown: "bootstrap/bootstrap-dropdown"
     ,bootstrapDateEs: "bootstrap/bootstrap-datepicker.es"
   }
   ,shim: {
@@ -23,7 +24,17 @@ requirejs.config({
       deps: ['angular']
     },
     'bootstrapDateEs': {
+
       deps: ['bootstrapDate']
+    },
+    'bootstrapDropdown': {
+      deps: ['jquery']
+    },
+    'bootstrapTime': {
+      deps: ['jquery']
+    },
+    'bootstrapDate': {
+      deps: ['jquery']
     },
     'bootstrapModal': {
       deps: ['jquery']
@@ -49,6 +60,7 @@ require([
     ,"bootstrapModal"
     ,"bootstrapAlert"
     ,"bootstrapCollapse"
+    ,"bootstrapDropdown"
     ,"bootstrapTime"
     ,"bootstrapDate"
     ,"bootstrapDateEs"

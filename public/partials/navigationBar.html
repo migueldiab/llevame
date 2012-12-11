@@ -1,4 +1,4 @@
-<div class="navbar navbar-inverse navbar-fixed-top">
+<div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container">
       <a id="btnToggleNavBar" class="btn btn-navbar">
@@ -21,11 +21,15 @@
             <input id="btnLogin" class="btn" value="vamos!" type="submit"/>
           </form>
           <ul id="userNav" class="nav">
-            <li>
-              <a href ng-click="profile()">{{user.login}}</a>
-            </li>
-            <li>
-              <a href="/signOut">Log Out</a>
+            <li class="dropdown">
+              <a data-toggle="dropdown" class="dropdown-toggle" href="#">{{user.login}} <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="" ng-click="profile()">Mi Perfil</a></li>
+                <li><a href="" ng-click="notifications()">Notificaciones</a></li>
+                <li class="divider"></li>
+                <li><a href="" ng-click="aboutUs()">Acerca De</a></li>
+                <li><a href="/signOut">Salir</a></li>
+              </ul>
             </li>
           </ul>
         </div>

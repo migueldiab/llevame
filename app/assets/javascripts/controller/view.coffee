@@ -40,9 +40,8 @@ define ['angular', 'controller/home'  ,'common/MenuItem'
       #
       buscar = new MenuItem 'Buscar Viaje', 'ViewCtrl.getInstance().loadUserView()'
       agregar = new MenuItem 'Agregar', 'ViewCtrl.getInstance().loadNewTripView()'
-      notif = new MenuItem 'Notificaciones', 'ViewCtrl.getInstance().loadNotificationsView()'
-      acercaDe = new MenuItem 'Acerca de', 'ViewCtrl.getInstance().loadAboutView()'
-      scope.menuList = [buscar, agregar, notif, acercaDe]
+      misViajes = new MenuItem 'Mis Viajes', 'ViewCtrl.getInstance().loadMyTripsView()'
+      scope.menuList = [buscar, agregar, misViajes]
 
     loadNotificationsView: =>
       console.log 'About View'
@@ -72,6 +71,19 @@ define ['angular', 'controller/home'  ,'common/MenuItem'
 
         scope.buscarViaje = ->
           console.log 'Buscando Viaje'
+
+    loadMyTripsView: =>
+      console.log 'Cargando Mis Viajes'
+      scope = angular.element(document).scope()
+      scope.mainContent = 'partials/misViajes.html'
+      scope.init = ->
+        console.log 'Nuevo Viaje'
+        $('#fechaSalida').datepicker()
+        $('#horaSalida').timepicker({
+        minuteStep: 15,
+        showSeconds: false,
+        showMeridian: true
+        });
 
     loadNewTripView: =>
         console.log 'Agregando Viaje'

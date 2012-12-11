@@ -4,16 +4,16 @@
     <div class="row">
       <form class="form-horizontal">
         <fieldset>
-          <legend>A dónde vas? Me llevás?</legend>
+          <legend>A dónde vayas llevame!</legend>
           <div class="control-group">
-            <label class="control-label" for="desde">Desde</label>
+            <label class="control-label" for="desde">Lugar de salida</label>
             <div class="controls">
               <input type="text" id="desde">
               <span class="help-inline">Ver en el mapa</span>
             </div>
           </div>
           <div class="control-group">
-            <label class="control-label" for="hacia">Hasta</label>
+            <label class="control-label" for="hacia">Lugar de llegada</label>
             <div class="controls">
               <input type="text" id="hasta">
               <span class="help-inline"></span>
@@ -45,7 +45,7 @@
             <label class="control-label" for="flexible"></label>
             <div class="controls">
               <input type="checkbox" id="flexible">
-              <span class="help-inline">Fechas flexibles</span>
+              <span class="help-inline">Horario Flexible</span>
             </div>
           </div>
           <div class="control-group">
@@ -53,12 +53,17 @@
             <div class="controls">
               <input type="text" id="flexible">
               <span class="help-inline"></span>
+              <ul>
+                <li>Amigo 1 <span class="icon-remove"></span></li>
+                <li>Amigo 2 <span class="icon-remove"></span></li>
+                <li>Amigo 3 <span class="icon-remove"></span></li>
+              </ul>
             </div>
           </div>
           <div class="control-group">
             <div class="form-actions">
-              <input type="button" value="Agregar Viaje" class="btn btn-info" ng-click="searchTrip()"/>
-              <input type="button" value="Llevame >>" class="btn btn-success btn-large" ng-click="searchTrip()"/>
+              <input type="button" value="Cancelar" class="btn btn-warning" ng-click="searchTrip()"/>
+              <input type="button" value="Agregar Viaje" class="btn btn-success" ng-click="searchTrip()"/>
             </div>
           </div>
         </fieldset>
