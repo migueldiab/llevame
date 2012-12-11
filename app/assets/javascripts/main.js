@@ -11,6 +11,7 @@ requirejs.config({
     ,bootstrapModal: "bootstrap/bootstrap-modal"
     ,bootstrapAlert: "bootstrap/bootstrap-alert"
     ,bootstrapCollapse: "bootstrap/bootstrap-collapse"
+    ,bootstrapTime: "bootstrap/bootstrap-timepicker"
     ,bootstrapDate: "bootstrap/bootstrap-datepicker"
     ,bootstrapDateEs: "bootstrap/bootstrap-datepicker.es"
   }
@@ -48,6 +49,7 @@ require([
     ,"bootstrapModal"
     ,"bootstrapAlert"
     ,"bootstrapCollapse"
+    ,"bootstrapTime"
     ,"bootstrapDate"
     ,"bootstrapDateEs"
     ,'opensans'

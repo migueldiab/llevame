@@ -79,7 +79,12 @@ define ['angular', 'controller/home'  ,'common/MenuItem'
         scope.mainContent = 'partials/agregar.html'
         scope.init = ->
           console.log 'Nuevo Viaje'
-          $('#dp3').datepicker()
+          $('#fechaSalida').datepicker()
+          $('#horaSalida').timepicker({
+            minuteStep: 15,
+            showSeconds: false,
+            showMeridian: true
+          });
 
 
   class root.ViewCtrl
