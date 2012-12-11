@@ -31,6 +31,7 @@ define ['controller/home'
         $rootScope.executeMenu = (aMenuItem) ->
           console.log 'Menu : ' + aMenuItem.getAction()
           eval(aMenuItem.getAction())
+        $rootScope.profile = ViewCtrl.getInstance().loadProfileView
 #        $rootScope.mainContent = 'partials/home.html'
 #        $rootScope.init = this.initControllers
 

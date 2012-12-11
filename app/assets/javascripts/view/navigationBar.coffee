@@ -30,8 +30,6 @@ define ['common/MenuItem'], (MenuItem) ->
       item = new MenuItem('Acerca de', 'ViewCtrl.getInstance().loadAboutView()')
       $scope.menuList = [item]
 
-
-
     loginUser: =>
       console.log 'Clicked Btn Login'
       login = $('#login').val()

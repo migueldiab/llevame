@@ -46,6 +46,7 @@ define ['angular'], (angular) ->
     setCurrentUser: (user) =>
       console.log 'Setting Current User : ' + user.login
       self.currentUser = user
+      ViewCtrl.getInstance().loadUserMenu()
       ViewCtrl.getInstance().loadUserView()
       NavBarCtrl.getInstance().setUser(self.currentUser)
 

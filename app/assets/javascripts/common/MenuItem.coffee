@@ -1,15 +1,10 @@
 define [], () ->
   class MenuItem
 
-    name = null
-    action = null
+    constructor: (@name, @action) ->
 
-    constructor: (_name, _action) ->
-      name = _name
-      action = _action
+    getName: =>
+      return @name
 
-    getName: ->
-      return name
-
-    getAction: ->
-      return action
+    getAction: =>
+      return @action

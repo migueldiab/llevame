@@ -1,4 +1,5 @@
-define ['angular', 'controller/home'], (angular, HomeCtrl) ->
+define ['angular', 'controller/home'  ,'common/MenuItem'
+], (angular, HomeCtrl, MenuItem) ->
 
   root = exports ? this
 
@@ -15,6 +16,7 @@ define ['angular', 'controller/home'], (angular, HomeCtrl) ->
 
 
     loadAboutView: =>
+      console.log 'About View'
       $('#formRegistrar').modal('show')
       $('#formRegistrar').load('/partials/acercaDe')
       return false
@@ -33,6 +35,26 @@ define ['angular', 'controller/home'], (angular, HomeCtrl) ->
 
 
 
+    loadUserMenu: =>
+      scope = angular.element(document).scope()
+      #
+      buscar = new MenuItem 'Buscar Viaje', 'ViewCtrl.getInstance().loadUserView()'
+      agregar = new MenuItem 'Agregar', 'ViewCtrl.getInstance().loadNewTripView()'
+      notif = new MenuItem 'Notificaciones', 'ViewCtrl.getInstance().loadNotificationsView()'
+      acercaDe = new MenuItem 'Acerca de', 'ViewCtrl.getInstance().loadAboutView()'
+      scope.menuList = [buscar, agregar, notif, acercaDe]
+
+    loadNotificationsView: =>
+      console.log 'About View'
+      $('#formRegistrar').modal('show')
+      $('#formRegistrar').load('/partials/notificaciones')
+      return false
+
+    loadProfileView: =>
+      scope = angular.element(document).scope()
+      scope.mainContent = 'partials/perfil.html'
+      scope.init = ->
+
     loadUserView: =>
 #      $('#mainContent').html '<h3>Loading Trips... pelase wait...</h3>'
       scope = angular.element(document).scope()
@@ -46,15 +68,19 @@ define ['angular', 'controller/home'], (angular, HomeCtrl) ->
     userController: =>
         console.log 'Loaded User Partial'
         scope = angular.element(document).scope()
-        scope.agregarViaje = ->
-          console.log 'Agregando Viaje'
-          scope = angular.element(document).scope()
-          scope.mainContent = 'partials/agregar.html'
-          scope.init = ->
-            console.log 'Nuevo Viaje'
+        scope.agregarViaje = this.loadNewTripView
 
         scope.buscarViaje = ->
           console.log 'Buscando Viaje'
+
+    loadNewTripView: =>
+        console.log 'Agregando Viaje'
+        scope = angular.element(document).scope()
+        scope.mainContent = 'partials/agregar.html'
+        scope.init = ->
+          console.log 'Nuevo Viaje'
+          $('#dp3').datepicker()
+
 
   class root.ViewCtrl
 

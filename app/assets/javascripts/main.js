@@ -11,6 +11,8 @@ requirejs.config({
     ,bootstrapModal: "bootstrap/bootstrap-modal"
     ,bootstrapAlert: "bootstrap/bootstrap-alert"
     ,bootstrapCollapse: "bootstrap/bootstrap-collapse"
+    ,bootstrapDate: "bootstrap/bootstrap-datepicker"
+    ,bootstrapDateEs: "bootstrap/bootstrap-datepicker.es"
   }
   ,shim: {
     'angular': {
@@ -18,6 +20,9 @@ requirejs.config({
     },
     'angular-resource': {
       deps: ['angular']
+    },
+    'bootstrapDateEs': {
+      deps: ['bootstrapDate']
     },
     'bootstrapModal': {
       deps: ['jquery']
@@ -43,6 +48,8 @@ require([
     ,"bootstrapModal"
     ,"bootstrapAlert"
     ,"bootstrapCollapse"
+    ,"bootstrapDate"
+    ,"bootstrapDateEs"
     ,'opensans'
   //  , 'controllers/personController'
   //  , 'directives/ngController'
