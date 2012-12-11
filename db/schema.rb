@@ -11,7 +11,61 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121118124842) do
+ActiveRecord::Schema.define(:version => 20121209234646) do
+
+  create_table "agendas", :force => true do |t|
+    t.string   "nombre"
+    t.boolean  "publica"
+    t.integer  "idUsuario"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "asientos", :force => true do |t|
+    t.integer  "idViaje"
+    t.integer  "idUsuario"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "ciudads", :force => true do |t|
+    t.string   "nombre"
+    t.integer  "coordX"
+    t.integer  "coordY"
+    t.integer  "popular"
+    t.integer  "poblacion"
+    t.integer  "usuarios"
+    t.integer  "idDepartamento"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  create_table "departamentos", :force => true do |t|
+    t.string   "nombre"
+    t.integer  "habitantes"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "programas", :force => true do |t|
+    t.string   "nombre"
+    t.integer  "idAgenda"
+    t.date     "fInicio"
+    t.date     "fFin"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "reviews", :force => true do |t|
+    t.integer  "idUsuario"
+    t.integer  "idViaje"
+    t.integer  "idAsiento"
+    t.string   "asunto"
+    t.text     "desc"
+    t.integer  "puntaje"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "login"
@@ -23,6 +77,23 @@ ActiveRecord::Schema.define(:version => 20121118124842) do
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
     t.boolean  "verified",   :default => false
+  end
+
+  create_table "viajes", :force => true do |t|
+    t.integer  "idUsuario"
+    t.integer  "idCiudadOrigen"
+    t.integer  "idCiudadDestino"
+    t.integer  "idEstado"
+    t.boolean  "equipaje"
+    t.boolean  "animales"
+    t.integer  "kms"
+    t.integer  "pasaje"
+    t.integer  "peajes"
+    t.datetime "fSalida"
+    t.datetime "fLlegada"
+    t.integer  "paradas"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
 end

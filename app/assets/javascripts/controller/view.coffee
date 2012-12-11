@@ -68,7 +68,7 @@ define ['angular', 'controller/home'  ,'common/MenuItem'
         console.log 'Loaded User Partial'
         scope = angular.element(document).scope()
         scope.agregarViaje = this.loadNewTripView
-
+        $('#fechaSalida').datepicker()
         scope.buscarViaje = ->
           console.log 'Buscando Viaje'
 
