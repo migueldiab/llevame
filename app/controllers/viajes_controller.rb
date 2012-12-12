@@ -24,6 +24,7 @@ class ViajesController < ApplicationController
   # GET /viajes/new
   # GET /viajes/new.json
   def new
+
     @viaje = Viaje.new
 
     respond_to do |format|

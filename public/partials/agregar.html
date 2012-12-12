@@ -1,6 +1,6 @@
 <h3>Agregá tu próximo viaje</h3>
-<div class="row" id="scopeAgregar">
-  <div class="span7">
+<div class="row">
+  <div class="span7" id="scopeAgregar">
     <div class="row">
       <form name="frmViaje" class="form-horizontal">
         <fieldset>
@@ -8,14 +8,14 @@
           <div class="control-group">
             <label class="control-label" for="desde">Lugar de salida</label>
             <div class="controls">
-              <input type="text" name="desde" ng-model="viaje.salida" required >
+              <input type="text" ng-model="viaje.desde" required value="Montevideo">
               <span class="help-inline">Ver en el mapa</span>
             </div>
           </div>
           <div class="control-group">
             <label class="control-label" for="hacia">Lugar de llegada</label>
             <div class="controls">
-              <input type="text" id="hasta" >
+              <input type="text" ng-model="viaje.hacia" required >
               <span class="help-inline"></span>
             </div>
           </div>
@@ -23,17 +23,17 @@
             <label class="control-label" for="cuando">Cuando</label>
             <div class="controls">
               <div class="input-append date" id="fechaSalida" data-date-format="dd-mm-yyyy">
-                <input class="span2" size="16" type="text" value="">
+                <input class="span2" size="16" type="text" ng-model="viaje.fecha">
                 <span class="add-on"><i class="icon-th"></i></span>
               </div>
               <span class="help-inline"></span>
             </div>
           </div>
           <div class="control-group">
-            <label class="control-label" for="cuando">A qué hora?</label>
+            <label class="control-label" for="hora">A qué hora?</label>
             <div class="controls">
               <div class="input-append bootstrap-timepicker-component">
-                <input type="text" id="horaSalida" class="timepicker-default input-small">
+                <input type="text" id="horaSalida" ng-model="viaje.hora" class="timepicker-default input-small">
                   <span class="add-on">
                   <i class="icon-time"></i>
                   </span>
@@ -44,7 +44,7 @@
           <div class="control-group">
             <label class="control-label" for="flexible"></label>
             <div class="controls">
-              <input type="checkbox" id="flexible">
+              <input type="checkbox" id="flexible" ng-model="viaje.flexible" >
               <span class="help-inline">Horario Flexible</span>
             </div>
           </div>
