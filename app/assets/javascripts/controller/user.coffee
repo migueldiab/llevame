@@ -25,7 +25,7 @@ define ['angular'], (angular) ->
 
     loadUserOrDefaultHome: (data, status, headers, config) =>
       if (!this.loadUser(data, status, headers, config))
-        ViewCtrl.getInstance().loadHomeView()
+        HomeView.getInstance().load()
 
     loadUser: (data, status, headers, config) =>
       console.log 'Loading User via JSON'
@@ -37,7 +37,7 @@ define ['angular'], (angular) ->
         console.log 'Call OK but no user'
       else
         console.log 'Call Error\nStatus: ' + status + '\nResponse: ' + headers + ' - '+ config
-        ViewCtrl.getInstance().showError('Error de Login', 'Usuario o clave incorrectos. Olvidaste tu clave?')
+        MainView.getInstance().showError('Error de Login', 'Usuario o clave incorrectos. Olvidaste tu clave?')
       result
 
     getCurrentUser: =>
@@ -46,8 +46,8 @@ define ['angular'], (angular) ->
     setCurrentUser: (user) =>
       console.log 'Setting Current User : ' + user.login
       self.currentUser = user
-      ViewCtrl.getInstance().loadUserMenu()
-      ViewCtrl.getInstance().loadUserView()
+      MainView.getInstance().loadUserMenu()
+      SearchView.getInstance().load()
       NavBarCtrl.getInstance().setUser(self.currentUser)
 
   class root.UserCtrl

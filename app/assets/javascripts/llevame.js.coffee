@@ -1,14 +1,24 @@
 define ['controller/home'
-  ,'controller/view'
   ,'controller/user'
-  ,'controller/llevame'
   ,'controller/navigationBar'
+  ,'view/home'
   ,'view/navigationBar'
+  ,'view/agregar'
+  ,'view/aboutUs'
+  ,'view/notifications'
+  ,'view/profile'
+  ,'view/search'
+  ,'view/myTrips'
+  ,'view/main'
   ,'angular'
   ,'jquery'
   ,"jquery.lazyload.min"
   ,'common/validator'
-], (HomeCtrl, ViewCtrl, UserCtrl, llevameCtrl, NavBarCtrl, NavBarView, angular) ->
+], (HomeCtrl, UserCtrl, NavBarCtrl,
+    HomeView, NavBarView, AgregarView, AboutUsView,
+    NotificationsView, ProfileView, SearchView, MyTripsView,
+    MainView,
+    angular) ->
 
   class Llevame
     init: =>
@@ -17,23 +27,24 @@ define ['controller/home'
       this.initControllers()
 
     initModules: =>
+      console.log('Starting App...')
+#      ViewCtrl.getInstance()
+#      UserCtrl.getInstance()
+#      HomeCtrl.getInstance()
+
       module = angular.module('navigation-bar', [])
       module.directive('navigationBar', @navBar)
 
       llevameMod = angular.module('llevameApp', ['navigation-bar'])
       llevameMod.run ($rootScope) ->
-        console.log('Starting App...')
-        ViewCtrl.getInstance()
-        UserCtrl.getInstance()
-        HomeCtrl.getInstance()
         $rootScope.author = 'Miguel A. Diab'
 
         $rootScope.executeMenu = (aMenuItem) ->
           console.log 'Menu : ' + aMenuItem.getAction()
           eval(aMenuItem.getAction())
-        $rootScope.profile = ViewCtrl.getInstance().loadProfileView
-        $rootScope.notifications = ViewCtrl.getInstance().loadNotificationsView
-        $rootScope.aboutUs = ViewCtrl.getInstance().loadAboutView
+        $rootScope.profile = ProfileView.getInstance().load
+        $rootScope.notifications = NotificationsView.getInstance().load
+        $rootScope.aboutUs = AboutUsView.getInstance().load
 #        $rootScope.mainContent = 'partials/home.html'
 #        $rootScope.init = this.initControllers
 
@@ -42,8 +53,7 @@ define ['controller/home'
 
     initControllers: =>
       console.log 'Init Llevame Controllers'
-      userController = UserCtrl.getInstance()
-      userController.loginCurrentUser()
+      UserCtrl.getInstance().loginCurrentUser()
 
     navBar: =>
       console.log 'Loading Navigation Bar'

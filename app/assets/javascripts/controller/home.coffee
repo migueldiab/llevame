@@ -7,38 +7,6 @@ define ['angular'], (angular) ->
     constructor: ->
       console.log 'Starting Home Controller'
 
-    startSlider: ->
-      console.log 'startSlider'
-      $('#button a').click ->
-        integer = $(this).attr('rel')
-        $('#myslide .cover').animate({left:-320*(parseInt(integer)-1)})  # Width of div mystuff (here 160)
-        $('#button a').each ->
-          $(this).removeClass('lazy-active')
-          if $(this).hasClass('button'+integer)
-            $(this).addClass('lazy-active')
-          $('img.lazy').each ->
-            if this.hidden
-              this.hidden = false
-              $('img.lazy').lazyload
-                effect : "fadeIn"
-
-    startLazyImages: ->
-      console.log 'startLazyImages'
-      $('img.lazy').each ->
-        this.hidden = true
-
-    startEventListeners: ->
-      console.log 'startEventListeners'
-      # $('#btnRegister').click(showRegisterForm);
-      $('#btnFormularioRegistro').click(@showRegisterForm)
-      return true
-
-    showRegisterForm: =>
-      console.log 'showRegisterForm'
-      $('#formRegistrar').modal('show')
-      $('#formRegistrar').load('registrar', null, @formLoaded)
-      return false
-
     formLoaded: (response, status, xhr) =>
       console.log 'formLoaded AJAX'
       if ("success" == status)
@@ -64,7 +32,7 @@ define ['angular'], (angular) ->
 
         UserCtrl.getInstance().setCurrentUser(data)
       else
-        ViewCtrl.getInstance().showError('Register Error ' + status, data.error)
+        MainView.getInstance().showError('Register Error ' + status, data.error)
 
     verificarFormulario: ->
         console.log 'verificarFormulario'

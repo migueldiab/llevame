@@ -27,7 +27,7 @@ define ['common/MenuItem'], (MenuItem) ->
       this.configureMenuItems($scope)
 
     configureMenuItems: ($scope) =>
-      item = new MenuItem('Acerca de', 'ViewCtrl.getInstance().loadAboutView()')
+      item = new MenuItem('Acerca de', 'AboutUsView.getInstance().load()')
       $scope.menuList = [item]
 
     loginUser: =>
@@ -50,7 +50,7 @@ define ['common/MenuItem'], (MenuItem) ->
 
       else
         console.log 'Invalid Credentias'
-        ViewCtrl.getInstance().showError('Login Error', 'Invalid Username or Password')
+        MainView.getInstance().showError('Login Error', 'Invalid Username or Password')
 
 
       return false

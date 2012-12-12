@@ -1,21 +1,21 @@
 <h3>Agregá tu próximo viaje</h3>
-<div class="row">
+<div class="row" id="scopeAgregar">
   <div class="span7">
     <div class="row">
-      <form class="form-horizontal">
+      <form name="frmViaje" class="form-horizontal">
         <fieldset>
           <legend>A dónde vayas llevame!</legend>
           <div class="control-group">
             <label class="control-label" for="desde">Lugar de salida</label>
             <div class="controls">
-              <input type="text" id="desde">
+              <input type="text" name="desde" ng-model="viaje.salida" required >
               <span class="help-inline">Ver en el mapa</span>
             </div>
           </div>
           <div class="control-group">
             <label class="control-label" for="hacia">Lugar de llegada</label>
             <div class="controls">
-              <input type="text" id="hasta">
+              <input type="text" id="hasta" >
               <span class="help-inline"></span>
             </div>
           </div>
@@ -62,8 +62,8 @@
           </div>
           <div class="control-group">
             <div class="form-actions">
-              <input type="button" value="Cancelar" class="btn btn-warning" ng-click="searchTrip()"/>
-              <input type="button" value="Agregar Viaje" class="btn btn-success" ng-click="searchTrip()"/>
+              <input type="button" value="Cancelar" class="btn btn-warning" ng-click="cancelar()"/>
+              <input type="button" value="Agregar Viaje" class="btn btn-success" ng-click="agregarViaje()"/>
             </div>
           </div>
         </fieldset>
