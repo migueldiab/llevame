@@ -24,13 +24,23 @@ class ViajesController < ApplicationController
   # GET /viajes/new
   # GET /viajes/new.json
   def new
+    ciudadOrigen = Ciudad.find_or_create_by_nombre(params['desde'])
+    ciudadDestino = Ciudad.find_or_create_by_nombre(params['hacia'])
 
     @viaje = Viaje.new
+    @viaje.idCiudadOrigen  = ciudadOrigen.id
+    @viaje.idCiudadDestino= ciudadDestino.id
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @viaje }
+    @viaje.fSalida=  Date.strptime params['fecha'], '%d-%m-%Y'
+    @viaje.fLlegada=  Date.strptime params['fecha'], '%d-%m-%Y'
+
+    if @viaje.save
+      render :json => @viaje, :status => 201
+    else
+      response = ['error' => 'Could not save new trip']
+      render :json => response, :status => 409
     end
+
   end
 
   # GET /viajes/1/edit

@@ -1,5 +1,5 @@
-define ['angular', 'common/DateTime'
-], (angular, DateTime) ->
+define ['angular', 'model/Viaje'
+], (angular, Viaje) ->
 
   root = exports ? this
 
@@ -22,12 +22,8 @@ define ['angular', 'common/DateTime'
         showSeconds: false,
         showMeridian: true
       })
-      scope.viaje = []
-      scope.viaje.desde = "Montevideo"
-      scope.viaje.hacia = "Punta del Este"
-      scope.viaje.fecha = DateTime.getNowFormatted()
-      scope.viaje.hora = "10:30 AM"
-      scope.viaje.flexible = true
+      scope.viaje = new Viaje()
+      console.log scope.viaje
 
 
     agregarViaje: =>
@@ -41,11 +37,19 @@ define ['angular', 'common/DateTime'
         console.log 'flexible : ' + scope.viaje.flexible
         injector = angular.element(document).injector()
         $http = injector.get('$http')
+
         $http.post('viajes/new', scope.viaje).success(@viajeAgregado).error(@viajeAgregado);
 
     viajeAgregado: (data, status, headers, config) =>
-      console.log 'Viaje Agregado'
-      console.log status
+      if (201 == status)
+        console.log 'Viaje Agregado'
+        MyTripsView.getInstance().load()
+
+      else if (409 == status)
+        console.log 'Error al guardar viaje'
+        MainView.getInstance().showError('Error al guardar Viaje', 'No se pudo guardar el viaje. Error : ' + data.error)
+
+
 
     validarFormulario: =>
       console.log 'Validando Formulario'

@@ -18,7 +18,7 @@ define ['angular', 'controller/home'  ,'common/MenuItem'
       scope = angular.element(document).scope()
       #
       buscar = new MenuItem 'Buscar Viaje', 'SearchView.getInstance().load()'
-      agregar = new MenuItem 'Agregar', 'AgregarView.getInstance().load()'
+      agregar = new MenuItem 'Nuevo Viaje', 'AgregarView.getInstance().load()'
       misViajes = new MenuItem 'Mis Viajes', 'MyTripsView.getInstance().load()'
       scope.menuList = [buscar, agregar, misViajes]
 

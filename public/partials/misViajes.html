@@ -2,7 +2,7 @@
 <div class="row">
   <div class="span6">
     <fieldset>
-      <legend>Mis Viajes</legend>
+      <legend>Mis próximos viajes</legend>
       <table class="table">
         <thead>
         <tr>
@@ -21,7 +21,7 @@
           <td>Montevideo</td>
           <td>Punta del Este</td>
           <td>27/1/2013</td>
-          <td><input type="checkbox" /></td>
+          <td><input type="button" value="Calificar" class="btn btn-mini btn-primary" ng-click=""/></td>
         </tr>
         <tr>
           <td>Mark Otto</td>
@@ -29,7 +29,7 @@
           <td>Montevideo</td>
           <td>Punta del Este</td>
           <td>27/1/2013</td>
-          <td><input type="checkbox" /></td>
+          <td><input type="button" value="Calificar" class="btn btn-mini btn-primary" ng-click=""/></td>
         </tr>
         <tr>
           <td>Mark Otto</td>
@@ -37,7 +37,48 @@
           <td>Montevideo</td>
           <td>Punta del Este</td>
           <td>27/1/2013</td>
-          <td><input type="checkbox" /></td>
+          <td>5pts.</td>
+        </tr>
+        </tbody>
+      </table>
+    </fieldset>
+    <fieldset>
+      <legend>Mis Viajes Realizados</legend>
+      <table class="table">
+        <thead>
+        <tr>
+          <th>Conductor</th>
+          <th>Vehiculo</th>
+          <th>Origen</th>
+          <th>Destino</th>
+          <th>Fecha</th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>Mark Otto</td>
+          <td>@mdo</td>
+          <td>Montevideo</td>
+          <td>Punta del Este</td>
+          <td>27/1/2013</td>
+
+        </tr>
+        <tr>
+          <td>Mark Otto</td>
+          <td>@mdo</td>
+          <td>Montevideo</td>
+          <td>Punta del Este</td>
+          <td>27/1/2013</td>
+
+        </tr>
+        <tr>
+          <td>Mark Otto</td>
+          <td>@mdo</td>
+          <td>Montevideo</td>
+          <td>Punta del Este</td>
+          <td>27/1/2013</td>
+
         </tr>
         </tbody>
       </table>
@@ -47,11 +88,17 @@
     <fieldset>
       <legend>Comentarios</legend>
       Viaje : Viaje 1
+      <br/>
+      <textarea class="span2" size="16" />
+      <br/>
+      <input type="button" value="Comentar" class="btn btn-mini btn-warning" ng-click=""/>
 
     </fieldset>
     <fieldset>
       <legend>Fotos</legend>
       Fotos del viaje
+      <br/>
+      <input type="button" value="Subir Fotos" class="btn btn-mini btn-success" ng-click=""/>
 
     </fieldset>
   </div>
