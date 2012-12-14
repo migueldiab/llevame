@@ -3,15 +3,15 @@ define ['angular', 'model/Viaje'
 
   root = exports ? this
 
-  class _AgregarView
+  class _AddTripView
 
     scope = null
 
     load: =>
       scope = angular.element(document).scope()
-      scope.mainContent = 'partials/agregar.html'
+      scope.mainContent = 'partials/addTrip.html'
       scope.init = this.initView
-      scope.agregarViaje = this.agregarViaje
+      scope.addTrip = this.addTrip
       scope.cancelar = SearchView.getInstance().load
 
     initView: =>
@@ -26,7 +26,7 @@ define ['angular', 'model/Viaje'
       console.log scope.viaje
 
 
-    agregarViaje: =>
+    addTrip: =>
       console.log 'Agregando Viaje'
       if (this.validarFormulario())
         console.log 'Form Valido'
@@ -56,15 +56,15 @@ define ['angular', 'model/Viaje'
       return true
 
 #    controller = ->
-#      ng-controller="AgregarView.getInstance().controller()"
+#      ng-controller="AddTripView.getInstance().controller()"
 #      console.log 'Agregar Controller'
 
 
-  class root.AgregarView
+  class root.AddTripView
 
     instance = undefined;
 
     @getInstance: ->
-      instance ?= new _AgregarView
+      instance ?= new _AddTripView
 
 

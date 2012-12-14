@@ -18,14 +18,14 @@ define ['angular', 'controller/home'  ,'common/MenuItem'
       scope = angular.element(document).scope()
       #
       buscar = new MenuItem 'Buscar Viaje', 'SearchView.getInstance().load()'
-      agregar = new MenuItem 'Nuevo Viaje', 'AgregarView.getInstance().load()'
+      agregar = new MenuItem 'Nuevo Viaje', 'AddTripView.getInstance().load()'
       misViajes = new MenuItem 'Mis Viajes', 'MyTripsView.getInstance().load()'
       scope.menuList = [buscar, agregar, misViajes]
 
     userController: =>
         console.log 'Loaded User Partial'
         scope = angular.element(document).scope()
-        scope.agregarViaje = AgregarView.getInstance().loadNewTripView
+        scope.agregarViaje = AddTripView.getInstance().loadNewTripView
         $('#fechaSalida').datepicker()
         scope.buscarViaje = ->
           console.log 'Buscando Viaje'

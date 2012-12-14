@@ -1,4 +1,13 @@
 class ViajesController < ApplicationController
+
+  def cargar
+
+    @viajes = Viaje.all
+
+    render :json => @viajes, :status => 200
+
+  end
+
   # GET /viajes
   # GET /viajes.json
   def index
