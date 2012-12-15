@@ -1,8 +1,10 @@
 define ['controller/home'
   ,'controller/user'
   ,'controller/navigationBar'
-  ,'view/home'
+  ,'controller/perfilBar'
   ,'view/navigationBar'
+  ,'view/perfilBar'
+  ,'view/home'
   ,'view/addTrip'
   ,'view/aboutUs'
   ,'view/notifications'
@@ -10,14 +12,17 @@ define ['controller/home'
   ,'view/search'
   ,'view/myTrips'
   ,'view/main'
+  ,'view/vehicle'
+  ,'view/rep'
   ,'angular'
   ,'jquery'
   ,"jquery.lazyload.min"
   ,'common/validator'
-], (HomeCtrl, UserCtrl, NavBarCtrl,
-    HomeView, NavBarView, AddTripView, AboutUsView,
+], (HomeCtrl, UserCtrl,
+    NavBarCtrl, PerfilBarCtrl, NavBarView, PerfilBarView,
+    HomeView, AddTripView, AboutUsView,
     NotificationsView, ProfileView, SearchView, MyTripsView,
-    MainView,
+    MainView, VehicleView, RepView
     angular) ->
 
   class Llevame
@@ -32,10 +37,13 @@ define ['controller/home'
 #      UserCtrl.getInstance()
 #      HomeCtrl.getInstance()
 
-      module = angular.module('navigation-bar', [])
-      module.directive('navigationBar', @navBar)
+      navBarMod = angular.module('navigation-bar', [])
+      navBarMod.directive('navigationBar', @navBar)
 
-      llevameMod = angular.module('llevameApp', ['navigation-bar'])
+      perfilBarMod = angular.module('perfil-bar', [])
+      perfilBarMod.directive('perfilBar', @perfilBar)
+
+      llevameMod = angular.module('llevameApp', ['navigation-bar', 'perfil-bar'])
       llevameMod.run ($rootScope) ->
         $rootScope.author = 'Miguel A. Diab'
 
@@ -61,7 +69,18 @@ define ['controller/home'
         restrict: 'E'
         ,replace: false
         ,templateUrl: '/partials/navigationBar.html'
-        ,link: NavBarView.getInstance().linkNavBar
+        ,link: NavBarView.getInstance().link
         ,controller: NavBarCtrl.getInstance
+      }
+      return directiveDefinitionObject
+
+    perfilBar: =>
+      console.log 'Loading Perfil Bar'
+      directiveDefinitionObject = {
+        restrict: 'E'
+        ,replace: false
+        ,templateUrl: '/partials/perfilBar.html'
+        ,link: PerfilBarView.getInstance().link
+        ,controller: PerfilBarCtrl.getInstance
       }
       return directiveDefinitionObject

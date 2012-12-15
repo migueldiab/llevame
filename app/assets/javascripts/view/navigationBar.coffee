@@ -4,7 +4,7 @@ define ['common/MenuItem'], (MenuItem) ->
   class _NavBarView
 
     constructor: ->
-      console.log 'Loading NavBar View Controller'
+      console.log 'Loading NavBar View'
 
 
     addEventListeners: =>
@@ -21,7 +21,7 @@ define ['common/MenuItem'], (MenuItem) ->
       console.log 'Toggling Nav Bar'
       $('#mainNavBar').collapse('toggle')
 
-    linkNavBar: ($scope) =>
+    link: ($scope) =>
       console.log 'Linking Nav Bar'
       this.addEventListeners()
       this.configureMenuItems($scope)

@@ -8,7 +8,7 @@ define [
   class _NavBarCtrl
 
     constructor: ->
-      console.log 'Starting View Controller'
+      console.log 'Starting Nav Bar'
 
     setUser: (_user) ->
       scope = angular.element(document).scope()
