@@ -1,0 +1,5 @@
+define [], () ->
+  class Idioma
+
+
+    constructor: ->
