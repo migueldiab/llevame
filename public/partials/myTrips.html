@@ -1,44 +1,28 @@
 <h3>Compartí las experiencias de tus viajes!</h3>
 <div class="row">
-  <div class="span6">
+  <div class="span6" id="scopeMyTrips">
     <fieldset>
       <legend>Mis próximos viajes</legend>
       <table class="table">
         <thead>
-        <tr>
-          <th>Conductor</th>
-          <th>Vehiculo</th>
-          <th>Origen</th>
-          <th>Destino</th>
-          <th>Fecha</th>
-          <th></th>
-        </tr>
+          <tr>
+            <th>Conductor</th>
+            <th>Vehiculo</th>
+            <th>Origen</th>
+            <th>Destino</th>
+            <th>Fecha</th>
+            <th></th>
+          </tr>
         </thead>
         <tbody>
-        <tr>
-          <td>Mark Otto</td>
-          <td>@mdo</td>
-          <td>Montevideo</td>
-          <td>Punta del Este</td>
-          <td>27/1/2013</td>
-          <td><input type="button" value="Calificar" class="btn btn-mini btn-primary" ng-click=""/></td>
-        </tr>
-        <tr>
-          <td>Mark Otto</td>
-          <td>@mdo</td>
-          <td>Montevideo</td>
-          <td>Punta del Este</td>
-          <td>27/1/2013</td>
-          <td><input type="button" value="Calificar" class="btn btn-mini btn-primary" ng-click=""/></td>
-        </tr>
-        <tr>
-          <td>Mark Otto</td>
-          <td>@mdo</td>
-          <td>Montevideo</td>
-          <td>Punta del Este</td>
-          <td>27/1/2013</td>
-          <td>5pts.</td>
-        </tr>
+          <tr ng-repeat="viaje in listaViajes">
+            <td>{{viaje.desde}}</td>
+            <td>{{viaje.hacia}}</td>
+            <td>{{viaje.fecha}}</td>
+            <td>{{viaje.hora}}</td>
+            <td>{{viaje.flexible}}</td>
+            <td><input type="button" value="Calificar" class="btn btn-mini btn-primary" ng-click=""/></td>
+          </tr>
         </tbody>
       </table>
     </fieldset>

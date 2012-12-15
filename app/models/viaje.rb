@@ -1,3 +1,39 @@
+# == Schema Information
+#
+# Table name: viajes
+#
+#  id              :integer          not null, primary key
+#  idUsuario       :integer
+#  idCiudadOrigen  :integer
+#  idCiudadDestino :integer
+#  idEstado        :integer
+#  equipaje        :boolean
+#  animales        :boolean
+#  kms             :integer
+#  pasaje          :integer
+#  peajes          :integer
+#  fSalida         :datetime
+#  fLlegada        :datetime
+#  paradas         :integer
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
+
 class Viaje < ActiveRecord::Base
-  attr_accessible :animales, :equipaje, :fLlegada, :fSalida, :idCiudadDestino, :idCiudadOrigen, :idEstado, :idUsuario, :kms, :paradas, :pasaje, :peajes
+  attr_accessible :animales, :equipaje, :fLlegada, :fSalida, :idEstado, :kms, :paradas,
+                  :pasaje, :peajes, :ciudadOrigen, :ciudadDestino
+
+  belongs_to :user, :class_name => "User"
+
+  belongs_to :ciudadOrigen, :class_name => "Ciudad", :foreign_key => "idCiudadOrigen"
+  belongs_to :ciudadDestino, :class_name => "Ciudad", :foreign_key => "idCiudadDestino"
+
+
+
+  def as_json(options={})
+    #if (options.empty?)
+      options = { :include => [ :ciudadDestino, :ciudadOrigen ] }
+    #end
+    super(options)
+  end
 end

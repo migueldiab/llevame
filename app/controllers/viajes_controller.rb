@@ -1,11 +1,12 @@
 class ViajesController < ApplicationController
 
   def cargar
-
     @viajes = Viaje.all
-
+    temp = @viajes.second
+    logger.info "JSON : #{temp.as_json}"
+    logger.info "Trips : #{temp.ciudadDestino.to_s}"
+    logger.info "Trips : #{temp.idCiudadDestino.to_s}"
     render :json => @viajes, :status => 200
-
   end
 
   # GET /viajes

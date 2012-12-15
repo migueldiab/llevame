@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121209234646) do
+ActiveRecord::Schema.define(:version => 20121215122531) do
 
   create_table "agendas", :force => true do |t|
     t.string   "nombre"
@@ -95,5 +95,8 @@ ActiveRecord::Schema.define(:version => 20121209234646) do
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end
+
+  add_index "viajes", ["idCiudadDestino"], :name => "index_viajes_on_idCiudadDestino"
+  add_index "viajes", ["idCiudadOrigen"], :name => "index_viajes_on_idCiudadOrigen"
 
 end

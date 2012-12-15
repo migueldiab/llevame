@@ -1,10 +1,10 @@
 define ['angular'
-], (angular) ->
+  ,'model/Viaje'
+], (angular, Viaje) ->
 
   root = exports ? this
 
   class _MyTripsView
-
 
     load: =>
       console.log 'Cargando Mis Viajes'
@@ -22,13 +22,15 @@ define ['angular'
       });
       injector = angular.element(document).injector()
       $http = injector.get('$http')
-
-      $http.post('viajes/cargar', UserCtrl.getInstance().getCurrentUser()).success(@cargarViajes).error(@cargarViajes);
+      $http.post('viajes/cargar', UserCtrl.getInstance().getCurrentUser()).success(@cargarViajes).error(@cargarViajes)
 
     cargarViajes: (data, status, headers, config) =>
       if (200 == status)
-        console.log 'Viajes Cargados'
-        console.log data
+        scope = angular.element($('#scopeMyTrips')).scope()
+        scope.listaViajes = []
+        console.log 'Viajes Cargados ' + data
+        scope.listaViajes.push Viaje.parseJSON(item) for item in data
+        console.log scope.listaViajes
 
       else if (409 == status)
         console.log 'Error al cargar viajes'
@@ -36,10 +38,6 @@ define ['angular'
 
       else
         console.log 'Respuesta Inesperada ' + status
-
-
-
-
 
 
   class root.MyTripsView

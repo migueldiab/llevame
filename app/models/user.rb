@@ -11,7 +11,7 @@
 #  rep        :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  verified   :boolean
+#  verified   :boolean          default(FALSE)
 #
 
 require 'digest'

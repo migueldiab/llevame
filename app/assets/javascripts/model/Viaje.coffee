@@ -13,3 +13,9 @@ define ['common/DateTime'], (DateTime) ->
 
     toString: ->
       "Viaje #{desde} - #{hacia}"
+
+    @parseJSON: (jsonViaje) ->
+      unViaje = new Viaje
+      unViaje.desde = jsonViaje.ciudadOrigen.nombre
+      unViaje.hacia = jsonViaje.ciudadDestino.nombre
+      return unViaje
