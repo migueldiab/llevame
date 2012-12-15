@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121215122531) do
+ActiveRecord::Schema.define(:version => 20121215193344) do
 
   create_table "agendas", :force => true do |t|
     t.string   "nombre"
@@ -47,6 +47,34 @@ ActiveRecord::Schema.define(:version => 20121215122531) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "fabricantes", :force => true do |t|
+    t.string   "nombre"
+    t.integer  "idPais"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "idiomas", :force => true do |t|
+    t.string   "nombre"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "modelos", :force => true do |t|
+    t.string   "nombre"
+    t.integer  "idFabricante"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "paises", :force => true do |t|
+    t.string   "nombre"
+    t.string   "bandera"
+    t.integer  "idIdioma"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "programas", :force => true do |t|
     t.string   "nombre"
     t.integer  "idAgenda"
@@ -67,6 +95,12 @@ ActiveRecord::Schema.define(:version => 20121215122531) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "seguros", :force => true do |t|
+    t.string   "nombre"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "users", :force => true do |t|
     t.string   "login"
     t.string   "email"
@@ -77,6 +111,18 @@ ActiveRecord::Schema.define(:version => 20121215122531) do
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
     t.boolean  "verified",   :default => false
+  end
+
+  create_table "vehiculos", :force => true do |t|
+    t.string   "nombre"
+    t.integer  "puertas"
+    t.string   "color"
+    t.integer  "idModelo"
+    t.integer  "maxPasajeros"
+    t.integer  "idSeguro"
+    t.integer  "idAuxilio"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "viajes", :force => true do |t|

@@ -1,0 +1,39 @@
+<h1>Listing vehiculos</h1>
+
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th>Puertas</th>
+    <th>Color</th>
+    <th>Idmodelo</th>
+    <th>Maxpasajeros</th>
+    <th>Idseguro</th>
+    <th>Idauxilio</th>
+    <th>Idauxilio</th>
+    <th>Idauxilio</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @vehiculos.each do |vehiculo| %>
+  <tr>
+    <td><%= vehiculo.nombre %></td>
+    <td><%= vehiculo.puertas %></td>
+    <td><%= vehiculo.color %></td>
+    <td><%= vehiculo.idModelo %></td>
+    <td><%= vehiculo.maxPasajeros %></td>
+    <td><%= vehiculo.idSeguro %></td>
+    <td><%= vehiculo.idAuxilio %></td>
+    <td><%= vehiculo.idAuxilio %></td>
+    <td><%= vehiculo.idAuxilio %></td>
+    <td><%= link_to 'Show', vehiculo %></td>
+    <td><%= link_to 'Edit', edit_vehiculo_path(vehiculo) %></td>
+    <td><%= link_to 'Destroy', vehiculo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Vehiculo', new_vehiculo_path %>

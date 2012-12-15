@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Nombre:</b>
+  <%= @paise.nombre %>
+</p>
+
+<p>
+  <b>Bandera:</b>
+  <%= @paise.bandera %>
+</p>
+
+<p>
+  <b>Ididioma:</b>
+  <%= @paise.idIdioma %>
+</p>
+
+
+<%= link_to 'Edit', edit_paise_path(@paise) %> |
+<%= link_to 'Back', paises_path %>

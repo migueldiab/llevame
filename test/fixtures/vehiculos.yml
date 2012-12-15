@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  nombre: MyString
+  puertas: 1
+  color: MyString
+  idModelo: 1
+  maxPasajeros: 1
+  idSeguro: 1
+  idAuxilio: 
+  idAuxilio: 
+  idAuxilio: 
+
+two:
+  nombre: MyString
+  puertas: 1
+  color: MyString
+  idModelo: 1
+  maxPasajeros: 1
+  idSeguro: 1
+  idAuxilio: 
+  idAuxilio: 
+  idAuxilio: 

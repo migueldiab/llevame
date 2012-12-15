@@ -1,0 +1,11 @@
+class CreatePaises < ActiveRecord::Migration
+  def change
+    create_table :paises do |t|
+      t.string :nombre
+      t.string :bandera
+      t.integer :idIdioma
+
+      t.timestamps
+    end
+  end
+end
