@@ -1,4 +1,4 @@
-define ['angular', 'model/Viaje'
+define ['angular', 'model/viaje'
 ], (angular, Viaje) ->
 
   root = exports ? this

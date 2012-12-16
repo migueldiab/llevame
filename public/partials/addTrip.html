@@ -5,6 +5,14 @@
       <form name="frmViaje" class="form-horizontal">
         <fieldset>
           <legend>A dónde vayas, llevame!</legend>
+
+          <div class="control-group">
+            <label class="control-label" for="flexible">Vehiculo</label>
+            <div class="controls">
+              <input type="text" id="flexible" ng-model="viaje.mascotas" >
+              <span class="help-inline"></span>
+            </div>
+          </div>
           <div class="control-group">
             <label class="control-label" for="desde">Lugar de salida</label>
             <div class="controls">
@@ -48,22 +56,19 @@
               <span class="help-inline">Horario Flexible</span>
             </div>
           </div>
+
           <div class="control-group">
-            <label class="control-label" for="flexible">Invitar Amigos</label>
+            <label class="control-label" for="flexible">Paradas</label>
             <div class="controls">
-              <input type="text" id="flexible">
-              <span class="help-inline"></span>
-              <ul>
-                <li>Amigo 1 <span class="icon-remove"></span></li>
-                <li>Amigo 2 <span class="icon-remove"></span></li>
-                <li>Amigo 3 <span class="icon-remove"></span></li>
-              </ul>
+              <input type="text" id="flexible" ng-model="viaje.mascotas" >
+              <span class="help-inline">Pienso hacer estas paradas intermedias</span>
             </div>
           </div>
           <div class="control-group">
-            <div class="form-actions">
-              <input type="button" value="Cancelar" class="btn btn-warning" ng-click="cancelar()"/>
-              <input type="button" value="Agregar Viaje" class="btn btn-success" ng-click="addTrip()"/>
+            <label class="control-label" for="flexible">Invitar Amigos</label>
+            <div class="controls">
+              <input type="text" id="flexible" disabled value="Próximamente!">
+              <span class="help-inline"></span>
             </div>
           </div>
         </fieldset>
@@ -71,11 +76,47 @@
     </div>
   </div>
   <div class="span5">
-    <!--<iframe width="90%" height="320px"-->
-    <!--frameborder="0" scrolling="yes"-->
-    <!--marginheight="0" marginwidth="0"-->
-    <!--src="https://maps.google.com/?&amp;ll=-34.905361,-56.163483&amp;spn=0.053074,0.111494&amp;t=h&amp;z=14&amp;output=embed">-->
-    <!--</iframe>-->
+    <div class="row">
+      <form name="frmViaje" class="form-horizontal">
+        <fieldset>
+          <legend>Contá más de tu viaje</legend>
+          <div class="control-group">
+            <label class="control-label" for="flexible">Pasaje</label>
+            <div class="controls">
+              <input type="text" id="flexible" ng-model="viaje.pasaje" >
+              <span class="help-inline">Pueden ayudar con el combustible?</span>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="flexible">Animales</label>
+            <div class="controls">
+              <input type="checkbox" id="flexible" ng-model="viaje.animales" >
+              <span class="help-inline">Podés traer a tu mascota!</span>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="flexible">Peajes</label>
+            <div class="controls">
+              <input type="checkbox" id="flexible" ng-model="viaje.peaje" >
+              <span class="help-inline">Pueden ayudar con los peajes?</span>
+            </div>
+          </div>
 
+          <iframe width="90%" height="320px"
+          frameborder="0" scrolling="yes"
+          marginheight="0" marginwidth="0"
+          src="https://maps.google.com/?&amp;ll=-34.905361,-56.163483&amp;spn=0.053074,0.111494&amp;t=h&amp;z=14&amp;output=embed">
+          </iframe>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+  <div class="span12" id="scopeAgregar">
+    <div class="control-group">
+      <div class="form-actions">
+        <input type="button" value="Cancelar" class="btn btn-warning" ng-click="cancelar()"/>
+        <input type="button" value="Agregar Viaje" class="btn btn-success" ng-click="addTrip()"/>
+      </div>
+    </div>
   </div>
 </div>

@@ -1,25 +1,4 @@
 Llevame::Application.routes.draw do
-  resources :paises
-
-
-  resources :seguros
-
-
-  resources :vehiculos
-
-
-  resources :modelos
-
-
-  resources :fabricantes
-
-
-  resources :pais
-
-
-  resources :idiomas
-
-
   root :to => 'main#home'
 
   get "registrar" => 'main#registrar'

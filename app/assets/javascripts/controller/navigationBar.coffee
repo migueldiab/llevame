@@ -1,5 +1,5 @@
 define [
-  'model/User'
+  'model/user'
   ,'angular'
 ], (User, angular) ->
 

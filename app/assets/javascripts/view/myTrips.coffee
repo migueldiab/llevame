@@ -1,5 +1,5 @@
 define ['angular'
-  ,'model/Viaje'
+  ,'model/viaje'
 ], (angular, Viaje) ->
 
   root = exports ? this

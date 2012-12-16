@@ -64,6 +64,7 @@ require([
     ,"bootstrapTime"
     ,"bootstrapDate"
     ,"bootstrapDateEs"
+//    ,"Hydrate"
     ,'opensans'
   //  , 'controllers/personController'
   //  , 'directives/ngController'
