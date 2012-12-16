@@ -10,4 +10,6 @@
 
 class Idioma < ActiveRecord::Base
   attr_accessible :nombre
+
+  has_many :paises, :class_name => "Pais", :foreign_key => "idIdioma"
 end

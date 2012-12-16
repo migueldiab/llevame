@@ -15,5 +15,9 @@
 #
 
 class Vehiculo < ActiveRecord::Base
-  attr_accessible :color, :idAuxilio, :idAuxilio, :idAuxilio, :idModelo, :idSeguro, :maxPasajeros, :nombre, :puertas
+  attr_accessible :color, :maxPasajeros, :nombre, :puertas, :auxilio, :modelo, :seguro
+
+  belongs_to :auxilio, :class_name => "Auxilio", :foreign_key => "idAuxilio"
+  belongs_to :modelo, :class_name => "Modelo", :foreign_key => "idModelo"
+  belongs_to :seguro, :class_name => "Seguro", :foreign_key => "idSeguro"
 end

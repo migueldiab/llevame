@@ -10,4 +10,6 @@
 
 class Seguro < ActiveRecord::Base
   attr_accessible :nombre
+
+  has_many :vehiculos, :class_name => "Vehiculo"
 end

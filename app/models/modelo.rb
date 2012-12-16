@@ -10,5 +10,9 @@
 #
 
 class Modelo < ActiveRecord::Base
-  attr_accessible :idFabricante, :nombre
+  attr_accessible :fabricante, :nombre
+
+  belongs_to :fabricante, :class_name => "Fabricante", :foreign_key => 'idFabricante'
+
+  has_many :vehiculos, :class_name => "Vehiculo"
 end

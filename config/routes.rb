@@ -1,4 +1,7 @@
 Llevame::Application.routes.draw do
+  resources :auxilios
+
+
   root :to => 'main#home'
 
   get "registrar" => 'main#registrar'

@@ -1,0 +1,25 @@
+<h1>Listing auxilios</h1>
+
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th>Logo</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @auxilios.each do |auxilio| %>
+  <tr>
+    <td><%= auxilio.nombre %></td>
+    <td><%= auxilio.logo %></td>
+    <td><%= link_to 'Show', auxilio %></td>
+    <td><%= link_to 'Edit', edit_auxilio_path(auxilio) %></td>
+    <td><%= link_to 'Destroy', auxilio, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Auxilio', new_auxilio_path %>

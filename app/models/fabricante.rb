@@ -10,5 +10,10 @@
 #
 
 class Fabricante < ActiveRecord::Base
-  attr_accessible :idPais, :nombre
+  attr_accessible :pais, :nombre
+
+  has_many :modelos, :class_name => "Modelo"
+
+  belongs_to :pais, :class_name => "Pais", :foreign_key => "idPais"
+
 end
