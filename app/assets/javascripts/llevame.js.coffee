@@ -2,6 +2,7 @@ define ['controller/home'
   ,'controller/user'
   ,'controller/navigationBar'
   ,'controller/perfilBar'
+  ,'controller/trip'
   ,'view/navigationBar'
   ,'view/perfilBar'
   ,'view/home'
@@ -18,8 +19,8 @@ define ['controller/home'
   ,'jquery'
   ,"jquery.lazyload.min"
   ,'common/validator'
-], (HomeCtrl, UserCtrl,
-    NavBarCtrl, PerfilBarCtrl, NavBarView, PerfilBarView,
+], (HomeCtrl, UserCtrl, NavBarCtrl, PerfilBarCtrl, TripCtrl
+    NavBarView, PerfilBarView,
     HomeView, AddTripView, AboutUsView,
     NotificationsView, ProfileView, SearchView, MyTripsView,
     MainView, VehicleView, RepView

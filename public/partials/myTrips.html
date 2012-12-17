@@ -6,11 +6,11 @@
       <table class="table">
         <thead>
           <tr>
-            <th>Conductor</th>
-            <th>Vehiculo</th>
-            <th>Origen</th>
-            <th>Destino</th>
+            <th>Desde</th>
+            <th>Hacia</th>
             <th>Fecha</th>
+            <th>Hora</th>
+            <th>Flexible</th>
             <th></th>
           </tr>
         </thead>
@@ -31,38 +31,22 @@
       <table class="table">
         <thead>
         <tr>
-          <th>Conductor</th>
-          <th>Vehiculo</th>
-          <th>Origen</th>
-          <th>Destino</th>
+          <th>Desde</th>
+          <th>Hacia</th>
           <th>Fecha</th>
+          <th>Hora</th>
+          <th>Flexible</th>
           <th></th>
         </tr>
         </thead>
         <tbody>
-        <tr>
-          <td>Mark Otto</td>
-          <td>@mdo</td>
-          <td>Montevideo</td>
-          <td>Punta del Este</td>
-          <td>27/1/2013</td>
-
-        </tr>
-        <tr>
-          <td>Mark Otto</td>
-          <td>@mdo</td>
-          <td>Montevideo</td>
-          <td>Punta del Este</td>
-          <td>27/1/2013</td>
-
-        </tr>
-        <tr>
-          <td>Mark Otto</td>
-          <td>@mdo</td>
-          <td>Montevideo</td>
-          <td>Punta del Este</td>
-          <td>27/1/2013</td>
-
+        <tr ng-repeat="viaje in listaViajes">
+          <td>{{viaje.desde}}</td>
+          <td>{{viaje.hacia}}</td>
+          <td>{{viaje.fecha}}</td>
+          <td>{{viaje.hora}}</td>
+          <td>{{viaje.flexible}}</td>
+          <td><input type="button" value="Calificar" class="btn btn-mini btn-primary" ng-click=""/></td>
         </tr>
         </tbody>
       </table>

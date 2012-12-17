@@ -50,6 +50,7 @@ define ['angular'], (angular) ->
       SearchView.getInstance().load()
       NavBarCtrl.getInstance().setUser(self.currentUser)
 
+
   class root.UserCtrl
 
     instance = undefined;
