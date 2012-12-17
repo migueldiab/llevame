@@ -8,7 +8,7 @@ define ['angular'
     load: =>
       console.log 'About View'
       $('#formRegistrar').modal('show')
-      $('#formRegistrar').load('/partials/acercaDe')
+      $('#formRegistrar').load('/partials/aboutUs')
       return false
 
 
