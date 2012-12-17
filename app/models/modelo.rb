@@ -15,4 +15,12 @@ class Modelo < ActiveRecord::Base
   belongs_to :fabricante, :class_name => "Fabricante", :foreign_key => 'idFabricante'
 
   has_many :vehiculos, :class_name => "Vehiculo"
+
+
+  def as_json(options={})
+    #if (options.empty?)
+    options = { :include => [ :fabricante ] }
+    #end
+    super(options)
+  end
 end

@@ -28,6 +28,8 @@ class User < ActiveRecord::Base
 
   before_save :encrypt_password
 
+  has_many :vehiculos, :class_name => "Vehiculo"
+
 
 
   def self.authenticate_with_salt(id, salt)

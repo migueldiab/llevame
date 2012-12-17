@@ -20,4 +20,16 @@ class Vehiculo < ActiveRecord::Base
   belongs_to :auxilio, :class_name => "Auxilio", :foreign_key => "idAuxilio"
   belongs_to :modelo, :class_name => "Modelo", :foreign_key => "idModelo"
   belongs_to :seguro, :class_name => "Seguro", :foreign_key => "idSeguro"
+  belongs_to :usuario, :class_name => "User", :foreign_key => "idUsuario"
+
+  def as_json(options={})
+    #if (options.empty?)
+    options = { :include => [
+                  :auxilio,
+                  :modelo,
+                  :seguro
+              ]}
+    #end
+    super(options)
+  end
 end
