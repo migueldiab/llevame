@@ -9,7 +9,11 @@
           <div class="control-group">
             <label class="control-label" for="flexible">Vehiculo</label>
             <div class="controls">
-              <input type="text" id="flexible" ng-model="viaje.mascotas" >
+              <select>
+                <option ng-repeat="menuVehiculo in listaVehiculos" ng-model="viaje.vehiculo">
+                  {{menuVehiculo.getName()}}
+                </option>
+              </select>
               <span class="help-inline"></span>
             </div>
           </div>
@@ -102,11 +106,11 @@
             </div>
           </div>
 
-          <iframe width="90%" height="320px"
-          frameborder="0" scrolling="yes"
-          marginheight="0" marginwidth="0"
-          src="https://maps.google.com/?&amp;ll=-34.905361,-56.163483&amp;spn=0.053074,0.111494&amp;t=h&amp;z=14&amp;output=embed">
-          </iframe>
+          <!--<iframe width="90%" height="320px"-->
+          <!--frameborder="0" scrolling="yes"-->
+          <!--marginheight="0" marginwidth="0"-->
+          <!--src="https://maps.google.com/?&amp;ll=-34.905361,-56.163483&amp;spn=0.053074,0.111494&amp;t=h&amp;z=14&amp;output=embed">-->
+          <!--</iframe>-->
         </fieldset>
       </form>
     </div>

@@ -3,24 +3,23 @@ define ['angular'], (angular) ->
 
   class _UserCtrl
 
-    currentUser: null
+    $http = null
+    scope = null
 
     constructor: ->
       console.log 'Starting User Controller'
+      injector = angular.element(document).injector()
+      $http = injector.get('$http')
+      scope = angular.element(document).scope()
 
-    loginUser: =>
-      console.log 'Login User'
-#      injector = angular.element(document).injector()
-#      $http = injector.get('$http')
-      $http.post('login', null).success(@loadUser);
-#      jQuery.getJSON('login', null, @loadUser)
-      return false;
+
+#    loginUser: =>
+#      console.log 'Login User'
+#      $http.post('login', null).success(@loadUser);
+#      return false;
 
     loginCurrentUser: ->
       console.log 'Trying to login user...'
-#      jQuery.getJSON('loginFromCookies', null, @loadUser)
-      injector = angular.element(document).injector()
-      $http = injector.get('$http')
       $http.get('loginFromCookies', null).success(@loadUserOrDefaultHome);
 
     loadUserOrDefaultHome: (data, status, headers, config) =>
@@ -37,18 +36,18 @@ define ['angular'], (angular) ->
         console.log 'Call OK but no user'
       else
         console.log 'Call Error\nStatus: ' + status + '\nResponse: ' + headers + ' - '+ config
-        MainView.getInstance().showError('Error de Login', 'Usuario o clave incorrectos. Olvidaste tu clave?')
+        View.getInstance().showError('Error de Login', 'Usuario o clave incorrectos. Olvidaste tu clave?')
       result
 
     getCurrentUser: =>
-      self.currentuser
+      scope.user
 
     setCurrentUser: (user) =>
       console.log 'Setting Current User : ' + user.login
-      self.currentUser = user
-      MainView.getInstance().loadUserMenu()
+      scope.user = user
+      View.getInstance().loadUserMenu()
       SearchView.getInstance().load()
-      NavBarCtrl.getInstance().setUser(self.currentUser)
+#      NavBarCtrl.getInstance().setUser(self.currentUser)
 
 
   class root.UserCtrl

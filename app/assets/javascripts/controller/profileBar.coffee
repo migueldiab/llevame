@@ -4,17 +4,17 @@ define [
 
   root = exports ? this
 
-  class _PerfilBarCtrl
+  class _ProfileBarCtrl
 
     constructor: ->
-      console.log 'Starting Perfil Bar'
+      console.log 'Starting Profile Bar'
 
 
-  class root.PerfilBarCtrl
+  class root.ProfileBarCtrl
 
     instance = undefined;
 
     @getInstance: ->
-      instance ?= new _PerfilBarCtrl
+      instance ?= new _ProfileBarCtrl
 
 

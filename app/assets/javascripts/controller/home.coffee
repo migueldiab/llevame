@@ -2,7 +2,7 @@ define ['angular'], (angular) ->
 
   root = exports ? this
 
-  class _Home
+  class _HomeCtrl
 
     constructor: ->
       console.log 'Starting Home Controller'
@@ -32,7 +32,7 @@ define ['angular'], (angular) ->
 
         UserCtrl.getInstance().setCurrentUser(data)
       else
-        MainView.getInstance().showError('Register Error ' + status, data.error)
+        View.getInstance().showError('Register Error ' + status, data.error)
 
     verificarFormulario: ->
         console.log 'verificarFormulario'
@@ -71,11 +71,11 @@ define ['angular'], (angular) ->
         console.log "You entered a valid password: " + password
         return true
 
-  class root.Home
+  class root.HomeCtrl
 
     instance = undefined;
 
     @getInstance: ->
-      instance ?= new _Home
+      instance ?= new _HomeCtrl
 
 

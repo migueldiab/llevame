@@ -10,8 +10,13 @@ define [], () ->
       #      $('#mainContent').html '<h3>Loading Trips... pelase wait...</h3>'
       scope = angular.element(document).scope()
       scope.mainContent = 'partials/search.html'
-      scope.init = this.userController
+      scope.init = this.initSearch
       $('#frmLogin').slideUp(300, @showUser)
+
+    initSearch: =>
+      console.log 'Init Search'
+      TripCtrl.getInstance().loadUpcommingTrips()
+
 
     showUser: =>
       $('#userNav').fadeIn(300)

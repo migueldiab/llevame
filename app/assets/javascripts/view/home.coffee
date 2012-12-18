@@ -47,7 +47,7 @@ define ['angular'], (angular) ->
     showRegisterForm: =>
       console.log 'showRegisterForm'
       $('#formRegistrar').modal('show')
-      $('#formRegistrar').load('registrar', null, HomeView.getInstance().formLoaded)
+      $('#formRegistrar').load('registrar', null, HomeCtrl.getInstance().formLoaded)
       return false
 
   class root.HomeView

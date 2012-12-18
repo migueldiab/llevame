@@ -1,6 +1,11 @@
 define ['common/DateTime'], (DateTime) ->
   class Viaje
 
+    desde: null
+    hacia: null
+    fecha: null
+    hora: null
+
     constructor: ->
 
     toString: ->

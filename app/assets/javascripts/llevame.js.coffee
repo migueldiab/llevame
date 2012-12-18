@@ -1,32 +1,27 @@
 define ['controller/home'
-  ,'controller/user'
-  ,'controller/navigationBar'
-  ,'controller/perfilBar'
+  ,'controller/profileBar'
   ,'controller/trip'
-  ,'view/navigationBar'
-  ,'view/perfilBar'
-  ,'view/home'
+  ,'controller/user'
+  ,'controller/vehicle'
   ,'view/addTrip'
-  ,'view/aboutUs'
-  ,'view/notifications'
-  ,'view/profile'
-  ,'view/search'
+  ,'view/home'
   ,'view/myTrips'
-  ,'view/main'
+  ,'view/navigationBar'
+  ,'view/profileBar'
+  ,'view/search'
   ,'view/vehicle'
-  ,'view/rep'
+  ,'view/view'
   ,'angular'
   ,'jquery'
   ,"jquery.lazyload.min"
   ,'common/validator'
-], (HomeCtrl, UserCtrl, NavBarCtrl, PerfilBarCtrl, TripCtrl
-    NavBarView, PerfilBarView,
-    HomeView, AddTripView, AboutUsView,
-    NotificationsView, ProfileView, SearchView, MyTripsView,
-    MainView, VehicleView, RepView
+], (HomeCtrl, ProfileBarCtrl, TripCtrl,UserCtrl,VehicleCtrl,
+    AddTripView, HomeView, MyTripsView, NavBarView, ProfileBarView,
+    SearchView, VehicleView, View,
     angular) ->
 
   class Llevame
+
     init: =>
       'use strict'
       this.initModules()
@@ -34,29 +29,24 @@ define ['controller/home'
 
     initModules: =>
       console.log('Starting App...')
-#      ViewCtrl.getInstance()
-#      UserCtrl.getInstance()
-#      HomeCtrl.getInstance()
 
       navBarMod = angular.module('navigation-bar', [])
       navBarMod.directive('navigationBar', @navBar)
 
-      perfilBarMod = angular.module('perfil-bar', [])
-      perfilBarMod.directive('perfilBar', @perfilBar)
+      profileBarMod = angular.module('profile-bar', [])
+      profileBarMod.directive('profileBar', @profileBar)
 
-      llevameMod = angular.module('llevameApp', ['navigation-bar', 'perfil-bar'])
+      llevameMod = angular.module('llevameApp', ['navigation-bar', 'profile-bar'])
       llevameMod.run ($rootScope) ->
         $rootScope.author = 'Miguel A. Diab'
 
         $rootScope.executeMenu = (aMenuItem) ->
           console.log 'Menu : ' + aMenuItem.getAction()
           eval(aMenuItem.getAction())
-        $rootScope.profile = ProfileView.getInstance().load
-        $rootScope.notifications = NotificationsView.getInstance().load
-        $rootScope.aboutUs = AboutUsView.getInstance().load
-#        $rootScope.mainContent = 'partials/home.html'
-#        $rootScope.init = this.initControllers
-
+        router = View.getInstance()
+        $rootScope.profile = router.loadProfile
+        $rootScope.notifications = router.loadNotifications
+        $rootScope.aboutUs = router.loadAboutUs
 
       angular.bootstrap document, ['llevameApp', 'navigation-bar']
 
@@ -71,17 +61,17 @@ define ['controller/home'
         ,replace: false
         ,templateUrl: '/partials/navigationBar.html'
         ,link: NavBarView.getInstance().link
-        ,controller: NavBarCtrl.getInstance
+#        ,controller: NavBarCtrl.getInstance
       }
       return directiveDefinitionObject
 
-    perfilBar: =>
-      console.log 'Loading Perfil Bar'
+    profileBar: =>
+      console.log 'Loading Profile Bar'
       directiveDefinitionObject = {
         restrict: 'E'
         ,replace: false
-        ,templateUrl: '/partials/perfilBar.html'
-        ,link: PerfilBarView.getInstance().link
-        ,controller: PerfilBarCtrl.getInstance
+        ,templateUrl: '/partials/profileBar.html'
+        ,link: ProfileBarView.getInstance().link
+        ,controller: ProfileBarCtrl.getInstance
       }
       return directiveDefinitionObject

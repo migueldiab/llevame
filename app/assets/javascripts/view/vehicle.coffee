@@ -6,26 +6,23 @@ define ['angular', 'model/vehiculo', 'common/MenuItem'
   class _VehicleView
 
     scope = null
-    $http = null
+
+    constructor: ->
+      scope = angular.element(document).scope()
 
     load: =>
-      scope = angular.element(document).scope()
       scope.mainContent = 'partials/vehicle.html'
       scope.init = this.init
 
     init: =>
       console.log 'Loaded Vehicles'
-      scope = angular.element($('#scopeVehicle')).scope()
       scope.nuevoVehiculo = this.nuevoVehiculo
-      scope.cancel = this.requestVehicles
+      scope.cancel = this.cancelVehicle
       scope.save= this.saveVehicle
-      injector = angular.element(document).injector()
-      $http = injector.get('$http')
-      this.requestVehicles()
+      VehicleCtrl.getInstance().getUserVehicles(VehicleView.getInstance().loadVehicles)
 
-    requestVehicles: =>
-      params = [UserCtrl.getInstance().getCurrentUser()]
-      $http.post('vehiculos/findAll', params).success(@loadVehicles).error(@loadVehicles)
+    cancelVehicle: =>
+      VehicleCtrl.getInstance().getUserVehicles(VehicleView.getInstance().loadVehicles)
 
     loadVehicles: (data, status, headers, config) =>
       if (200 == status)
@@ -33,11 +30,14 @@ define ['angular', 'model/vehiculo', 'common/MenuItem'
           console.log "Loaded Vehicles : #{data.length}"
           scope.vehiclesList = []
           scope.vehiclesList.push Vehiculo.parseJSON(item) for item in data
-          scope.initVehicle = this.menuLoad
-          scope.vehicleContent = 'partials/newVehicle.html'
+          VehicleView.getInstance().loadVehicleView()
         else
           scope.initVehicle = this.noVehicle
           scope.vehicleContent = 'partials/noVehicle.html'
+
+    loadVehicleView: =>
+      scope.initVehicle = this.menuLoad
+      scope.vehicleContent = 'partials/newVehicle.html'
 
     menuLoad: =>
       console.log 'Loading Vehicles'
@@ -47,6 +47,7 @@ define ['angular', 'model/vehiculo', 'common/MenuItem'
         menuItem = new MenuItem(vehicle.nombre, callback)
         scope.listaVehiculos.push menuItem
       scope.vehiculo = scope.vehiclesList[0]
+
 
     loadVehicle: (id) =>
       console.log "Looking for #{id}"

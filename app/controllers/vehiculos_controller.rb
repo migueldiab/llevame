@@ -50,7 +50,7 @@ class VehiculosController < ApplicationController
 
   end
 
-  def findAll
+  def findAllForUser
     if (current_user)
       @vehiculos = Vehiculo.find_all_by_idUsuario(current_user.id)
       render :json => @vehiculos, :status => 200

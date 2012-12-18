@@ -20,25 +20,7 @@ define ['angular'
         showSeconds: false,
         showMeridian: true
       });
-      injector = angular.element(document).injector()
-      $http = injector.get('$http')
-      $http.post('viajes/cargar', UserCtrl.getInstance().getCurrentUser()).success(@cargarViajes).error(@cargarViajes)
-
-    cargarViajes: (data, status, headers, config) =>
-      if (200 == status)
-        scope = angular.element($('#scopeMyTrips')).scope()
-        scope.listaViajes = []
-        console.log 'Viajes Cargados ' + data
-        scope.listaViajes.push Viaje.parseJSON(item) for item in data
-        console.log scope.listaViajes
-
-      else if (409 == status)
-        console.log 'Error al cargar viajes'
-        MainView.getInstance().showError('Error al guardar Viaje', 'No se pudo guardar el viaje. Error : ' + data.error)
-
-      else
-        console.log 'Respuesta Inesperada ' + status
-
+      TripCtrl.getInstance().loadUserTrips()
 
   class root.MyTripsView
 
