@@ -15,6 +15,10 @@ define ['angular', 'common/MenuItem'
       scope.init = ->
         console.log 'Loaded Profiles'
 
+    loadVehicleView: =>
+      console.log 'Vehicle View'
+      VehicleView.getInstance().load()
+
     loadRep: =>
       scope.mainContent = 'partials/rep.html'
       scope.init = ->

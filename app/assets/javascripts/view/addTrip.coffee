@@ -34,16 +34,18 @@ define ['angular', 'model/viaje', 'model/vehiculo'
         if (data.length > 0)
           console.log "Loaded Vehicles : #{data.length}"
           VehicleCtrl.getInstance().loadVehicles(data)
-          scope.init = this.initView
           scope.addTrip = this.addTrip
           scope.cancelar = SearchView.getInstance().load
+          scope.init = this.initView
           scope.mainContent = 'partials/addTrip.html'
 #          VehicleView.getInstance().loadVehicleView()
           TripCtrl.getInstance().newTrip()
         else
           ###
-            Should redirect to Vehicle No Vehicle View
+            Redirects to Vehicle No Vehicle View
           ###
+          scope.init = View.getInstance().loadVehicleView
+          scope.mainContent = 'partials/profile.html'
 #          scope.initVehicle = this.noVehicle
 #          scope.vehicleContent = 'partials/noVehicle.html'
 
