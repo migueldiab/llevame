@@ -28,37 +28,14 @@ define ['angular', 'model/vehiculo', 'common/MenuItem'
       if (200 == status)
         if (data.length > 0)
           console.log "Loaded Vehicles : #{data.length}"
-          scope.vehiclesList = []
-          scope.vehiclesList.push Vehiculo.parseJSON(item) for item in data
-          VehicleView.getInstance().loadVehicleView()
+          VehicleCtrl.getInstance().loadVehicles(data)
+          scope.initVehicle = ->
+            scope.vehiculo = scope.vehiclesList[0]
+          scope.vehicleContent = 'partials/newVehicle.html'
         else
-          scope.initVehicle = this.noVehicle
+          scope.initVehicle = ->
+            console.log 'No Vehicle'
           scope.vehicleContent = 'partials/noVehicle.html'
-
-    loadVehicleView: =>
-      scope.initVehicle = this.menuLoad
-      scope.vehicleContent = 'partials/newVehicle.html'
-
-    menuLoad: =>
-      console.log 'Loading Vehicles'
-      scope.listaVehiculos = []
-      for vehicle in scope.vehiclesList
-        callback = "VehicleView.getInstance().loadVehicle(#{vehicle.id})"
-        menuItem = new MenuItem(vehicle.nombre, callback)
-        scope.listaVehiculos.push menuItem
-      scope.vehiculo = scope.vehiclesList[0]
-
-
-    loadVehicle: (id) =>
-      console.log "Looking for #{id}"
-      for vehicle in scope.vehiclesList
-        if (vehicle.id == id)
-          scope.vehiculo = vehicle
-
-
-
-    noVehicle: =>
-      console.log 'noVehicle'
 
     nuevoVehiculo: =>
       console.log 'Creando Vehiculo'

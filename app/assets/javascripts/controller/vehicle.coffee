@@ -1,6 +1,6 @@
 define [
-  'angular', 'model/vehiculo'
-], (angular, Vehiculo) ->
+  'angular', 'model/vehiculo', 'common/MenuItem'
+], (angular, Vehiculo, MenuItem) ->
 
   root = exports ? this
 
@@ -16,8 +16,25 @@ define [
       $http = injector.get('$http')
 
     getUserVehicles: (callback) =>
+      console.log('Getting User Vehicles')
       params = [UserCtrl.getInstance().getCurrentUser()]
-      $http.post('vehiculos/findAllForUser', params).success(@callback).error(@callback)
+      $http.post('vehiculos/findAllForUser', params).success(callback).error(callback)
+
+    loadVehicles: (data) =>
+      scope.vehiclesList = []
+      scope.vehiclesList.push Vehiculo.parseJSON(item) for item in data
+      scope.menuVehiculos = []
+      for vehicle in scope.vehiclesList
+        callback = "VehicleCtrl.getInstance().loadVehicle(#{vehicle.id})"
+        menuItem = new MenuItem(vehicle.nombre, callback)
+        scope.menuVehiculos.push menuItem
+
+    loadVehicle: (id) =>
+      console.log "Looking for #{id}"
+      for vehicle in scope.vehiclesList
+        if (vehicle.id == id)
+          scope.vehiculo = vehicle
+
 
   class root.VehicleCtrl
 
