@@ -45,11 +45,14 @@
             <label class="control-label" for="hora">A qué hora?</label>
             <div class="controls">
               <div class="input-append bootstrap-timepicker-component">
-                <input type="text" id="horaSalida" ng-model="viaje.hora" class="timepicker-default input-small">
-                  <span class="add-on">
+                <input type="text" ui-jq="timepicker"
+                       ui-options="timePickerOpts"
+                       ng-model="viaje.hora"
+                       class="timepicker-default input-small"/>
+                <span class="add-on">
                   <i class="icon-time"></i>
-                  </span>
-                </div>
+                </span>
+              </div>
               <span class="help-inline"></span>
             </div>
           </div>

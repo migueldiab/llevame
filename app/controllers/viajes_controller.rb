@@ -19,8 +19,13 @@ class ViajesController < ApplicationController
     @viaje.idCiudadOrigen  = ciudadOrigen.id
     @viaje.idCiudadDestino= ciudadDestino.id
 
-    @viaje.fSalida=  Date.strptime params['fecha'], '%d-%m-%Y'
-    @viaje.fLlegada=  Date.strptime params['fecha'], '%d-%m-%Y'
+    salida = "#{params['fecha'][0..9]} #{params['hora'][0..7]}"
+    logger.info "Fecha Salida : #{salida}"
+    # Input time in format '1999-12-31 11:59 PM'
+    # Will only take into account the first 10 characters of fecha
+    # and the first 8 characters of hora and join them with a blank space
+    @viaje.fSalida=  Date.strptime salida, '%Y-%m-%d %I:%M %p'
+    @viaje.fLlegada= @viaje.fSalida
 
     if @viaje.save
       render :json => @viaje, :status => 201

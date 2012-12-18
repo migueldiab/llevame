@@ -19,14 +19,15 @@ define ['angular', 'model/viaje', 'model/vehiculo'
 
     initView: =>
       console.log 'Nuevo Viaje'
+      scope.timePickerOpts = { template: 'modal', showInputs: false, disableFocus: true }
 #      scope = angular.element($('#scopeAgregar')).scope()
 
-      $('#fechaSalida').datepicker()
-      $('#horaSalida').timepicker({
-        minuteStep: 15,
-        showSeconds: false,
-        showMeridian: true
-      })
+#      $('#fechaSalida').datepicker()
+#      $('#horaSalida').timepicker({
+#        minuteStep: 15,
+#        showSeconds: false,
+#        showMeridian: true
+#      })
 
     processVehicles: (data, status, headers, config) =>
       console.log 'Processing Vehicles'

@@ -14,12 +14,12 @@ define ['angular'
 
     init: =>
       console.log 'Inicializando Mis Viajes'
-      $('#fechaSalida').datepicker()
-      $('#horaSalida').timepicker({
-        minuteStep: 15,
-        showSeconds: false,
-        showMeridian: true
-      });
+#      $('#fechaSalida').datepicker()
+#      $('#horaSalida').timepicker({
+#        minuteStep: 15,
+#        showSeconds: false,
+#        showMeridian: true
+#      });
       TripCtrl.getInstance().loadUserTrips()
 
   class root.MyTripsView

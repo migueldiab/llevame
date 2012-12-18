@@ -22,8 +22,8 @@
           <div class="control-group">
             <label class="control-label" for="cuando">Cuando</label>
             <div class="controls">
+              <input value="{{fecha | date:'EEE dd/MM/yyyy' }}" type="text" disabled/>
               <div ng-model="fecha" ui-date="{ minDate: 'new Date()' }"></div>
-              <span>{{fecha.toLocaleDateString() }}</span>
             </div>
           </div>
           <div class="control-group">

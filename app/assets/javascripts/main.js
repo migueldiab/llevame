@@ -13,7 +13,7 @@ requirejs.config({
     ,bootstrapModal: "bootstrap/bootstrap-modal"
     ,bootstrapAlert: "bootstrap/bootstrap-alert"
     ,bootstrapCollapse: "bootstrap/bootstrap-collapse"
-//    ,bootstrapTime: "bootstrap/bootstrap-timepicker"
+    ,bootstrapTime: "bootstrap/bootstrap-timepicker"
 //    ,bootstrapDate: "bootstrap/bootstrap-datepicker"
     ,bootstrapDropdown: "bootstrap/bootstrap-dropdown"
     ,bootstrapDateEs: "bootstrap/bootstrap-datepicker.es"
@@ -32,7 +32,6 @@ requirejs.config({
       deps: ['angular']
     },
     'bootstrapDateEs': {
-
       deps: ['bootstrapDate']
     },
     'bootstrapDropdown': {
@@ -55,8 +54,10 @@ requirejs.config({
     }
   }
   ,priority: [
-    "jquery"
+    "jQuery"
+    ,"jQueryUi"
     ,"angular"
+    ,"angularUi"
   ]
 
 });
@@ -71,7 +72,7 @@ require([
     ,"bootstrapAlert"
     ,"bootstrapCollapse"
     ,"bootstrapDropdown"
-//    ,"bootstrapTime"
+    ,"bootstrapTime"
 //    ,"bootstrapDate"
 //    ,"bootstrapDateEs"
 //    ,"Hydrate"
