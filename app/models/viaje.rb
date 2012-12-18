@@ -17,13 +17,16 @@
 #  paradas         :integer
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  idVehiculo      :integer
 #
 
 class Viaje < ActiveRecord::Base
   attr_accessible :animales, :equipaje, :fLlegada, :fSalida, :idEstado, :kms, :paradas,
-                  :pasaje, :peajes, :ciudadOrigen, :ciudadDestino
+                  :pasaje, :peajes, :ciudadOrigen, :ciudadDestino,
+                  :user, :vehiculo
 
   belongs_to :user, :class_name => "User"
+  belongs_to :vehiculo, :class_name => "Vehiculo"
 
   belongs_to :ciudadOrigen, :class_name => "Ciudad", :foreign_key => "idCiudadOrigen"
   belongs_to :ciudadDestino, :class_name => "Ciudad", :foreign_key => "idCiudadDestino"

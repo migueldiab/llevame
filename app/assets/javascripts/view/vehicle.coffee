@@ -18,8 +18,18 @@ define ['angular', 'model/vehiculo', 'common/MenuItem'
       console.log 'Loaded Vehicles'
       scope.nuevoVehiculo = this.nuevoVehiculo
       scope.cancel = this.cancelVehicle
-      scope.save= this.saveVehicle
+      scope.save = this.saveVehicle
       VehicleCtrl.getInstance().getUserVehicles(VehicleView.getInstance().loadVehicles)
+
+    saveVehicle: =>
+      VehicleCtrl.getInstance().saveVehicle(VehicleView.getInstance().showVehicle)
+
+    showVehicle: (data, status, headers, config) =>
+      console.log "Showing Vehicle #{data} "
+      if (201 == status)
+        scope.vehiculo = Vehiculo.parseJSON(data)
+      else
+        View.getInstance().showError('Error Saving Vehicle', "Could not save. Status #{status}")
 
     cancelVehicle: =>
       VehicleCtrl.getInstance().getUserVehicles(VehicleView.getInstance().loadVehicles)
@@ -42,15 +52,6 @@ define ['angular', 'model/vehiculo', 'common/MenuItem'
       scope.vehiculo = new Vehiculo()
       scope.vehicleContent = 'partials/newVehicle.html'
       scope.initVehicle = this.noVehicle
-
-    saveVehicle: =>
-      console.log 'Saving Vehicle'
-      $http.post('vehiculos/new', scope.vehiculo).success(@showVehicle).error(@showVehicle)
-
-    showVehicle: (data, status, headers, config) =>
-      console.log "Showing Vehicle #{data} "
-      this.requestVehicles()
-
 
   class root.VehicleView
 

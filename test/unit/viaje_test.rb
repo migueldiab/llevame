@@ -17,6 +17,7 @@
 #  paradas         :integer
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  idVehiculo      :integer
 #
 
 require 'test_helper'

@@ -35,6 +35,11 @@ define [
         if (vehicle.id == id)
           scope.vehiculo = vehicle
 
+    saveVehicle: (callback) =>
+      console.log 'Saving Vehicle'
+      $http.post('vehiculos/new', scope.vehiculo).success(callback).error(callback)
+
+
 
   class root.VehicleCtrl
 
