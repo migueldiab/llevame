@@ -9,8 +9,8 @@
           <div class="control-group">
             <label class="control-label" for="flexible">Vehiculo</label>
             <div class="controls">
-              <select>
-                <option ng-repeat="menuVehiculo in menuVehiculos" ng-model="viaje.vehiculo">
+              <select ng-model="viaje.vehiculo">
+                <option ng-repeat="menuVehiculo in menuVehiculos" value="{{menuVehiculo.getName()}}">
                   {{menuVehiculo.getName()}}
                 </option>
               </select>
@@ -34,9 +34,9 @@
           <div class="control-group">
             <label class="control-label" for="cuando">Cuando</label>
             <div class="controls">
-              <div class="input-append date" id="fechaSalida" data-date-format="dd-mm-yyyy">
-                <input class="span2" size="16" type="text" ng-model="viaje.fecha">
-                <span class="add-on"><i class="icon-th"></i></span>
+              <div class="input-append date">
+                <input class="span2" size="16" type="text" ng-model="viaje.fecha" ui-date="{ minDate: 'new Date()' }">
+                <span class="add-on" ><i class="icon-th"></i></span>
               </div>
               <span class="help-inline"></span>
             </div>
@@ -62,16 +62,16 @@
           </div>
 
           <div class="control-group">
-            <label class="control-label" for="flexible">Paradas</label>
+            <label class="control-label" for="paradas">Paradas</label>
             <div class="controls">
-              <input type="text" id="flexible" ng-model="viaje.mascotas" >
+              <input type="text" id="paradas" ng-model="viaje.paradas" >
               <span class="help-inline">Pienso hacer estas paradas intermedias</span>
             </div>
           </div>
           <div class="control-group">
-            <label class="control-label" for="flexible">Invitar Amigos</label>
+            <label class="control-label" for="amigos">Invitar Amigos</label>
             <div class="controls">
-              <input type="text" id="flexible" disabled value="Próximamente!">
+              <input type="text" id="amigos" disabled value="Próximamente!">
               <span class="help-inline"></span>
             </div>
           </div>
@@ -85,23 +85,23 @@
         <fieldset>
           <legend>Contá más de tu viaje</legend>
           <div class="control-group">
-            <label class="control-label" for="flexible">Pasaje</label>
+            <label class="control-label" for="pasaje">Pasaje</label>
             <div class="controls">
-              <input type="text" id="flexible" ng-model="viaje.pasaje" >
+              <input type="text" id="pasaje" ng-model="viaje.pasaje" >
               <span class="help-inline">Pueden ayudar con el combustible?</span>
             </div>
           </div>
           <div class="control-group">
-            <label class="control-label" for="flexible">Animales</label>
+            <label class="control-label" for="animales">Animales</label>
             <div class="controls">
-              <input type="checkbox" id="flexible" ng-model="viaje.animales" >
+              <input type="checkbox" id="animales" ng-model="viaje.animales" >
               <span class="help-inline">Podés traer a tu mascota!</span>
             </div>
           </div>
           <div class="control-group">
-            <label class="control-label" for="flexible">Peajes</label>
+            <label class="control-label" for="peaje">Peajes</label>
             <div class="controls">
-              <input type="checkbox" id="flexible" ng-model="viaje.peaje" >
+              <input type="checkbox" id="peaje" ng-model="viaje.peaje" >
               <span class="help-inline">Pueden ayudar con los peajes?</span>
             </div>
           </div>

@@ -36,7 +36,8 @@ define ['controller/home'
       profileBarMod = angular.module('profile-bar', [])
       profileBarMod.directive('profileBar', @profileBar)
 
-      llevameMod = angular.module('llevameApp', ['navigation-bar', 'profile-bar'])
+      llevameMod = angular.module('llevameApp', ['ui', 'navigation-bar', 'profile-bar'])
+
       llevameMod.run ($rootScope) ->
         $rootScope.author = 'Miguel A. Diab'
 
