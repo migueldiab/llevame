@@ -2,21 +2,29 @@ define [], () ->
   root = exports ? this
 
   class _SearchView
+    scope = null
 
     constructor: ->
       console.log 'Loading Search View'
+      scope = angular.element(document).scope()
 
     load: =>
       #      $('#mainContent').html '<h3>Loading Trips... pelase wait...</h3>'
-      scope = angular.element(document).scope()
       scope.mainContent = 'partials/search.html'
       scope.init = this.initSearch
       $('#frmLogin').slideUp(300, @showUser)
 
     initSearch: =>
       console.log 'Init Search'
-      TripCtrl.getInstance().loadUpcommingTrips()
+      scope.detallesViaje = this.detallesViaje
+      TripCtrl.getInstance().loadUpcomingTrips()
 
+    detallesViaje: (unViaje) =>
+      console.log "Detalles Viaje"
+      scope.init = ->
+        'Detalles Viaje'
+      scope.viaje = unViaje
+      scope.mainContent = 'partials/tripDetail.html'
 
     showUser: =>
       $('#userNav').fadeIn(300)

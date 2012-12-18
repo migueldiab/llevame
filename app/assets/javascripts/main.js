@@ -26,7 +26,7 @@ requirejs.config({
       deps: ['jQuery']
     },
     'angularUi': {
-      deps: ['angular']
+      deps: ['angular', 'jQueryUi']
     },
     'angular-resource': {
       deps: ['angular']

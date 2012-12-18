@@ -2,11 +2,14 @@ class ViajesController < ApplicationController
 
   def cargar
     @viajes = Viaje.all
-    temp = @viajes.second
-    logger.info "JSON : #{temp.as_json}"
-    logger.info "Trips : #{temp.ciudadDestino.to_s}"
-    logger.info "Trips : #{temp.idCiudadDestino.to_s}"
-    render :json => @viajes, :status => 200
+    if (@viajes.empty?)
+      response = ['error' => 'No Trips in DB']
+      status = 204
+    else
+      response = @viajes
+      status = 200
+    end
+    render :json => response, :status => status
   end
 
   # GET /viajes/new
@@ -25,6 +28,7 @@ class ViajesController < ApplicationController
     # Will only take into account the first 10 characters of fecha
     # and the first 8 characters of hora and join them with a blank space
     @viaje.fSalida=  Date.strptime salida, '%Y-%m-%d %I:%M %p'
+    logger.info "Fecha : #{@viaje.fSalida}"
     @viaje.fLlegada= @viaje.fSalida
 
     if @viaje.save

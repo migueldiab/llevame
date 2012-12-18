@@ -1,0 +1,32 @@
+<h3>Detalles del viaje</h3>
+<div class="row">
+  <div class="span8">
+    <fieldset>
+      <div class="control-group">
+        {{viaje.desde}}
+        {{viaje.hacia}}
+        {{viaje.fecha | date:'EEE dd/MM/yyyy' }}
+        {{viaje.hora | date:'HH:mm' }}
+        {{viaje.flexible}}
+      </div>
+    </fieldset>
+
+  </div>
+  <div class="span4">
+    <fieldset>
+      <legend>Comentarios</legend>
+<textarea class="span2" size="16" />
+      <br/>
+      <input type="button" value="Comentar" class="btn btn-mini btn-warning" ng-click=""/>
+
+    </fieldset>
+    <fieldset>
+      <legend>Fotos</legend>
+      Fotos del viaje
+      <br/>
+      <input type="button" value="Subir Fotos" class="btn btn-mini btn-success" ng-click=""/>
+
+    </fieldset>
+  </div>
+</div>
+

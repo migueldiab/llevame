@@ -70,10 +70,10 @@
       <tr ng-repeat="viaje in listaViajes">
         <td>{{viaje.desde}}</td>
         <td>{{viaje.hacia}}</td>
-        <td>{{viaje.fecha}}</td>
-        <td>{{viaje.hora}}</td>
+        <td>{{viaje.fecha | date:'EEE dd/MM/yyyy' }}</td>
+        <td>{{viaje.hora | date:'HH:mm' }}</td>
         <td>{{viaje.flexible}}</td>
-        <td><input type="button" value="Detalles" class="btn btn-mini btn-primary" ng-click=""/></td>
+        <td><input type="button" value="Detalles" class="btn btn-mini btn-primary" ng-click="detallesViaje(viaje)"/></td>
       </tr>
       </tbody>
     </table>

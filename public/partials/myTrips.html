@@ -1,6 +1,6 @@
 <h3>Compartí las experiencias de tus viajes!</h3>
 <div class="row">
-  <div class="span8" id="scopeMyTrips">
+  <div class="span8">
     <fieldset>
       <legend>Mis próximos viajes</legend>
       <table class="table">
@@ -18,8 +18,8 @@
           <tr ng-repeat="viaje in listaViajes">
             <td>{{viaje.desde}}</td>
             <td>{{viaje.hacia}}</td>
-            <td>{{viaje.fecha}}</td>
-            <td>{{viaje.hora}}</td>
+            <td>{{viaje.fecha | date:'EEE dd/MM/yyyy' }}</td>
+            <td>{{viaje.hora | date:'HH:mm' }}</td>
             <td>{{viaje.flexible}}</td>
             <td><input type="button" value="Detalles" class="btn btn-mini btn-primary" ng-click=""/></td>
           </tr>
@@ -43,8 +43,8 @@
         <tr ng-repeat="viaje in listaViajes">
           <td>{{viaje.desde}}</td>
           <td>{{viaje.hacia}}</td>
-          <td>{{viaje.fecha}}</td>
-          <td>{{viaje.hora}}</td>
+          <td>{{viaje.fecha | date:'EEE dd/MM/yyyy' }}</td>
+          <td>{{viaje.hora | date:'HH:mm' }}</td>
           <td>{{viaje.flexible}}</td>
           <td><input type="button" value="Calificar" class="btn btn-mini btn-primary" ng-click=""/></td>
         </tr>
@@ -54,19 +54,6 @@
   </div>
   <div class="span4">
     <fieldset>
-      <legend>Comentarios</legend>
-      Viaje : Viaje 1
-      <br/>
-      <textarea class="span2" size="16" />
-      <br/>
-      <input type="button" value="Comentar" class="btn btn-mini btn-warning" ng-click=""/>
-
-    </fieldset>
-    <fieldset>
-      <legend>Fotos</legend>
-      Fotos del viaje
-      <br/>
-      <input type="button" value="Subir Fotos" class="btn btn-mini btn-success" ng-click=""/>
 
     </fieldset>
   </div>

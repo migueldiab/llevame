@@ -31,8 +31,8 @@ define ['angular', 'model/viaje'],
 
 
 
-    loadUpcommingTrips: =>
-      console.log "Loading Upcomming Trips"
+    loadUpcomingTrips: =>
+      console.log "Loading Upcoming Trips"
       $http.post('viajes/cargar', UserCtrl.getInstance().getCurrentUser()).success(@cargarViajes).error(@cargarViajes)
 
     loadUserTrips: =>
@@ -50,6 +50,10 @@ define ['angular', 'model/viaje'],
       else if (409 == status)
         console.log 'Error al cargar viajes'
         View.getInstance().showError('Error al guardar Viaje', 'No se pudo guardar el viaje. Error : ' + data.error)
+
+      else if (204 == status)
+        console.log 'No hay viajes?'
+        View.getInstance().showError('No se encontraron viajes!', 'Posible error en base de datos')
 
       else
         console.log 'Respuesta Inesperada ' + status
