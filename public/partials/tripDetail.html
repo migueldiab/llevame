@@ -1,32 +1,69 @@
-<h3>Detalles del viaje</h3>
+<h3>desde {{viaje.desde}} hacia {{viaje.hacia}}</h3>
 <div class="row">
-  <div class="span8">
-    <fieldset>
-      <div class="control-group">
-        {{viaje.desde}}
-        {{viaje.hacia}}
-        {{viaje.fecha | date:'EEE dd/MM/yyyy' }}
-        {{viaje.hora | date:'HH:mm' }}
-        {{viaje.flexible}}
-      </div>
-    </fieldset>
-
-  </div>
   <div class="span4">
-    <fieldset>
-      <legend>Comentarios</legend>
-<textarea class="span2" size="16" />
-      <br/>
-      <input type="button" value="Comentar" class="btn btn-mini btn-warning" ng-click=""/>
+    <div class="row">
+      <div class="span1">Vehiculo</div>
+      <div class="span3">{{viaje.vehiculo }}</div>
+    </div>
+    <div class="row">
+      <div class="span1">Salida</div>
+      <div class="span3">{{viaje.fecha | date:'EEE dd/MM/yyyy' }} a las {{viaje.hora | date:'HH:mm' }}</div>
+    </div>
+    <div class="row">
+      <div class="span1">Conductor</div>
+      <div class="span3">{{viaje.conductor }}</div>
+    </div>
+    <div class="row">
+      <div class="span1">Acompañantes</div>
+      <div class="span3">{{viaje.listaAcompanantes }}</div>
+    </div>
+  </div>
+  <div class="span8">
+    <div class="row">
+      <div class="span4">
+        <fieldset>
+          <legend>Comentarios</legend>
+          <textarea class="span2" size="16" />
+          <input type="button" value="Comentar" class="btn btn-mini btn-warning" ng-click=""/>
 
-    </fieldset>
-    <fieldset>
-      <legend>Fotos</legend>
-      Fotos del viaje
-      <br/>
-      <input type="button" value="Subir Fotos" class="btn btn-mini btn-success" ng-click=""/>
+          <p>
+            <strong>Silvana : </strong>
+            Excelente ese viaje! Tenemos que repetirlo...
+          </p>
+        </fieldset>
 
-    </fieldset>
+      </div>
+      <div class="span4">
+        <fieldset>
+          <legend>Fotos</legend>
+          <input type="button" value="Subir Fotos" class="btn btn-mini btn-success" ng-click=""/>
+
+          <div id="myslide">
+            <div class="cover">
+
+              <div class="mystuff">
+                <img src="assets/Carpool_resized for web.jpg" />
+              </div>
+              <div class="mystuff">
+                <div class="frame">
+                  <img class="lazy" src="assets/g.gif" data-original="assets/carpool_300.jpg" width="320" height="160" alt="Car Pool 1">
+                </div>
+                <noscript><img src="assets/carpool_300.jpg" width="320" height="160" alt="Car Pool 1"></noscript>
+              </div>
+              <div class="mystuff">
+                <div class="frame">
+                  <img class="lazy" src="assets/g.gif" data-original="assets/cars.jpg" width="320" height="160" alt="Car Pool 1">
+                </div>
+                <noscript><img src="assets/cars.jpg" width="320" height="160" alt="Car Pool 1"></noscript>
+              </div>
+            </div> <!-- end of div cover -->
+          </div>  <!-- end of div myslide -->
+
+        </fieldset>
+      </div>
+    </div>
+
+
   </div>
 </div>
 
