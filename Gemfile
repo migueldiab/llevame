@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.9'
 
 group :production do
+  gem 'activerecord-mysql-adapter'
   gem 'mysql2'
 end
 
