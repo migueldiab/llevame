@@ -27,7 +27,7 @@ class ViajesController < ApplicationController
     # Input time in format '1999-12-31 11:59 PM'
     # Will only take into account the first 10 characters of fecha
     # and the first 8 characters of hora and join them with a blank space
-    @viaje.fSalida=  Date.strptime salida, '%Y-%m-%d %I:%M %p'
+    @viaje.fSalida=  Date.strptime salida, '%d/%m/%Y %I:%M %p'
     logger.info "Fecha : #{@viaje.fSalida}"
     @viaje.fLlegada= @viaje.fSalida
 
