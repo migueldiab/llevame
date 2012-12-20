@@ -1,5 +1,0 @@
-define [], () ->
-  class Ciudad
-
-
-    constructor: ->

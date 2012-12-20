@@ -1,54 +1,51 @@
-define ['angular', 'common/MenuItem'
-], (angular, MenuItem) ->
+root = exports ? this
 
-  root = exports ? this
+class _View
 
-  class _View
+  scope = null
 
-    scope = null
+  constructor: ->
+    console.log 'Init Main View'
 
-    constructor: ->
-      console.log 'Init Main View'
+  loadProfile: =>
+    scope.mainContent = 'partials/profile.html'
+    scope.init = ->
+      console.log 'Loaded Profiles'
 
-    loadProfile: =>
-      scope.mainContent = 'partials/profile.html'
-      scope.init = ->
-        console.log 'Loaded Profiles'
+  loadVehicleView: =>
+    console.log 'Vehicle View'
+    VehicleView.getInstance().load()
 
-    loadVehicleView: =>
-      console.log 'Vehicle View'
-      VehicleView.getInstance().load()
+  loadRep: =>
+    scope.mainContent = 'partials/rep.html'
+    scope.init = ->
+      console.log 'Loaded Rep'
 
-    loadRep: =>
-      scope.mainContent = 'partials/rep.html'
-      scope.init = ->
-        console.log 'Loaded Rep'
+  loadAboutUs: =>
+    console.log 'About View'
+    $('#formRegistrar').modal('show')
+    $('#formRegistrar').load('/partials/aboutUs')
+    return false
 
-    loadAboutUs: =>
-      console.log 'About View'
-      $('#formRegistrar').modal('show')
-      $('#formRegistrar').load('/partials/aboutUs')
-      return false
-
-    loadNotifications: =>
-      console.log 'Notifications View'
-      $('#formRegistrar').modal('show')
-      $('#formRegistrar').load('/partials/notificaciones')
-      return false
+  loadNotifications: =>
+    console.log 'Notifications View'
+    $('#formRegistrar').modal('show')
+    $('#formRegistrar').load('/partials/notificaciones')
+    return false
 
 
-    showError: (title, error) ->
-      $('#errorMsg').slideDown(400)
-      $('#errorMsgTitle').text title
-      $('#errorMsgText').text error
+  showError: (title, error) ->
+    $('#errorMsg').slideDown(400)
+    $('#errorMsgTitle').text title
+    $('#errorMsgText').text error
 
-    loadUserMenu: =>
-      buscar = new MenuItem 'Buscar Viaje', 'SearchView.getInstance().load()'
-      agregar = new MenuItem 'Nuevo Viaje', 'AddTripView.getInstance().load()'
-      misViajes = new MenuItem 'Mis Viajes', 'MyTripsView.getInstance().load()'
-      if (!scope)
-        scope = angular.element(document).scope()
-      scope.menuList = [buscar, agregar, misViajes]
+  loadUserMenu: =>
+    buscar = new MenuItem 'Buscar Viaje', 'SearchView.getInstance().load()'
+    agregar = new MenuItem 'Nuevo Viaje', 'AddTripView.getInstance().load()'
+    misViajes = new MenuItem 'Mis Viajes', 'MyTripsView.getInstance().load()'
+    if (!scope)
+      scope = angular.element(document).scope()
+    scope.menuList = [buscar, agregar, misViajes]
 
 #    userController: =>
 #      console.log 'Loaded User Partial'
@@ -59,11 +56,11 @@ define ['angular', 'common/MenuItem'
 #        console.log 'Buscando Viaje'
 
 
-  class root.View
+class root.View
 
-    instance = undefined;
+  instance = undefined;
 
-    @getInstance: ->
-      instance ?= new _View
+  @getInstance: ->
+    instance ?= new _View
 
 

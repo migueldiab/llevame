@@ -1,20 +1,16 @@
-define [
-  'angular'
-], (angular) ->
+root = exports ? this
 
-  root = exports ? this
+class _ProfileBarCtrl
 
-  class _ProfileBarCtrl
-
-    constructor: ->
-      console.log 'Starting Profile Bar'
+  constructor: ->
+    console.log 'Starting Profile Bar'
 
 
-  class root.ProfileBarCtrl
+class root.ProfileBarCtrl
 
-    instance = undefined;
+  instance = undefined;
 
-    @getInstance: ->
-      instance ?= new _ProfileBarCtrl
+  @getInstance: ->
+    instance ?= new _ProfileBarCtrl
 
 

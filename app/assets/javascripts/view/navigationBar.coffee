@@ -1,84 +1,83 @@
-define ['common/MenuItem'], (MenuItem) ->
-  root = exports ? this
+root = exports ? this
 
-  class _NavBarView
+class _NavBarView
 
-    constructor: ->
-      console.log 'Loading NavBar View'
-
-
-    addEventListeners: =>
-      console.log 'Adding nav listener...'
-      $('#btnLogin').click(this.loginUser)
-      $('#btnToggleNavBar').click(this.collapseNavBar)
-      $('#btnCloseError').click(this.closeErrorModal)
-
-    closeErrorModal: =>
-      $('#errorMsg').slideUp(400)
+  constructor: ->
+    console.log 'Loading NavBar View'
 
 
-    collapseNavBar: =>
-      console.log 'Toggling Nav Bar'
-      $('#mainNavBar').collapse('toggle')
+  addEventListeners: =>
+    console.log 'Adding nav listener...'
+    $('#btnLogin').click(this.loginUser)
+    $('#btnToggleNavBar').click(this.collapseNavBar)
+    $('#btnCloseError').click(this.closeErrorModal)
 
-    link: ($scope) =>
-      console.log 'Linking Nav Bar'
-      this.addEventListeners()
-      this.configureMenuItems($scope)
+  closeErrorModal: =>
+    $('#errorMsg').slideUp(400)
 
-    configureMenuItems: ($scope) =>
-      item = new MenuItem('Acerca de', 'View.getInstance().loadAboutUs()')
-      $scope.menuList = [item]
 
-    loginUser: =>
-      console.log 'Clicked Btn Login'
-      login = $('#login').val()
-      password = $('#password').val()
+  collapseNavBar: =>
+    console.log 'Toggling Nav Bar'
+    $('#mainNavBar').collapse('toggle')
 
-      if (this.validateCredentials(login, password))
-        console.log 'Validated Credentias'
-        params =
-          'login': login
-          'password': password
+  link: ($scope) =>
+    console.log 'Linking Nav Bar'
+    this.addEventListeners()
+    this.configureMenuItems($scope)
+
+  configureMenuItems: ($scope) =>
+    item = new MenuItem('Acerca de', 'View.getInstance().loadAboutUs()')
+    $scope.menuList = [item]
+
+  loginUser: =>
+    console.log 'Clicked Btn Login'
+    login = $('#login').val()
+    password = $('#password').val()
+
+    if (this.validateCredentials(login, password))
+      console.log 'Validated Credentias'
+      params =
+        'login': login
+        'password': password
 
 #        $.post('loginUser', params, UserCtrl.getInstance().loadUser, 'json')
 #        .error(UserCtrl.getInstance().loadUser)
-        injector = angular.element(document).injector()
-        $http = injector.get('$http')
-        $http.post('loginUser', params).success(UserCtrl.getInstance().loadUser)
-          .error(UserCtrl.getInstance().loadUser);
+      injector = angular.element(document).injector()
+      $http = injector.get('$http')
+      $http.post('loginUser', params).success(UserCtrl.getInstance().loadUserOrDefaultHome)
+        .error(UserCtrl.getInstance().loadUserOrDefaultHome);
 
-      else
-        console.log 'Invalid Credentias'
-        View.getInstance().showError('Login Error', 'Invalid Username or Password')
+    else
+      console.log 'Invalid Credentias'
+      View.getInstance().showError('Login Error', 'Invalid Username or Password')
 
 
+    return false
+
+  validateCredentials: (login, password) ->
+
+    if (!login)
       return false
 
-    validateCredentials: (login, password) ->
+    if (!password)
+      return false
 
-      if (!login)
-        return false
+    if login == password
+      return false
 
-      if (!password)
-        return false
+    if (login.length < 3)
+      return false
 
-      if login == password
-        return false
+    if (password.length < 3)
+      return false
 
-      if (login.length < 3)
-        return false
+    return true
 
-      if (password.length < 3)
-        return false
+class root.NavBarView
 
-      return true
+  instance = undefined;
 
-  class root.NavBarView
-
-    instance = undefined;
-
-    @getInstance: ->
-      instance ?= new _NavBarView
+  @getInstance: ->
+    instance ?= new _NavBarView
 
 

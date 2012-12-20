@@ -1,10 +1,9 @@
-define [], () ->
-  class MenuItem
+class @MenuItem
 
-    constructor: (@name, @action) ->
+  constructor: (@name, @action) ->
 
-    getName: =>
-      return @name
+  getName: =>
+    return @name
 
-    getAction: =>
-      return @action
+  getAction: =>
+    return @action

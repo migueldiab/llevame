@@ -1,5 +1,0 @@
-define [], () ->
-  class Review
-
-
-    constructor: ->

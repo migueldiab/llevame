@@ -7,22 +7,26 @@
         <div class="control-group">
           <label class="control-label" for="desde">Desde</label>
           <div class="controls">
-            <input type="text" id="desde">
+            <input type="text" ng-model="viaje.desde">
             <span class="help-inline">Ver en el mapa</span>
           </div>
         </div>
         <div class="control-group">
           <label class="control-label" for="hacia">Hacia</label>
           <div class="controls">
-            <input type="text" id="hacia">
+            <input type="text" ng-model="viaje.hacia">
             <span class="help-inline"></span>
           </div>
         </div>
         <div class="control-group">
           <label class="control-label" for="cuando">Cuando</label>
           <div class="controls">
-            <input value="{{fecha | date:'EEE dd/MM/yyyy' }}" type="text" disabled/>
-            <div ng-model="fecha" ui-date="{ minDate: 'new Date()' }"></div>
+            <div class="input-append date">
+              <input type="text" size="16" class="span2"
+                     ui-jq="datepicker"
+                     ng-model="viaje.fecha"/>
+              <span class="add-on"><i class="icon-th"></i></span>
+            </div>
           </div>
         </div>
         <div class="control-group">
@@ -42,11 +46,11 @@
     </form>
     </div>
   <div class="span5">
-    <iframe width="90%" height="600px"
-            frameborder="0" scrolling="yes"
-            marginheight="0" marginwidth="0"
-            src="http://maps.google.com/?&amp;ll=-34.905361,-56.163483&amp;spn=0.053074,0.111494&amp;t=h&amp;z=14&amp;output=embed">
-    </iframe>
+    <!--<iframe width="90%" height="600px"-->
+            <!--frameborder="0" scrolling="yes"-->
+            <!--marginheight="0" marginwidth="0"-->
+            <!--src="http://maps.google.com/?&amp;ll=-34.905361,-56.163483&amp;spn=0.053074,0.111494&amp;t=h&amp;z=14&amp;output=embed">-->
+    <!--</iframe>-->
 
   </div>
 </div>

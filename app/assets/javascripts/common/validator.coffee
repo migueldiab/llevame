@@ -25,30 +25,30 @@ class _Validator
 
   validatePassword: (password, repeat, email) ->
 
-    if (password != "" && password == repeat) 
-      if(password.length < 6) 
-          error = "Error: Password must contain at least six characters!"
-          return error
-      
-      if(password == email) 
-          error = "Error: Password must be different from Username!"
-          return error
-      
+    if (password != "" && password == repeat)
+      if(password.length < 6)
+        error = "Error: Password must contain at least six characters!"
+        return error
+
+      if(password == email)
+        error = "Error: Password must be different from Username!"
+        return error
+
       re = /[0-9]/
-      if(!re.test(password)) 
-          error = "Error: password must contain at least one number (0-9)!"
-          return error
-      
+      if(!re.test(password))
+        error = "Error: password must contain at least one number (0-9)!"
+        return error
+
       re = /[a-z]/
-      if(!re.test(password)) 
-          error = "Error: password must contain at least one lowercase letter (a-z)!"
-          return error
-      
+      if(!re.test(password))
+        error = "Error: password must contain at least one lowercase letter (a-z)!"
+        return error
+
       re = /[A-Z]/
-      if(!re.test(password)) 
-          error = "Error: password must contain at least one uppercase letter (A-Z)!"
-          return error
-      
+      if(!re.test(password))
+        error = "Error: password must contain at least one uppercase letter (A-Z)!"
+        return error
+
     else
       error = "Error: Please check that you've entered and confirmed your password!"
       return error

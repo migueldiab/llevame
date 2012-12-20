@@ -5,7 +5,6 @@
  * @license MIT License, http://www.opensource.org/licenses/MIT
  */
 
-define(["angular"], function(angular) {
 
 angular.module('ui.config', []).value('ui.config', {});
 angular.module('ui.filters', ['ui.config']);
@@ -16,7 +15,7 @@ angular.module('ui', ['ui.filters', 'ui.directives', 'ui.config']);
  jQuery UI Sortable plugin wrapper
 
  @param [ui-sortable] {object} Options to pass to $.fn.sortable() merged onto ui.config
-*/
+ */
 
 angular.module('ui.directives').directive('uiSortable', [
   'ui.config', function(uiConfig) {
@@ -182,7 +181,7 @@ angular.module('ui.directives').directive('uiMask', [
 ]);
 
 angular.module('ui.directives')
-.directive('uiModal', ['$timeout', function($timeout) {
+    .directive('uiModal', ['$timeout', function($timeout) {
   return {
     restrict: 'EAC',
     require: 'ngModel',
@@ -215,7 +214,7 @@ angular.module('ui.directives')
 angular.module('ui.directives').directive('uiReset', ['ui.config', function (uiConfig) {
   var resetValue = null;
   if (uiConfig.reset !== undefined)
-      resetValue = uiConfig.reset;
+    resetValue = uiConfig.reset;
   return {
     require: 'ngModel',
     link: function (scope, elm, attrs, ctrl) {
@@ -257,66 +256,66 @@ angular.module('ui.directives').directive('uiReset', ['ui.config', function (uiC
   }
 
   app.directive('uiMap',
-    ['ui.config', '$parse', function (uiConfig, $parse) {
+      ['ui.config', '$parse', function (uiConfig, $parse) {
 
-      var mapEvents = 'bounds_changed center_changed click dblclick drag dragend ' +
-        'dragstart heading_changed idle maptypeid_changed mousemove mouseout ' +
-        'mouseover projection_changed resize rightclick tilesloaded tilt_changed ' +
-        'zoom_changed';
-      var options = uiConfig.map || {};
+        var mapEvents = 'bounds_changed center_changed click dblclick drag dragend ' +
+            'dragstart heading_changed idle maptypeid_changed mousemove mouseout ' +
+            'mouseover projection_changed resize rightclick tilesloaded tilt_changed ' +
+            'zoom_changed';
+        var options = uiConfig.map || {};
 
-      return {
-        restrict: 'A',
-        //doesn't work as E for unknown reason
-        link: function (scope, elm, attrs) {
-          var opts = angular.extend({}, options, scope.$eval(attrs.uiOptions));
-          var map = new google.maps.Map(elm[0], opts);
-          var model = $parse(attrs.uiMap);
+        return {
+          restrict: 'A',
+          //doesn't work as E for unknown reason
+          link: function (scope, elm, attrs) {
+            var opts = angular.extend({}, options, scope.$eval(attrs.uiOptions));
+            var map = new google.maps.Map(elm[0], opts);
+            var model = $parse(attrs.uiMap);
 
-          //Set scope variable for the map
-          model.assign(scope, map);
+            //Set scope variable for the map
+            model.assign(scope, map);
 
-          bindMapEvents(scope, mapEvents, map, elm);
-        }
-      };
-    }]);
+            bindMapEvents(scope, mapEvents, map, elm);
+          }
+        };
+      }]);
 
   app.directive('uiMapInfoWindow',
-    ['ui.config', '$parse', '$compile', function (uiConfig, $parse, $compile) {
+      ['ui.config', '$parse', '$compile', function (uiConfig, $parse, $compile) {
 
-      var infoWindowEvents = 'closeclick content_change domready ' +
-        'position_changed zindex_changed';
-      var options = uiConfig.mapInfoWindow || {};
+        var infoWindowEvents = 'closeclick content_change domready ' +
+            'position_changed zindex_changed';
+        var options = uiConfig.mapInfoWindow || {};
 
-      return {
-        link: function (scope, elm, attrs) {
-          var opts = angular.extend({}, options, scope.$eval(attrs.uiOptions));
-          opts.content = elm[0];
-          var model = $parse(attrs.uiMapInfoWindow);
-          var infoWindow = model(scope);
+        return {
+          link: function (scope, elm, attrs) {
+            var opts = angular.extend({}, options, scope.$eval(attrs.uiOptions));
+            opts.content = elm[0];
+            var model = $parse(attrs.uiMapInfoWindow);
+            var infoWindow = model(scope);
 
-          if (!infoWindow) {
-            infoWindow = new google.maps.InfoWindow(opts);
-            model.assign(scope, infoWindow);
+            if (!infoWindow) {
+              infoWindow = new google.maps.InfoWindow(opts);
+              model.assign(scope, infoWindow);
+            }
+
+            bindMapEvents(scope, infoWindowEvents, infoWindow, elm);
+
+            /* The info window's contents dont' need to be on the dom anymore,
+             google maps has them stored.  So we just replace the infowindow element
+             with an empty div. (we don't just straight remove it from the dom because
+             straight removing things from the dom can mess up angular) */
+            elm.replaceWith('<div></div>');
+
+            //Decorate infoWindow.open to $compile contents before opening
+            var _open = infoWindow.open;
+            infoWindow.open = function open(a1, a2, a3, a4, a5, a6) {
+              $compile(elm.contents())(scope);
+              _open.call(infoWindow, a1, a2, a3, a4, a5, a6);
+            };
           }
-
-          bindMapEvents(scope, infoWindowEvents, infoWindow, elm);
-
-          /* The info window's contents dont' need to be on the dom anymore,
-           google maps has them stored.  So we just replace the infowindow element
-           with an empty div. (we don't just straight remove it from the dom because
-           straight removing things from the dom can mess up angular) */
-          elm.replaceWith('<div></div>');
-
-          //Decorate infoWindow.open to $compile contents before opening
-          var _open = infoWindow.open;
-          infoWindow.open = function open(a1, a2, a3, a4, a5, a6) {
-            $compile(elm.contents())(scope);
-            _open.call(infoWindow, a1, a2, a3, a4, a5, a6);
-          };
-        }
-      };
-    }]);
+        };
+      }]);
 
   /* 
    * Map overlay directives all work the same. Take map marker for example
@@ -338,27 +337,27 @@ angular.module('ui.directives').directive('uiReset', ['ui.config', function (uiC
   }
 
   mapOverlayDirective('uiMapMarker',
-    'animation_changed click clickable_changed cursor_changed ' +
-      'dblclick drag dragend draggable_changed dragstart flat_changed icon_changed ' +
-      'mousedown mouseout mouseover mouseup position_changed rightclick ' +
-      'shadow_changed shape_changed title_changed visible_changed zindex_changed');
+      'animation_changed click clickable_changed cursor_changed ' +
+          'dblclick drag dragend draggable_changed dragstart flat_changed icon_changed ' +
+          'mousedown mouseout mouseover mouseup position_changed rightclick ' +
+          'shadow_changed shape_changed title_changed visible_changed zindex_changed');
 
   mapOverlayDirective('uiMapPolyline',
-    'click dblclick mousedown mousemove mouseout mouseover mouseup rightclick');
+      'click dblclick mousedown mousemove mouseout mouseover mouseup rightclick');
 
   mapOverlayDirective('uiMapPolygon',
-    'click dblclick mousedown mousemove mouseout mouseover mouseup rightclick');
+      'click dblclick mousedown mousemove mouseout mouseover mouseup rightclick');
 
   mapOverlayDirective('uiMapRectangle',
-    'bounds_changed click dblclick mousedown mousemove mouseout mouseover ' +
-      'mouseup rightclick');
+      'bounds_changed click dblclick mousedown mousemove mouseout mouseover ' +
+          'mouseup rightclick');
 
   mapOverlayDirective('uiMapCircle',
-    'center_changed click dblclick mousedown mousemove ' +
-      'mouseout mouseover mouseup radius_changed rightclick');
+      'center_changed click dblclick mousedown mousemove ' +
+          'mouseout mouseover mouseup radius_changed rightclick');
 
   mapOverlayDirective('uiMapGroundOverlay',
-    'click dblclick');
+      'click dblclick');
 
 })();
 angular.module('ui.directives').factory('keypressHelper', ['$parse', function keypress($parse){
@@ -428,11 +427,11 @@ angular.module('ui.directives').factory('keypressHelper', ['$parse', function ke
         var shiftRequired = combination.keys.shift || false;
 
         if (
-          mainKeyPressed &&
-          ( altRequired == altPressed ) &&
-          ( ctrlRequired == ctrlPressed ) &&
-          ( shiftRequired == shiftPressed )
-        ) {
+            mainKeyPressed &&
+                ( altRequired == altPressed ) &&
+                ( ctrlRequired == ctrlPressed ) &&
+                ( shiftRequired == shiftPressed )
+            ) {
           // Run the function
           scope.$apply(function () {
             combination.expression(scope, { '$event': event });
@@ -572,17 +571,17 @@ angular.module('ui.directives').directive('uiSelect2', ['ui.config', '$http', fu
     require: '?ngModel',
     compile: function (tElm, tAttrs) {
       var watch,
-        repeatOption,
-		repeatAttr,
-        isSelect = tElm.is('select'),
-        isMultiple = (tAttrs.multiple !== undefined);
+          repeatOption,
+          repeatAttr,
+          isSelect = tElm.is('select'),
+          isMultiple = (tAttrs.multiple !== undefined);
 
       // Enable watching of the options dataset if in use
       if (tElm.is('select')) {
         repeatOption = tElm.find('option[ng-repeat], option[data-ng-repeat]');
 
         if (repeatOption.length) {
-		  repeatAttr = repeatOption.attr('ng-repeat') || repeatOption.attr('data-ng-repeat');
+          repeatAttr = repeatOption.attr('ng-repeat') || repeatOption.attr('data-ng-repeat');
           watch = jQuery.trim(repeatAttr.split('|')[0]).split(' ').pop();
         }
       }
@@ -754,38 +753,38 @@ angular.module('ui.directives').directive('uiTinymce', ['ui.config', function (u
     require: 'ngModel',
     link: function (scope, elm, attrs, ngModel) {
       var expression,
-        options = {
-          // Update model on button click
-          onchange_callback: function (inst) {
-            if (inst.isDirty()) {
-              inst.save();
-              ngModel.$setViewValue(elm.val());
-              if (!scope.$$phase)
-                scope.$apply();
-            }
-          },
-          // Update model on keypress
-          handle_event_callback: function (e) {
-            if (this.isDirty()) {
-              this.save();
-              ngModel.$setViewValue(elm.val());
-              if (!scope.$$phase)
-                scope.$apply();
-            }
-            return true; // Continue handling
-          },
-          // Update model when calling setContent (such as from the source editor popup)
-          setup: function (ed) {
-            ed.onSetContent.add(function (ed, o) {
-              if (ed.isDirty()) {
-                ed.save();
+          options = {
+            // Update model on button click
+            onchange_callback: function (inst) {
+              if (inst.isDirty()) {
+                inst.save();
                 ngModel.$setViewValue(elm.val());
                 if (!scope.$$phase)
                   scope.$apply();
               }
-            });
-          }
-        };
+            },
+            // Update model on keypress
+            handle_event_callback: function (e) {
+              if (this.isDirty()) {
+                this.save();
+                ngModel.$setViewValue(elm.val());
+                if (!scope.$$phase)
+                  scope.$apply();
+              }
+              return true; // Continue handling
+            },
+            // Update model when calling setContent (such as from the source editor popup)
+            setup: function (ed) {
+              ed.onSetContent.add(function (ed, o) {
+                if (ed.isDirty()) {
+                  ed.save();
+                  ngModel.$setViewValue(elm.val());
+                  if (!scope.$$phase)
+                    scope.$apply();
+                }
+              });
+            }
+          };
       if (attrs.uiTinymce) {
         expression = scope.$eval(attrs.uiTinymce);
       } else {
@@ -881,67 +880,67 @@ angular.module('ui.directives').directive('uiScrollfix', ['$window', function ($
 }]);
 
 /*
-*  AngularJs Fullcalendar Wrapper for the JQuery FullCalendar
-*  inspired by http://arshaw.com/fullcalendar/ 
-*  
-*  Basic Angular Calendar Directive that takes in live events as the ng-model and watches that event array for changes, to update the view accordingly. 
-*  Can also take in an event url as a source object(s) and feed the events per view. 
-*
-*/
+ *  AngularJs Fullcalendar Wrapper for the JQuery FullCalendar
+ *  inspired by http://arshaw.com/fullcalendar/
+ *
+ *  Basic Angular Calendar Directive that takes in live events as the ng-model and watches that event array for changes, to update the view accordingly.
+ *  Can also take in an event url as a source object(s) and feed the events per view.
+ *
+ */
 
 angular.module('ui.directives').directive('uiCalendar',['ui.config', '$parse', function (uiConfig,$parse) {
-    uiConfig.uiCalendar = uiConfig.uiCalendar || {};       
-    //returns the fullcalendar     
-    return {
-        require: 'ngModel',
-        restrict: 'A',
-        scope: {
-          events: "=ngModel"
-        },
-        link: function(scope, elm, $attrs) {
-            var ngModel = $parse($attrs.ngModel);
-            //update method that is called on load and whenever the events array is changed. 
-            function update() {
-              //Default View Options
-              var expression,
-                options = {
-                  header: {
-                  left: 'prev,next today',
-                  center: 'title',
-                  right: 'month,agendaWeek,agendaDay'
-                },
+  uiConfig.uiCalendar = uiConfig.uiCalendar || {};
+  //returns the fullcalendar
+  return {
+    require: 'ngModel',
+    restrict: 'A',
+    scope: {
+      events: "=ngModel"
+    },
+    link: function(scope, elm, $attrs) {
+      var ngModel = $parse($attrs.ngModel);
+      //update method that is called on load and whenever the events array is changed.
+      function update() {
+        //Default View Options
+        var expression,
+            options = {
+              header: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'month,agendaWeek,agendaDay'
+              },
               // add event name to title attribute on mouseover. 
               eventMouseover: function(event, jsEvent, view) {
-              if (view.name !== 'agendaDay') {
-                $(jsEvent.target).attr('title', event.title);
-               }
+                if (view.name !== 'agendaDay') {
+                  $(jsEvent.target).attr('title', event.title);
+                }
               },
-          
+
               // Calling the events from the scope through the ng-model binding attribute. 
               events: scope.events
-              };          
-              //if attrs have been entered to the directive, then create a relative expression. 
-              if ($attrs.uiCalendar){
-                 expression = scope.$eval($attrs.uiCalendar);
-              }
-              else{
-                expression = {};
-              } 
-              //extend the options to suite the custom directive.
-              angular.extend(options, uiConfig.uiCalendar, expression);
-              //call fullCalendar from an empty html tag, to keep angular happy.
-              elm.html('').fullCalendar(options);
-            }
-            //on load update call.
-            update();
-            //watching the length of the array to create a more efficient update process. 
-            scope.$watch( 'events.length', function( newVal, oldVal )
-            {
-              //update the calendar on every change to events.length
-              update();
-            }, true );
+            };
+        //if attrs have been entered to the directive, then create a relative expression.
+        if ($attrs.uiCalendar){
+          expression = scope.$eval($attrs.uiCalendar);
         }
-    };
+        else{
+          expression = {};
+        }
+        //extend the options to suite the custom directive.
+        angular.extend(options, uiConfig.uiCalendar, expression);
+        //call fullCalendar from an empty html tag, to keep angular happy.
+        elm.html('').fullCalendar(options);
+      }
+      //on load update call.
+      update();
+      //watching the length of the array to create a more efficient update process.
+      scope.$watch( 'events.length', function( newVal, oldVal )
+      {
+        //update the calendar on every change to events.length
+        update();
+      }, true );
+    }
+  };
 }]);
 /**
  * uiShow Directive
@@ -971,7 +970,7 @@ angular.module('ui.directives').directive('uiShow', [function () {
  *
  * @param expression {boolean} evaluated expression to determine if the class should be added
  */
-  .directive('uiHide', [function () {
+    .directive('uiHide', [function () {
   return function (scope, elm, attrs) {
     scope.$watch(attrs.uiHide, function (newVal, oldVal) {
       if (newVal) {
@@ -992,7 +991,7 @@ angular.module('ui.directives').directive('uiShow', [function () {
  *
  * @param expression {boolean} evaluated expression to determine if the class should be added
  */
-  .directive('uiToggle', [function () {
+    .directive('uiToggle', [function () {
   return function (scope, elm, attrs) {
     scope.$watch(attrs.uiToggle, function (newVal, oldVal) {
       if (newVal) {
@@ -1021,8 +1020,8 @@ angular.module('ui.directives').directive('uiCurrency', ['ui.config', 'currencyF
     require: 'ngModel',
     link: function (scope, element, attrs, controller) {
       var opts, // instance-specific options
-        renderview,
-        value;
+          renderview,
+          value;
 
       opts = angular.extend({}, options, scope.$eval(attrs.uiCurrency));
 
@@ -1071,7 +1070,7 @@ angular.module('ui.directives').directive('uiCurrency', ['ui.config', 'currencyF
 
 angular.module('ui.directives')
 
-.directive('uiDate', ['ui.config', function (uiConfig) {
+    .directive('uiDate', ['ui.config', function (uiConfig) {
   'use strict';
   var options;
   options = {};
@@ -1133,7 +1132,7 @@ angular.module('ui.directives')
 }
 ])
 
-.directive('uiDateFormat', [function() {
+    .directive('uiDateFormat', [function() {
   var directive = {
     require:'ngModel',
     link: function(scope, element, attrs, modelCtrl) {
@@ -1314,6 +1313,4 @@ angular.module('ui.filters').filter('inflector', function () {
       return text;
     }
   };
-});
-
 });

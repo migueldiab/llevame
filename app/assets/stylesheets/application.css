@@ -3,9 +3,8 @@
  * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
  * the top of the compiled file, but it's generally better to create a new file per style scope.
  *= require angular-ui
- *= require jquery-ui
  *= require timepicker
- * require datepicker
+ *= require datepicker
  *= require bootstrap
  *= require bootstrap-responsive
  *= require_self

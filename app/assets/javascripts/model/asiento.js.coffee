@@ -1,5 +1,0 @@
-define [], () ->
-  class Asiento
-
-
-    constructor: ->
