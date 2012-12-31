@@ -15,6 +15,11 @@ class @Llevame
 
     llevameMod = angular.module('llevameApp', ['ui', 'navigation-bar', 'profile-bar'])
 
+    llevameMod.config(['$httpProvider', ($httpProvider) ->
+        authToken = $('meta[name="csrf-token"]').attr('content')
+        $httpProvider.defaults.headers.common['X-CSRF-TOKEN'] = authToken
+      ])
+
     llevameMod.value('ui.config', {
       jq: {
         datepicker:  {
