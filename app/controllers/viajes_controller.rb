@@ -1,5 +1,18 @@
 class ViajesController < ApplicationController
 
+  def proximos
+    @viajes = Viaje.where("fSalida >= ?", Date.today).limit(10)
+    if (@viajes.empty?)
+      response = ['error' => 'No Trips in DB']
+      status = 204
+    else
+      response = @viajes
+      status = 200
+    end
+    render :json => response, :status => status
+
+  end
+
   def cargar
     @viajes = Viaje.all
     if (@viajes.empty?)

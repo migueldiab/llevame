@@ -31,7 +31,7 @@ class _TripCtrl
 
   loadUpcomingTrips: =>
     console.log "Loading Upcoming Trips"
-    $http.post('viajes/cargar', UserCtrl.getInstance().getCurrentUser()).success(@cargarViajes).error(@cargarViajes)
+    $http.post('viajes/proximos', UserCtrl.getInstance().getCurrentUser()).success(@cargarViajes).error(@cargarViajes)
 
   loadUserTrips: =>
     console.log "Loading User Trips"
@@ -51,7 +51,7 @@ class _TripCtrl
 
     else if (204 == status)
       console.log 'No hay viajes?'
-      View.getInstance().showError('No se encontraron viajes!', 'Posible error en base de datos')
+      View.getInstance().showError('No se encontraron viajes!', 'Creá un viaje para compartir!')
 
     else
       console.log 'Respuesta Inesperada ' + status
