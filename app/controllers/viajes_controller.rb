@@ -1,4 +1,5 @@
 class ViajesController < ApplicationController
+  include SessionHelper
 
   def proximos
     @viajes = Viaje.where("fSalida >= ?", Date.today).limit(10)
@@ -13,8 +14,24 @@ class ViajesController < ApplicationController
 
   end
 
-  def cargar
-    @viajes = Viaje.all
+  def misProximos
+    user = current_user
+
+    @viajes = Viaje.where("idUsuario = ?", user.id)
+    if (@viajes.empty?)
+      response = ['error' => 'No Trips in DB']
+      status = 204
+    else
+      response = @viajes
+      status = 200
+    end
+    render :json => response, :status => status
+  end
+
+  def misRealizados
+    user = current_user
+
+    @viajes = Viaje.where("idUsuario = ?", user.id)
     if (@viajes.empty?)
       response = ['error' => 'No Trips in DB']
       status = 204
@@ -32,8 +49,10 @@ class ViajesController < ApplicationController
     ciudadDestino = Ciudad.find_or_create_by_nombre(params['hacia'])
 
     @viaje = Viaje.new
-    @viaje.idCiudadOrigen  = ciudadOrigen.id
+    @viaje.idCiudadOrigen= ciudadOrigen.id
     @viaje.idCiudadDestino= ciudadDestino.id
+
+    @viaje.user= current_user
 
     salida = "#{params['fecha'][0..9]} #{params['hora'][0..7]}"
     logger.info "Fecha Salida : #{salida}"

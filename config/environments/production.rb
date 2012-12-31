@@ -14,6 +14,10 @@ Llevame::Application.configure do
   # Compress JavaScripts and CSS
   config.assets.compress = true
 
+  # AngularJS Compatible JS Compression (for Dependency Injection to work)
+  # http://stackoverflow.com/questions/11922692/selective-rails-3-2-asset-pipeline-compression-per-file
+  config.assets.js_compressor = Sprockets::LazyCompressor.new { Uglifier.new(:mangle => false) }
+
   # Don't fallback to assets pipeline if a precompiled asset is missed
   config.assets.compile = false
 

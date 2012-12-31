@@ -15,6 +15,7 @@ class @Llevame
 
     llevameMod = angular.module('llevameApp', ['ui', 'navigation-bar', 'profile-bar'])
 
+#    CSRF Angular-Rails Headers from https://github.com/xrd/ng-rails-csrf/blob/master/vendor/assets/javascripts/ng-rails-csrf.js
     llevameMod.config(['$httpProvider', ($httpProvider) ->
         authToken = $('meta[name="csrf-token"]').attr('content')
         $httpProvider.defaults.headers.common['X-CSRF-TOKEN'] = authToken
