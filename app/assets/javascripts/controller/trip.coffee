@@ -44,7 +44,7 @@ class _TripCtrl
       scope.listaProximos = []
       console.log 'Viajes Cargados ' + data
       scope.listaProximos.push Viaje.parseJSON(item) for item in data
-      console.log scope.listaViajes
+      console.log scope.listaProximos
 
     else if (409 == status)
       console.log 'Error al cargar viajes'

@@ -10,6 +10,7 @@ class @Viaje
   pasaje: null
   animales: null
   peajes: null
+  conductor: null
 
   constructor: ->
 
@@ -23,4 +24,6 @@ class @Viaje
     unViaje.hacia = jsonViaje.ciudadDestino.nombre
     unViaje.fecha = jsonViaje.fSalida
     unViaje.hora = jsonViaje.fSalida
+    unViaje.vehiculo = jsonViaje.vehiculo
+    unViaje.conductor = jsonViaje.user
     return unViaje

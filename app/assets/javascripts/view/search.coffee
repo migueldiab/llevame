@@ -21,7 +21,7 @@ class _SearchView
   detallesViaje: (unViaje) =>
     console.log "Detalles Viaje"
     scope.init = ->
-      'Detalles Viaje'
+      'Detalles Viaje ' + unViaje
     scope.viaje = unViaje
     scope.mainContent = 'partials/tripDetail.html'
 

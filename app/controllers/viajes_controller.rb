@@ -47,10 +47,12 @@ class ViajesController < ApplicationController
   def new
     ciudadOrigen = Ciudad.find_or_create_by_nombre(params['desde'])
     ciudadDestino = Ciudad.find_or_create_by_nombre(params['hacia'])
+    vehiculo = Vehiculo.find(params['vehiculo'])
 
     @viaje = Viaje.new
-    @viaje.idCiudadOrigen= ciudadOrigen.id
-    @viaje.idCiudadDestino= ciudadDestino.id
+    @viaje.ciudadOrigen= ciudadOrigen
+    @viaje.ciudadDestino= ciudadDestino
+    @viaje.vehiculo= vehiculo
 
     @viaje.user= current_user
 

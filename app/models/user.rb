@@ -32,6 +32,13 @@ class User < ActiveRecord::Base
 
 
 
+  def as_json(options={})
+    #if (options.empty?)
+    options = { :except => [ :password, :salt, :email ] }
+    #end
+    super(options)
+  end
+
   def self.authenticate_with_salt(id, salt)
     user = find_by_id(id)
     (user && user.salt == salt) ? user : nil

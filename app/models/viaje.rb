@@ -35,7 +35,7 @@ class Viaje < ActiveRecord::Base
 
   def as_json(options={})
     #if (options.empty?)
-      options = { :include => [ :ciudadDestino, :ciudadOrigen ] }
+      options = { :include => [ :ciudadDestino, :ciudadOrigen, :user.as_json, :vehiculo ] }
     #end
     super(options)
   end
