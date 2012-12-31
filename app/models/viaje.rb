@@ -25,8 +25,8 @@ class Viaje < ActiveRecord::Base
                   :pasaje, :peajes, :ciudadOrigen, :ciudadDestino,
                   :user, :vehiculo
 
-  belongs_to :user, :class_name => "User"
-  belongs_to :vehiculo, :class_name => "Vehiculo"
+  belongs_to :user, :class_name => "User", :foreign_key => "idUsuario"
+  belongs_to :vehiculo, :class_name => "Vehiculo", :foreign_key => "idVehiculo"
 
   belongs_to :ciudadOrigen, :class_name => "Ciudad", :foreign_key => "idCiudadOrigen"
   belongs_to :ciudadDestino, :class_name => "Ciudad", :foreign_key => "idCiudadDestino"

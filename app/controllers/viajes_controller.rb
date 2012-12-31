@@ -2,7 +2,7 @@ class ViajesController < ApplicationController
   include SessionHelper
 
   def proximos
-    @viajes = Viaje.where("fSalida >= ?", Date.today).limit(10)
+    @viajes = Viaje.where("fSalida >= ?", Date.today).order("fSalida").limit(10)
     if (@viajes.empty?)
       response = ['error' => 'No Trips in DB']
       status = 204
