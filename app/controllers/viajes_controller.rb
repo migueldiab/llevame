@@ -54,6 +54,7 @@ class ViajesController < ApplicationController
     @viaje.ciudadDestino= ciudadDestino
     @viaje.vehiculo= vehiculo
 
+
     @viaje.user= current_user
 
     salida = "#{params['fecha'][0..9]} #{params['hora'][0..7]}"

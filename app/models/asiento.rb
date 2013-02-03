@@ -11,4 +11,8 @@
 
 class Asiento < ActiveRecord::Base
   attr_accessible :idUsuario, :idViaje
+
+  belongs_to :user, :class_name => "User", :foreign_key => "idUsuario"
+  belongs_to :viaje, :class_name => "Viaje", :foreign_key => "idViaje"
+
 end
