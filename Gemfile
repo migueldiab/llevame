@@ -3,12 +3,12 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.9'
 
 group :production do
-  gem 'activerecord-mysql2-adapter'
   gem 'mysql2'
 end
 
 group :development, :test do
-  gem 'sqlite3'
+  #gem 'sqlite3'
+  gem 'mysql2'
 end
 
 

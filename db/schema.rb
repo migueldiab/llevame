@@ -115,9 +115,9 @@ ActiveRecord::Schema.define(:version => 20121218145813) do
     t.string   "salt"
     t.date     "dob"
     t.integer  "rep"
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
-    t.boolean  "verified",   :default => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.boolean  "verified"
   end
 
   create_table "vehiculos", :force => true do |t|
